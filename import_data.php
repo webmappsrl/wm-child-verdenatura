@@ -92,61 +92,66 @@ add_filter("megamenu_themes", "megamenu_add_theme_verde_natura_1543307241");
 
 
 
-$custom_fields = array(
-    "sih" => "vn_sih",
-    "fdn" => "vn_fdn",
-    "new" => "vn_new",
-    "diff" => "vn_diff",
-    "mezza_pensione" => "vn_mezza_pensione",
-    "sopraponte" => "vn_sopraponte",
-    "durata" => "vn_durata",
-    "note_dur" => "vn_note_dur",
-    "partenze" => "vn_partenze",
-    "part_sum" => "vn_part_sum",
-    "desc_min" => "vn_desc_min",
-    "note" => "vn_note",
-    "desc" => "vn_desc",
-    "prog" => "vn_prog",
-    "scheda_tecnica" => "vn_scheda_tecnica",
-    "part_pr" => "vn_part_pr",
-    "come_arrivare" => "vn_come_arrivare",
-    "latitude" => "vn_latitude",
-    "longitude" => "vn_longitude",
-    "prezzo" => "vn_prezzo",
-    "prezzo_sc" => "vn_prezzo_sc",
-    "ordine" => "vn_ordine"
-);
 
-$std = array(
-    'key' => '',
-    'label' => '',
-    'name' => '',
-    'type' => 'text'
-);
-
-$fields = array();
-foreach ( $custom_fields as $field )
+if ( class_exists('WebMapp_RegisterFieldsGroup') )
 {
-    $std['key'] = $field;
-    $std['name'] = $field;
-    $std['label'] = $field;
-    $fields[] = $std;
-}
-$stop = 'here';
-$args = array(
-    'key' => 'group_vn_58528c8aa5b2ffaskd',
-    'title' => 'Importazione Verde Natura',
-    'fields' => $fields,
-    'location' => array(
-        array(
+    $custom_fields = array(
+        "sih" => "vn_sih",
+        "fdn" => "vn_fdn",
+        "new" => "vn_new",
+        "diff" => "vn_diff",
+        "mezza_pensione" => "vn_mezza_pensione",
+        "sopraponte" => "vn_sopraponte",
+        "durata" => "vn_durata",
+        "note_dur" => "vn_note_dur",
+        "partenze" => "vn_partenze",
+        "part_sum" => "vn_part_sum",
+        "desc_min" => "vn_desc_min",
+        "note" => "vn_note",
+        "desc" => "vn_desc",
+        "prog" => "vn_prog",
+        "scheda_tecnica" => "vn_scheda_tecnica",
+        "part_pr" => "vn_part_pr",
+        "come_arrivare" => "vn_come_arrivare",
+        "latitude" => "vn_latitude",
+        "longitude" => "vn_longitude",
+        "prezzo" => "vn_prezzo",
+        "prezzo_sc" => "vn_prezzo_sc",
+        "ordine" => "vn_ordine"
+    );
+
+    $std = array(
+        'key' => '',
+        'label' => '',
+        'name' => '',
+        'type' => 'text'
+    );
+
+    $fields = array();
+    foreach ( $custom_fields as $field )
+    {
+        $std['key'] = $field;
+        $std['name'] = $field;
+        $std['label'] = $field;
+        $fields[] = $std;
+    }
+    $stop = 'here';
+    $args = array(
+        'key' => 'group_vn_58528c8aa5b2ffaskd',
+        'title' => 'Importazione Verde Natura',
+        'fields' => $fields,
+        'location' => array(
             array(
-                'param' => 'post_type',
-                'operator' => '==',
-                'value' => 'route',
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'route',
+                ),
             ),
         ),
-    ),
-    'menu_order' => 0,
-    'active' => 1
-);
-new WebMapp_RegisterFieldsGroup('route' ,$args );
+        'menu_order' => 0,
+        'active' => 1
+    );
+    new WebMapp_RegisterFieldsGroup('route' ,$args );
+}
+
