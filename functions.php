@@ -17,7 +17,7 @@ function aggiungi_material_icons(){
     echo "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">";
 }
 
-add_action ('et_header_top', 'vn_search_bar');
+//add_action ('et_header_top', 'vn_search_bar');
 function vn_search_bar() {
 
 

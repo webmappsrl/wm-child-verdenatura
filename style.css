@@ -75,16 +75,15 @@ div#vn-search-bar-header {
 
 }
 
-#et-secondary-menu {
+#vn-top-menu {
     float: left;
-    width: 100%;
+    width:100%;
 }
 
-#et-secondary-menu .et-social-icons {
+.et-social-icons {
+    display: inline-block;
     float: right;
-
 }
-
 
 
 /* Loghi */
@@ -194,8 +193,6 @@ li#mega-menu-item-24259 {
     color: #7AB400 !important;
 }
 
-div#text-16 {
-    margin-left: 66px;
+.footer-widget :nth-child(3) {
+    width: 100%;
 }
-
-
