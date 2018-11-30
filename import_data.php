@@ -96,46 +96,60 @@ add_filter("megamenu_themes", "megamenu_add_theme_verde_natura_1543307241");
 if ( class_exists('WebMapp_RegisterFieldsGroup') )
 {
     $custom_fields = array(
-        "sih" => "vn_sih",
-        "fdn" => "vn_fdn",
-        "new" => "vn_new",
-        "diff" => "vn_diff",
-        "mezza_pensione" => "vn_mezza_pensione",
-        "sopraponte" => "vn_sopraponte",
-        "durata" => "vn_durata",
-        "note_dur" => "vn_note_dur",
-        "partenze" => "vn_partenze",
-        "part_sum" => "vn_part_sum",
-        "desc_min" => "vn_desc_min",
-        "note" => "vn_note",
-        "desc" => "vn_desc",
-        "prog" => "vn_prog",
-        "scheda_tecnica" => "vn_scheda_tecnica",
-        "part_pr" => "vn_part_pr",
-        "come_arrivare" => "vn_come_arrivare",
-        "latitude" => "vn_latitude",
-        "longitude" => "vn_longitude",
-        "prezzo" => "vn_prezzo",
-        "prezzo_sc" => "vn_prezzo_sc",
-        "ordine" => "vn_ordine"
+        "sih" => array( 'key' => "vn_sih" , 'type' => "true_false" , 'label' => "Show in home" ),//show in home
+        "fdn" => array( 'key' => "vn_fdn" , 'type' => "true_false" , 'label' => "Fatto da noi" ),//fatto da noi
+        "new" => array( 'key' => "vn_new" , 'type' => "true_false" , 'label' => "Novità" ),//novità
+        "diff" => array( 'key' => "vn_diff" , 'type' => "number" , 'label' => "Difficoltà" ),
+        "mezza_pensione" => array( 'key' => "vn_mezza_pensione" , 'type' => "true_false" , 'label' => "Mezza pensione" ),
+        "sopraponte" => array( 'key' => "vn_sopraponte" , 'type' => "true_false" , 'label' => "Sopraponte" ),
+        "durata" => array( 'key' => "vn_durata" , 'type' => "number" , 'label' => "Durata" ),
+        "note_dur" => array( 'key' => "vn_note_dur" , 'type' => "text" , 'label' => "Note Durata" ),
+        "partenze" => array( 'key' => "vn_partenze" , 'type' => "textarea" , 'label' => "Partenze" ),
+        "part_sum" => array( 'key' => "vn_part_sum" , 'type' => "wysiwyg" , 'label' => "Partenze Riassunto" ),
+        "desc_min" => array( 'key' => "vn_desc_min" , 'type' => "textarea" , 'label' => "Descrizione Breve" ),
+        "note" => array( 'key' => "vn_note" , 'type' => "textarea" , 'label' => "Note" ),
+        "desc" => array( 'key' => "vn_desc" , 'type' => "wysiwyg" , 'label' => "Descrizione" ),
+        "prog" => array( 'key' => "vn_prog" , 'type' => "wysiwyg" , 'label' => "Programma" ),
+        "scheda_tecnica" => array( 'key' => "vn_scheda_tecnica" , 'type' => "wysiwyg" , 'label' => "Scheda Tecnica" ),
+        "part_pr" => array( 'key' => "vn_part_pr" , 'type' => "wysiwyg" , 'label' => "Partenze e Prezzi" ),
+        "come_arrivare" => array( 'key' => "vn_come_arrivare" , 'type' => "wysiwyg" , 'label' => "Come Arrivare" ),
+        "latitude" => array( 'key' => "vn_latitude" , 'type' => "text" , 'label' => "Latitudine" ),
+        "longitude" => array( 'key' => "vn_longitude" , 'type' => "text" , 'label' => "Longitudine" ),
+        "prezzo" => array( 'key' => "vn_prezzo" , 'type' => "number" , 'label' => "Prezzo €" ),
+        "prezzo_sc" => array( 'key' => "vn_prezzo_sc" , 'type' => "number" , 'label' => "Prezzo Scontato €" ),
+        "ordine" => array( 'key' => "vn_ordine" , 'type' => "number" , 'label' => "Ordine" )
     );
+
+
+    /**
+     * MANCANO
+     * meta_dog => Dog Friendly ( true_false)
+     * nascondi dalla ricerca ( true_false )
+     *
+     * immagine mappa ( immagine )
+     * image ( immagine )
+     * gallery ( galleria )
+     *
+     * correlati ( viaggi - related posts ) -> geoJson
+     */
 
     $std = array(
         'key' => '',
         'label' => '',
         'name' => '',
-        'type' => 'text'
+        'type' => ''
     );
 
     $fields = array();
-    foreach ( $custom_fields as $field )
+    foreach ( $custom_fields as $field => $details )
     {
-        $std['key'] = $field;
-        $std['name'] = $field;
-        $std['label'] = $field;
+        $std['key'] = $details['key'];
+        $std['name'] = $details['key'];
+        $std['label'] = isset( $details['label'] ) && $details['label'] ? $details['label'] : $std['name'] ;
+        $std['type'] = $details['type'] ;
         $fields[] = $std;
     }
-    $stop = 'here';
+
     $args = array(
         'key' => 'group_vn_58528c8aa5b2ffaskd',
         'title' => 'Importazione Verde Natura',
