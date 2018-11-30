@@ -14,11 +14,15 @@ Version:        0.1.0
 
 /*Search bar header*/
 
+/* Logo */
+
 img#logo {
 
     width: 250px;
-    height: 67.703px;
+    height: 68px;
+    padding-bottom: 0;
 }
+
 
 .logo_container {
     padding-left: 0;
@@ -26,6 +30,53 @@ img#logo {
     margin-right: 38px;
     right: 0;
     left: 0;
+    box-sizing: border-box;
+
+}
+
+.container.clearfix {
+    padding-top: 0;
+    bottom: 6px;
+}
+
+
+/* Main Menu */
+
+div#mega-menu-wrap-primary-menu {
+    right: 152px;
+}
+
+
+div#et_top_search {
+    right: 80px;
+    padding-top: 10px;
+    top:18px;
+}
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link
+{    background-color: rgb(15, 122, 104);
+}
+
+i.material-icons {
+    margin-top: 13px;
+}
+
+div#vn-search-map {
+
+    width: 40px;
+    float: left;
+    padding-left: 23px;
+    box-sizing: border-box;
+}
+
+/* Search Bar
+
+input#cerca-home {
+
+    border: solid #7AB400 2px;
+    width:186px;
+    height: 38px;
+
 }
 
 #vn-search-lente {
@@ -36,160 +87,200 @@ img#logo {
 
 }
 
+
+
 i.fa.fa-search {
 
     background-color: #7AB400;
     color: white;
 
 }
+*/
 
-div#et-top-navigation {
 
-    padding-top:0;
 
-}
 
- #mega-menu-primary-menu div#mega-menu-wrap-primary-menu {
 
-    right: 30px;
-    left: 10px;
-}
+ /* Menu secondario */
 
-input#cerca-home {
+li.text-secondary-menu {
 
-    border: solid #7AB400 2px;
-    width:186px;
-    height: 38px;
-
+    padding-top: 15px;
 }
 
 div#top-header {
 
     background-color: #7AB400;
+    height: 50px;
 }
 
-div#vn-search-bar-header {
 
-    margin-left: 40px;
-    float: right;
-
+#et-secondary-menu {
+    width: 100%;
+    float:left;
+    font-size: 15px;
 }
 
-#vn-top-menu {
-    float: left;
-    width:100%;
-}
-
-.et-social-icons {
-    display: inline-block;
+#et-secondary-menu > .et-social-icons {
+    margin-right: 20px;
     float: right;
 }
 
-
-/* Loghi */
-
-
-
-.logo-bicicletta > a:before,
-
-.logo-weekend > a:before,
-
-.logo-famiglia > a:before,
-.logo-esplorazione > a:before,
-
-
-.logo-bici-barca > a:before,
-
-.logo-forbici > a:before,
-
-.logo-individuale > a:before,
-
-.logo-omino > a:before,
-.logo-guida > a:before {
-
-    width:20px;
+ul#vn-top-menu {
+    position: absolute;
+    left: -70px;
 }
 
 
+ ul.et-social-icons  {
 
+    background-color: white;
+    margin-right: 0;
+    padding-right: 10px;
+     padding-top: 10px;
+     border-bottom: solid 2px white;
+                      }
 
-
-
-
-
-
-.logo-bicicletta > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/bicicletta.png);
-
-}
-
-.logo-weekend > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/weekend.png);
-
-}
-
-.logo-famiglia > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/famiglia.png);
-
-}
-
-.logo-esplorazione > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/esplorazione.png);
-
-}
-
-.logo-bici-barca > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/bici-barca.png);
-
-}
-
-.logo-forbici > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/logo-forbici.png);
-
-}
-
-.logo-individuale > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png);
-
-}
-
-.logo-omino > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg);
-}
-
-.logo-guida > a:before {
-
-    content: url(/wp-content/themes/wm-child-verdenatura/images/logo-guida.png);
-
-}
-
-li#mega-menu-item-24259 {
-
-    width:10px;
-    height: 20px;
+.et-social-facebook a.icon:before {
+    content: '';
     display: block;
+    background: url(/wp-content/themes/wm-child-verdenatura/images/facebook.png) no-repeat;
+    background-size: cover;
+    width: 29px;
+    height: 29px;
+    vertical-align: baseline;
 }
 
-    /* Footer */
+.et-social-twitter a.icon:before {
+    content: '';
+    display: block;
+    background: url(/wp-content/themes/wm-child-verdenatura/images/twitter.png) no-repeat;
+    background-size: cover;
+    width: 29px;
+    height: 29px;
+    vertical-align: baseline;
+}
+
+.et-social-google-plus a.icon:before {
+    content: '';
+    display: block;
+    background: url(/wp-content/themes/wm-child-verdenatura/images/instagram.png) no-repeat;
+    background-size: cover;
+    width: 29px;
+    height: 29px;
+    vertical-align: baseline;
+}
+/* Icone Menu */
+
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-omino a.mega-menu-link:before {
+    content: '';
+    width: 25px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg);
+
+}
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-bicicletta a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/bicicletta.png);
+    box-sizing: inherit;
+
+}
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-weekend a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/weekend.png);
+}
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-famiglia a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/famiglia.png);
+
+}
+
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-esplorazione a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/esplorazione.png);
+
+}
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-bici-barca a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/bici-barca.png);
+}
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-forbici a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-forbici.png);
+}
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-individuale a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png);
+}
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-guida a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-guida.png);
+}
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-piedi a.mega-menu-link:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-size: cover;
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/piedi.png);
+}
+
+
+
+/* Footer */
+
+/* Immagine di background */
 
 #vn-footer-img {
     height: 500px;
-    background-color: #63BCF8;
-    background-image: url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png);
-    background-position: center;
+    background:  url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png) center;
     box-shadow: 0 0 20px #000;
 
 }
 
-#footer-widgets .footer-widget a, #footer-widgets .footer-widget li a, #footer-widgets .footer-widget li a:hover {
+/* Colore dei link */
+
+.footer-widget a {
     color: #7AB400 !important;
 }
 

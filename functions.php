@@ -26,6 +26,10 @@ function vn_search_bar() {
 
 }
 
+add_action( 'et_header_top', 'vn_search_map' );
+function vn_search_map() {
+    echo '<div id="vn-search-map"><i class="material-icons">language</i></div>';
+}
 
 add_action( 'et_after_main_content', 'vn_add_footer_image' );
 function vn_add_footer_image() {
