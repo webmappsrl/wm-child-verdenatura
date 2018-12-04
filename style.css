@@ -18,9 +18,8 @@ Version:        0.1.0
 
 img#logo {
 
-    width: 250px;
-    height: 68px;
-    padding-bottom: 0;
+    padding-bottom: 6px;
+    height: auto;
 }
 
 
@@ -43,63 +42,86 @@ img#logo {
 /* Main Menu */
 
 div#mega-menu-wrap-primary-menu {
-    right: 152px;
+    right: 220px;
+    bottom: 15px;
+    font-family: 'Lato', sans-serif;
 }
 
 
+
 div#et_top_search {
-    right: 80px;
-    padding-top: 10px;
-    top:18px;
+    bottom: 3px;
+    right: 113px;
+    top: 0;
 }
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link
 {    background-color: rgb(15, 122, 104);
 }
 
-i.material-icons {
-    margin-top: 13px;
-}
-
-div#vn-search-map {
-
-    width: 40px;
-    float: left;
-    padding-left: 23px;
-    box-sizing: border-box;
-}
-
-/* Search Bar
-
-input#cerca-home {
-
-    border: solid #7AB400 2px;
-    width:186px;
-    height: 38px;
-
-}
-
-#vn-search-lente {
-
-    background-color: #7AB400;
-    width: 33px;
-    height: 33px;
-
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item:last-child > a.mega-menu-link {
+    border-right: none;
 }
 
 
 
-i.fa.fa-search {
 
-    background-color: #7AB400;
+/* Search Bar */
+
+div#vn-search-map > i.material-icons {
+    background-color:#7AB400;
     color: white;
-
+    display: inline-block;
+    font-size: 2.5rem;
+    width: 40px;
+    box-sizing: border-box;
+    position: relative;
+    top: -16px;
+    right: 20px;
 }
-*/
 
 
+form.et-search-form {
+    max-width: 60px;
+    left: 1090px;
+    right: 30px;
+}
+form.et-search-form {
+    right: 100px;
+}
 
+input.et-search-field {
+    right: 100px;
+    top: 16px;
+}
 
+span.et_close_search_field {
+    margin-right: 70px;
+}
+#et_search_icon:before {
+    background-color: #7AB400;
+    color: white !important;
+    padding: 3px !important;
+    display: inline-block;
+    font-size: 2.0rem;
+    width: 36px;
+    height: 34px;
+    position: absolute;
+    top: -16px;
+    left: 24px;
+}
+
+@media only screen and (max-width: 992px) {
+    #et_search_icon:before {
+        display: none;
+    }
+}
+
+    @media only screen and (max-width: 992px) {
+        div#vn-search-map > i.material-icons {
+            display: none;
+        }
+    }
 
  /* Menu secondario */
 
@@ -265,6 +287,79 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/piedi.png);
 }
 
+/* Slider Button*/
+
+
+
+body #page-container .et_pb_contact_form_0.et_pb_contact_form_container.et_pb_module .et_pb_button  {
+    right: 56px;
+}
+
+body #page-container .et_pb_contact_form_0.et_pb_contact_form_container.et_pb_module .et_pb_button :hover {
+    background-color: white;
+    color:  #7AB400;
+}
+
+/* Schede */
+
+li.et_pb_tab_0.et_pb_tab_active {
+    background-color: #ca0a1d !important;
+    border-bottom-color: #ca0a1d !important;
+    color: white !important;
+}
+
+li.et_pb_tab_1.et_pb_tab_active {
+    background-color: #990066 !important;
+    border-bottom-color: #990066 !important;
+    color: white !important;
+
+}
+li.et_pb_tab_1.et_pb_tab_active :before {
+    content: url("http://verdenatura.local/wp-content/uploads/2018/11/in-bici-e-barca.png");
+    display: inline-block;
+
+}
+
+
+
+ li.et_pb_tab_2.et_pb_tab_active {
+
+    background-color: #ff9933 !important;
+    border-bottom-color: #ff9933 !important;
+     color: white !important;
+
+
+
+ }
+
+li.et_pb_tab_3.et_pb_tab_active {
+
+    background-color: #00cccc !important;
+    border-bottom-color: #00cccc !important;
+    color: white !important;
+
+}
+li.et_pb_tab_4.et_pb_tab_active {
+
+    background-color: #b06131 !important;
+    border-bottom-color: #b06131 !important;
+    color: white !important;
+
+
+}
+
+li.et_pb_tab_5.et_pb_tab_active {
+
+    background-color: #ffc400 !important;
+    border-bottom-color: #ffc400 !important;
+    color: white !important;
+
+
+}
+
+
+
+
 
 
 /* Footer */
@@ -273,10 +368,10 @@ ul#vn-top-menu {
 
 #vn-footer-img {
     height: 500px;
-    background:  url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png) center;
     box-shadow: 0 0 20px #000;
-
+    background: #63BCF8 url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png) center;
 }
+
 
 /* Colore dei link */
 
