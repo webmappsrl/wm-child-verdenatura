@@ -8,13 +8,18 @@ add_action( 'wp_enqueue_scripts', 'Divi_parent_theme_enqueue_styles' );
 
 
 function Divi_parent_theme_enqueue_styles() {
-	wp_enqueue_style( 'divi-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'divi-style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
 }
 
 add_action( 'wp_head' , 'aggiungi_material_icons' );
 function aggiungi_material_icons(){
     echo "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">";
+}
+
+add_action( 'wp_head' , 'aggiungi_bootstrap' );
+function aggiungi_bootstrap(){
+    echo "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">";
 }
 
 //add_action ('et_header_top', 'vn_search_bar');
@@ -36,7 +41,4 @@ function vn_add_footer_image() {
 
     echo '<div id="vn-footer-img"></div>';
 }
-
-
-
 

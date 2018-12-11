@@ -1,6 +1,6 @@
 /*
 Theme Name:     WEBMAPP - VERDENATURA
-Theme URI:      
+Theme URI:
 Description:    Tema figlio per VERDENATURA
 Author:         Webmapp (Silvia Eufemi, MArco Baroncini)
 Author URI:     webmapp.it
@@ -22,7 +22,6 @@ img#logo {
     height: auto;
 }
 
-
 .logo_container {
     padding-left: 0;
     margin-left: 5px;
@@ -32,6 +31,7 @@ img#logo {
     box-sizing: border-box;
 
 }
+
 
 .container.clearfix {
     padding-top: 0;
@@ -44,7 +44,6 @@ img#logo {
 div#mega-menu-wrap-primary-menu {
     right: 220px;
     bottom: 15px;
-    font-family: 'Lato', sans-serif;
 }
 
 
@@ -59,6 +58,8 @@ div#et_top_search {
 {    background-color: rgb(15, 122, 104);
 }
 
+
+/* Tolgo border di default all'ultima voce del main-menu */
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item:last-child > a.mega-menu-link {
     border-right: none;
 }
@@ -128,6 +129,7 @@ span.et_close_search_field {
 li.text-secondary-menu {
 
     padding-top: 15px;
+    margin-left:60px;
 }
 
 div#top-header {
@@ -192,7 +194,8 @@ ul#vn-top-menu {
     height: 29px;
     vertical-align: baseline;
 }
-/* Icone Menu */
+
+/* Aggiungo le icone al main-menu */
 
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-omino a.mega-menu-link:before {
@@ -291,16 +294,7 @@ ul#vn-top-menu {
 
 
 
-body #page-container .et_pb_contact_form_0.et_pb_contact_form_container.et_pb_module .et_pb_button  {
-    right: 56px;
-}
-
-body #page-container .et_pb_contact_form_0.et_pb_contact_form_container.et_pb_module .et_pb_button :hover {
-    background-color: white;
-    color:  #7AB400;
-}
-
-/* Schede */
+/* Cambio  colore delle schede e aggiunta delle icone */
 
 li.et_pb_tab_0.et_pb_tab_active {
     background-color: #ca0a1d !important;
@@ -314,11 +308,7 @@ li.et_pb_tab_1.et_pb_tab_active {
     color: white !important;
 
 }
-li.et_pb_tab_1.et_pb_tab_active :before {
-    content: url("http://verdenatura.local/wp-content/uploads/2018/11/in-bici-e-barca.png");
-    display: inline-block;
 
-}
 
 
 
@@ -359,9 +349,6 @@ li.et_pb_tab_5.et_pb_tab_active {
 
 
 
-
-
-
 /* Footer */
 
 /* Immagine di background */
@@ -381,4 +368,138 @@ li.et_pb_tab_5.et_pb_tab_active {
 
 .footer-widget :nth-child(3) {
     width: 100%;
+}
+
+
+/* Nascondo menu mobile Divi*/
+
+div#et_mobile_nav_menu {
+    display: none;
+}
+
+/* TEMPLATE SINGLE POST ROUTE*/
+
+/*MUSTHEAD*/
+
+#single-post-route-main-content {
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/bg-body.jpg);
+    background-repeat: no-repeat;
+}
+
+#single-post-route-main-content .page-title {
+
+    padding-left: 40px;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.single-route-tree-spring {
+
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    top: 0;
+    right: 0;
+    position:absolute;
+}
+
+.page-title {
+    position: relative;
+
+}
+
+#single-post-route-main-content .page-title h1 {
+
+    height: 260px;
+    color:white;
+    margin: 0;
+    padding-top: 6.25rem;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    line-height: 23px;
+    min-height: 6.5rem;
+    text-shadow: 0 0 2px #000;
+    z-index: 1;
+
+
+}
+
+/* SLIDER */
+
+.single-post-route-row  {
+margin-left: 20px !important;
+    margin-right:20px !important;
+
+}
+
+.top-gallery-single-post-route  {
+
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.top-gallery-single-post-route img {
+
+    border-radius: 10px;
+    box-shadow: 0 0 15px #000;
+}
+
+.scheda-preventivo {
+
+    height: auto;
+    background-color:white;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-right: 15px;
+
+    padding: 20px;
+
+}
+
+.button-preventivo button {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #7AB400;
+    border:none;
+    box-shadow: 3px 3px 5px #000 !important;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.button-preventivo {
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    margin-right: 40px;
+
+}
+
+
+/*ASIDE*/
+
+.box-preventivo-aside {
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-right: 20px;
+
+
+}
+
+.map-material-placeholder img {
+
+    border-radius: 10px;
+}
+
+.map-material-placeholder {
+    padding-right: 20px;
+
 }
