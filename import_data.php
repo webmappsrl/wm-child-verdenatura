@@ -133,20 +133,23 @@ if ( class_exists('WebMapp_RegisterFieldsGroup') )
         "longitude" => array( 'key' => "vn_longitude" , 'type' => "text" , 'label' => "Longitudine" ),
         "prezzo" => array( 'key' => "vn_prezzo" , 'type' => "number" , 'label' => "Prezzo €" ),
         "prezzo_sc" => array( 'key' => "vn_prezzo_sc" , 'type' => "number" , 'label' => "Prezzo Scontato €" ),
-        "ordine" => array( 'key' => "vn_ordine" , 'type' => "number" , 'label' => "Ordine" )
+        "ordine" => array( 'key' => "vn_ordine" , 'type' => "number" , 'label' => "Ordine" ),
+        "meta_dog" => array( 'key' => "vn_meta_dog" , 'type' => "true_false" , 'label' => "Dog Friendly" ),
+        "hide" => array( 'key' => "vn_hide" , 'type' => "true_false" , 'label' => "Nascondi dalla ricerca" ),
+        //immagini
+        "immagine_mappa" => array( 'key' => "vn_immagine_mappa" , 'type' => "image" , 'label' => "Immagine mappa" ),
+        //"image" => array( 'key' => "vn_immagine_mappa" , 'type' => "image" , 'label' => "Immagine" ),
+        //"gallery" => array( 'key' => "vn_gallery" , 'type' => "gallery" , 'label' => "Galleria" ),
     );
 
 
     /**
      * MANCANO
-     * meta_dog => Dog Friendly ( true_false)
-     * nascondi dalla ricerca ( true_false )
      *
      * immagine mappa ( immagine )
      * image ( immagine )
      * gallery ( galleria )
      *
-     * correlati ( viaggi - related posts ) -> geoJson
      */
 
     $std = array(
