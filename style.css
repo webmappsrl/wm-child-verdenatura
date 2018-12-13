@@ -1,6 +1,6 @@
 /*
 Theme Name:     WEBMAPP - VERDENATURA
-Theme URI:      
+Theme URI:
 Description:    Tema figlio per VERDENATURA
 Author:         Webmapp (Silvia Eufemi, MArco Baroncini)
 Author URI:     webmapp.it
@@ -18,11 +18,9 @@ Version:        0.1.0
 
 img#logo {
 
-    width: 250px;
-    height: 68px;
-    padding-bottom: 0;
+    padding-bottom: 6px;
+    height: auto;
 }
-
 
 .logo_container {
     padding-left: 0;
@@ -34,6 +32,7 @@ img#logo {
 
 }
 
+
 .container.clearfix {
     padding-top: 0;
     bottom: 6px;
@@ -43,69 +42,94 @@ img#logo {
 /* Main Menu */
 
 div#mega-menu-wrap-primary-menu {
-    right: 152px;
+    right: 220px;
+    bottom: 15px;
 }
 
 
+
 div#et_top_search {
-    right: 80px;
-    padding-top: 10px;
-    top:18px;
+    bottom: 3px;
+    right: 113px;
+    top: 0;
 }
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link
 {    background-color: rgb(15, 122, 104);
 }
 
-i.material-icons {
-    margin-top: 13px;
-}
 
-div#vn-search-map {
-
-    width: 40px;
-    float: left;
-    padding-left: 23px;
-    box-sizing: border-box;
-}
-
-/* Search Bar
-
-input#cerca-home {
-
-    border: solid #7AB400 2px;
-    width:186px;
-    height: 38px;
-
-}
-
-#vn-search-lente {
-
-    background-color: #7AB400;
-    width: 33px;
-    height: 33px;
-
+/* Tolgo border di default all'ultima voce del main-menu */
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item:last-child > a.mega-menu-link {
+    border-right: none;
 }
 
 
 
-i.fa.fa-search {
 
-    background-color: #7AB400;
+/* Search Bar */
+
+div#vn-search-map > i.material-icons {
+    background-color:#7AB400;
     color: white;
-
+    display: inline-block;
+    font-size: 2.5rem;
+    width: 40px;
+    box-sizing: border-box;
+    position: relative;
+    top: -16px;
+    right: 20px;
 }
-*/
 
 
+form.et-search-form {
+    max-width: 60px;
+    left: 1090px;
+    right: 30px;
+}
+form.et-search-form {
+    right: 100px;
+}
 
+input.et-search-field {
+    right: 100px;
+    top: 16px;
+}
 
+span.et_close_search_field {
+    margin-right: 70px;
+}
+#et_search_icon:before {
+    background-color: #7AB400;
+    color: white !important;
+    padding: 3px !important;
+    display: inline-block;
+    font-size: 2.0rem;
+    width: 36px;
+    height: 34px;
+    position: absolute;
+    top: -16px;
+    left: 24px;
+}
+
+@media only screen and (max-width: 992px) {
+    #et_search_icon:before {
+        display: none;
+    }
+}
+
+    @media only screen and (max-width: 992px) {
+        div#vn-search-map > i.material-icons {
+            display: none;
+        }
+    }
 
  /* Menu secondario */
 
 li.text-secondary-menu {
 
     padding-top: 15px;
+    margin-left:60px;
 }
 
 div#top-header {
@@ -170,7 +194,8 @@ ul#vn-top-menu {
     height: 29px;
     vertical-align: baseline;
 }
-/* Icone Menu */
+
+/* Aggiungo le icone al main-menu */
 
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-omino a.mega-menu-link:before {
@@ -265,6 +290,63 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/piedi.png);
 }
 
+/* Slider Button*/
+
+
+
+/* Cambio  colore delle schede e aggiunta delle icone */
+
+li.et_pb_tab_0.et_pb_tab_active {
+    background-color: #ca0a1d !important;
+    border-bottom-color: #ca0a1d !important;
+    color: white !important;
+}
+
+li.et_pb_tab_1.et_pb_tab_active {
+    background-color: #990066 !important;
+    border-bottom-color: #990066 !important;
+    color: white !important;
+
+}
+
+
+
+
+ li.et_pb_tab_2.et_pb_tab_active {
+
+    background-color: #ff9933 !important;
+    border-bottom-color: #ff9933 !important;
+     color: white !important;
+
+
+
+ }
+
+li.et_pb_tab_3.et_pb_tab_active {
+
+    background-color: #00cccc !important;
+    border-bottom-color: #00cccc !important;
+    color: white !important;
+
+}
+li.et_pb_tab_4.et_pb_tab_active {
+
+    background-color: #b06131 !important;
+    border-bottom-color: #b06131 !important;
+    color: white !important;
+
+
+}
+
+li.et_pb_tab_5.et_pb_tab_active {
+
+    background-color: #ffc400 !important;
+    border-bottom-color: #ffc400 !important;
+    color: white !important;
+
+
+}
+
 
 
 /* Footer */
@@ -273,10 +355,10 @@ ul#vn-top-menu {
 
 #vn-footer-img {
     height: 500px;
-    background:  url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png) center;
     box-shadow: 0 0 20px #000;
-
+    background: #63BCF8 url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png) center;
 }
+
 
 /* Colore dei link */
 
@@ -286,4 +368,138 @@ ul#vn-top-menu {
 
 .footer-widget :nth-child(3) {
     width: 100%;
+}
+
+
+/* Nascondo menu mobile Divi*/
+
+div#et_mobile_nav_menu {
+    display: none;
+}
+
+/* TEMPLATE SINGLE POST ROUTE*/
+
+/*MUSTHEAD*/
+
+#single-post-route-main-content {
+    background-image: url(/wp-content/themes/wm-child-verdenatura/images/bg-body.jpg);
+    background-repeat: no-repeat;
+}
+
+#single-post-route-main-content .page-title {
+
+    padding-left: 40px;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.single-route-tree-spring {
+
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    top: 0;
+    right: 0;
+    position:absolute;
+}
+
+.page-title {
+    position: relative;
+
+}
+
+#single-post-route-main-content .page-title h1 {
+
+    height: 260px;
+    color:white;
+    margin: 0;
+    padding-top: 6.25rem;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    line-height: 23px;
+    min-height: 6.5rem;
+    text-shadow: 0 0 2px #000;
+    z-index: 1;
+
+
+}
+
+/* SLIDER */
+
+.single-post-route-row  {
+margin-left: 20px !important;
+    margin-right:20px !important;
+
+}
+
+.top-gallery-single-post-route  {
+
+    padding-left: 40px;
+    padding-top: 20px;
+}
+
+.top-gallery-single-post-route img {
+
+    border-radius: 10px;
+    box-shadow: 0 0 15px #000;
+}
+
+.scheda-preventivo {
+
+    height: auto;
+    background-color:white;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-right: 15px;
+
+    padding: 20px;
+
+}
+
+.button-preventivo button {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #7AB400;
+    border:none;
+    box-shadow: 3px 3px 5px #000 !important;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.button-preventivo {
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    margin-right: 40px;
+
+}
+
+
+/*ASIDE*/
+
+.box-preventivo-aside {
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-right: 20px;
+
+
+}
+
+.map-material-placeholder img {
+
+    border-radius: 10px;
+}
+
+.map-material-placeholder {
+    padding-right: 20px;
+
 }
