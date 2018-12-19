@@ -36,11 +36,7 @@
             </a>
         </li>
     <?php endif; ?>
-    <li>
-        <?php
-        echo do_shortcode('[wpml_language_switcher flags=1 translated=1][/wpml_language_switcher]');
-        ?>
-    </li>
+
 
     <?php if ( 'on' === et_get_option( 'divi_show_rss_icon', 'on' ) ) : ?>
         <?php
