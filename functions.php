@@ -4,9 +4,6 @@ require ('import_data.php');
 require ('shortcodes/vn_home_tabs.php');
 require ('shortcodes/vn_route_tabs.php');
 
-
-
-
 add_action( 'wp_enqueue_scripts', 'Divi_parent_theme_enqueue_styles' );
 
 
@@ -157,5 +154,35 @@ function the_term_image_with_name( $post_id , $taxonomy )
 
         }
     }
+}
+
+/**
+ * Adds meta for social sharing
+ */
+//add_action( 'wp_head' , 'vn_add_meta_for_social_sharing' );
+function vn_add_meta_for_social_sharing()
+{
+    if ( ! is_singular('route') )
+        return;
+
+    ob_start();
+    ?>
+
+    <meta property="og:title" content="<?php the_title(); ?>">
+    <meta property="og:description" content="<?php the_excerpt()?>">
+    <meta property="og:image" content="<?php the_post_thumbnail_url(); ?>">
+    <meta property="og:url" content="<?php the_permalink();?>">
+
+    <meta name="twitter:title" content="<?php the_title(); ?>">
+    <meta name="twitter:description" content="<?php the_excerpt()?>">
+    <meta name="twitter:image" content="<?php the_post_thumbnail_url(); ?>">
+    <meta name="twitter:card" content="<?php the_permalink();?>">
+
+
+
+    <?php
+    echo ob_get_clean();
+
+
 }
 

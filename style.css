@@ -6,6 +6,7 @@ Author:         Webmapp (Silvia Eufemi, MArco Baroncini)
 Author URI:     webmapp.it
 Template:       Divi
 Version:        0.1.0
+Text Domain: wm-child-verdenatura
 */
 
 /*Modifiche Silvia 23/11/2018*/
@@ -290,8 +291,7 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/piedi.png);
 }
 
-/* Slider Button*/
-
+/*SCHEDA HOME */
 
 
 /* EBook Form */
@@ -320,11 +320,16 @@ input[placeholder] {
 
 }
 
+input.btn.btn-flat.center-align:hover {
+    background-color: #fff;
+    color: #7AB400;
+    border: #7AB400 solid 1px;
+}
 
 
 
 input.btn.btn-flat.center-align {
-    border: solid 2px white;
+    border: solid 1px white;
     border-radius: 0;
     background-color:  #7AB400;
     color: #FFF;
@@ -344,7 +349,6 @@ label.block.center {
     font-size: 15px;
     font-family: Lato, sans-serif;
 }
-
 
 
 a.txt-dark-green {

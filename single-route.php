@@ -50,9 +50,13 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                         <div class="scheda-commenti">
                             <h3>Racconti di viaggio</h3>
-                            <p>Condividi la tua esperienza o leggi quella di coloro che hanno già viaggiato con noi.</p>
-                            <button class="button-esperienze">Raccontaci la tua esperienza</button>
-                            <p>
+                            <?php
+
+                            if ( ( comments_open() || get_comments_number() ) && 'on' === et_get_option( 'divi_show_postcomments', 'on' ) )
+                            {
+                                comments_template( '', true );
+                            }
+                            ?>
                             <br>
                             <hr>
                         </div> <!--chiudo .scheda-commenti -->
@@ -146,7 +150,12 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                             </div> <!--- .specifiche-viaggio -->
 
                             <div class="prezzo">
-                            <span class="vn-prezzo"> Da</span>
+                            <span class="vn-prezzo">
+                                <?php
+                                echo __('From', 'wm-child-verdenatura');
+                                ?>
+
+                                Da</span>
                                 <span class="cifra"><?php
                                 $vn_prezzo = get_field('vn_prezzo');
                                 if ($vn_prezzo)
@@ -176,11 +185,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                             ?>
                         </div> <!--chiudo .map-material-placeholder -->
 
-                        <div class="social-bar">
-                            <?php do_shortcode('[et_social_follow icon_style="simple" icon_shape="rectangle" icons_location="top" col_number="auto" spacing="true" custom_colors="true" bg_color="" bg_color_hover="" icon_color="" icon_color_hover="" outer_color="dark" network_names="true"]');
-                            ?>
 
-                        </div>
 
 
                         <div class="interessi">
@@ -202,8 +207,6 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 
 <?php
-if ( ( comments_open() || get_comments_number() ) && 'on' === et_get_option( 'divi_show_postcomments', 'on' ) ) {
-    comments_template( '', true );
-}
+
 
 get_footer();
