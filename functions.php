@@ -121,7 +121,7 @@ function the_term_image_with_name( $post_id , $taxonomy )
             switch ( $taxonomy )
             {
                 case 'activity':
-                    $image = get_field( 'featured_image' , $term );
+                    $image = get_field( 'featured_icon' , $term );
                     break;
                 case 'who':
                     $image = "/wp-content/themes/wm-child-verdenatura/images/logo-guida.png";
