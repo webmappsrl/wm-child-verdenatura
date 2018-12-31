@@ -3,13 +3,30 @@
 require ('import_data.php');
 require ('shortcodes/vn_home_tabs.php');
 require ('shortcodes/vn_route_tabs.php');
+require ('shortcodes/wm_gallery.php');
+
+add_action('after_setup_theme', 'vn_theme_setup');
+
+/**
+ * Load translations for wm-child-verdenatura
+ */
+function vn_theme_setup(){
+    load_theme_textdomain('wm-child-verdenatura', get_stylesheet_directory() . '/languages');
+}
+
+
+
 
 add_action( 'wp_enqueue_scripts', 'Divi_parent_theme_enqueue_styles' );
 
 
 function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_style( 'divi-style', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
+    wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick.css' );
+    wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick.min.js', array ('jquery') );
+    wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick-theme.css' );
+
+    wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
 	//enqueue script for jquery ui tabs
 }
 
@@ -55,15 +72,18 @@ function the_calcola_url( $num )
 add_action( 'et_after_main_content', 'vn_add_ebook_form' );
 function vn_add_ebook_form()
 {
-    $html = '  <div class="vn-form-prefooter" style="background-color: #63BCF8;">
+    ob_start (); ?>
+            <div class="vn-form-prefooter" style="background-color: #63BCF8;">
             <form action="https://fexe.mailupclient.com/Frontend/subscribe.aspx">
             <input name="list" type="hidden" value="108" autocomplete="off">
             <input name="group" type="hidden" value="1348" autocomplete="off">                            
                 <header style="background-image:url(/wp-content/themes/wm-child-verdenatura/images/tree_spring.png); background-repeat: no-repeat;
-                background-position: right top; position: relative; background-size: 50%; display:block; height: 9.375rem;"> 
+                background-position: right top; position: relative; background-size: 50%; display:block; height: 9.375rem;">
                 <h3 class="title-vn-form-ebook center"  style="text-align: center; color: #FFF; padding: 70px 0px 0px 0px; font-size: 38px; 
                 font-family: PT Sans, sans-serif; font-weight: bold;">
-                Scarica Gratis l\'Ebook
+                <?php
+                echo __('Subscribe to our newsletter' ,'wm-child-verdenatura');
+                ?>
                 </h3></header>
                 <p class="txt-white p-vn-form-ebook pad-lr-ml container pad-tb-s center" style="color: #FFF; font-size: 16px; font-family: Lato, sans-serif; text-align: center; font-weight: bold; line-height: 1.4;
    ">
@@ -79,7 +99,9 @@ function vn_add_ebook_form()
              </fieldset>
                 <input data-iub-consent-form="" name="Submit" type="submit" value="Iscriviti e ricevi l\'Ebook" class="btn btn-flat center-align">
            </form>
-           </div> <!--chiudo .vn-form-prefooter-->';
+           </div> <!--chiudo .vn-form-prefooter-->
+    <?php
+    $html= ob_get_clean();
 
     if ( ! is_home() && ! is_front_page() )
     {
@@ -121,7 +143,7 @@ function the_term_image_with_name( $post_id , $taxonomy )
             switch ( $taxonomy )
             {
                 case 'activity':
-                    $image = get_field( 'featured_image' , $term );
+                    $image = get_field( 'featured_icon' , $term );
                     break;
                 case 'who':
                     $image = "/wp-content/themes/wm-child-verdenatura/images/logo-guida.png";

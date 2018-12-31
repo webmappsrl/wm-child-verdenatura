@@ -43,8 +43,17 @@ img#logo {
 /* Main Menu */
 
 div#mega-menu-wrap-primary-menu {
-    right: 150px;
     bottom: 15px;
+    font-family: Lato, sans-serif;
+    margin-right: 90px;
+
+}
+
+
+
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item > a.mega-menu-link {
+    font-family: "PT Sans", sans-serif;
+    font-size: 17px;
 }
 
 
@@ -65,10 +74,44 @@ div#et_top_search {
     border-right: none;
 }
 
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-flyout ul.mega-sub-menu li.mega-menu-item:last-child > a.mega-menu-link {    font-size: 17px;
+    color: #333;
+    font-weight: bold;
+    font-family: "PT Sans", sans-serif;
+    font-size: 17px;
+    text-align: center;
+    padding-right: 45px;
+}
 
 
+@media only screen and (min-width: 601px) {
+    div#mega-menu-wrap-primary-menu {
+        height: 64px;
+        line-height: 64px;
+    }
+}
 
-/* Search Bar */
+@media only screen and (min-width: 0) {
+    div#mega-menu-wrap-primary-menu {
+        font-size: 14px;
+    }
+}
+
+/*Button hover pagine statiche*/
+body #page-container .et_pb_button_0:hover {
+    color:rgb(15, 122, 104) !important;
+    background-color: #fff;
+    border: 1px solid rgb(15, 122, 104);
+}
+
+
+    /* Search Bar */
+
+div#vn-search-map-2 > i.material-icons {
+
+    font-size: 39px !important;
+}
+
 
 div#vn-search-map > i.material-icons {
     background-color:#7AB400;
@@ -93,8 +136,14 @@ form.et-search-form {
 }
 
 input.et-search-field {
-    right: 100px;
+    right: 12px;
     top: 16px;
+    background-color: white;
+    width: 210px;
+    height: 37px;
+    padding-left: 5px;
+    bottom: 5px;
+    border: 2px solid #7AB400;
 }
 
 span.et_close_search_field {
@@ -365,8 +414,25 @@ a.txt-dark-green {
     background: #63BCF8 url(/wp-content/themes/wm-child-verdenatura/images/bg-paesaggio-footer.png) center;
 }
 
+ul#menu-menu-footer-1, ul#menu-menu-footer-2, ul#menu-menu-footer-3 {
+    text-align:center;
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+}
+
+li#menu-item-25391:before, li#menu-item-25390:before, li#menu-item-25392:before, li#menu-item-25393:before,
+li#menu-item-25394:before, li#menu-item-25395:before, li#menu-item-25396:before, li#menu-item-25397:before, li#menu-item-25398:before,
+li#menu-item-25399:before, li#menu-item-25400:before, li#menu-item-25401:before, li#menu-item-25402:before, li#menu-item-25403:before,
+li#menu-item-25404:before, li#menu-item-25405:before {
+    display: none;
+ }
 
 /* Colore dei link */
+
+#footer-widgets {
+    line-height: initial;
+}
+
 
 .footer-widget a {
     color: #7AB400 !important;
@@ -385,7 +451,7 @@ div#et_mobile_nav_menu {
 
 /****************** TEMPLATE SINGLE POST ROUTE**************************/
 
-/*MUSTHEAD*/
+/*HEADER*/
 
 #single-post-route-main-content {
     background: url(/wp-content/themes/wm-child-verdenatura/images/bg-body.jpg) no-repeat;
@@ -447,7 +513,6 @@ p.sottotitolo-preventivo {
     font-size: 15px;
     border-bottom: 1px solid rgb(15, 122, 104) ;
     margin-right: 10px;
-    font-family: Lato, sans-serif;
 
 }
 
@@ -596,7 +661,7 @@ button.button-esperienze:hover {
     margin-right: 20px;
     display: block;
     padding-bottom: 20px;
-    font-family: "PT Sans", "sans serif";
+    font-family: "PT Sans", sans serif;
 
 
 }
