@@ -36,7 +36,17 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                     <div class="col-sm-12 col-md-8">
                         <div class="top-gallery-single-post-route">
-                            <img src="/wp-content/themes/wm-child-verdenatura/images/verde-natura-viaggi-in-bicicletta-offerta-fedelta-747x560.jpg">
+                            <?php
+                            $vn_gallery_route=get_field ('n7webmap_track_media_gallery');
+                            if (is_array($vn_gallery_route) && ! empty($vn_gallery_route)) {
+                                $vn_id_gallery_route=  array_map(function ($i) {
+                                  return $i ['ID'];
+                                },$vn_gallery_route);
+                                $stringa_id_gallery= implode (',', $vn_id_gallery_route);
+                                echo do_shortcode ("[wm_gallery media_ids='$stringa_id_gallery']");
+                            }
+                            ?>
+
                         </div> <!-- chiudo .top gallery-->
 
                         <div class="scheda-preventivo">
@@ -147,15 +157,20 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                                     <p>Livello</p>
                                 </div> <!--.livello-->
 
+                                <div class="route-taxonomy">
+                                    <?php
+                                    
+                                    ?>
+
+                                </div>
+
                             </div> <!--- .specifiche-viaggio -->
 
                             <div class="prezzo">
-                            <span class="vn-prezzo">
                                 <?php
                                 echo __('From', 'wm-child-verdenatura');
                                 ?>
 
-                                Da</span>
                                 <span class="cifra"><?php
                                 $vn_prezzo = get_field('vn_prezzo');
                                 if ($vn_prezzo)
