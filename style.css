@@ -58,11 +58,12 @@ div#mega-menu-wrap-primary-menu {
 
 
 
-div#et_top_search {
-    bottom: 3px;
-    right: 113px;
-    top: 0;
-}
+    div#et_top_search {
+        bottom: 3px;
+        right: 113px;
+        top: 0;
+    }
+
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link
 {    background-color: rgb(15, 122, 104);
@@ -70,6 +71,7 @@ div#et_top_search {
 
 
 /* Tolgo border di default all'ultima voce del main-menu */
+
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item:last-child > a.mega-menu-link {
     border-right: none;
 }
@@ -98,6 +100,7 @@ div#et_top_search {
 }
 
 /*Button hover pagine statiche*/
+
 body #page-container .et_pb_button_0:hover {
     color:rgb(15, 122, 104) !important;
     background-color: #fff;
@@ -130,9 +133,6 @@ form.et-search-form {
     max-width: 60px;
     left: 1090px;
     right: 30px;
-}
-form.et-search-form {
-    right: 100px;
 }
 
 input.et-search-field {
@@ -343,6 +343,8 @@ ul#vn-top-menu {
 /*SCHEDA HOME */
 
 
+
+
 /* EBook Form */
 
 
@@ -420,10 +422,10 @@ ul#menu-menu-footer-1, ul#menu-menu-footer-2, ul#menu-menu-footer-3 {
     font-size: 15px;
 }
 
-li#menu-item-25391:before, li#menu-item-25390:before, li#menu-item-25392:before, li#menu-item-25393:before,
-li#menu-item-25394:before, li#menu-item-25395:before, li#menu-item-25396:before, li#menu-item-25397:before, li#menu-item-25398:before,
-li#menu-item-25399:before, li#menu-item-25400:before, li#menu-item-25401:before, li#menu-item-25402:before, li#menu-item-25403:before,
-li#menu-item-25404:before, li#menu-item-25405:before {
+li#menu-item-25914:before, li#menu-item-25917:before, li#menu-item-25923:before, li#menu-item-25926:before,
+li#menu-item-25915:before, li#menu-item-25918:before, li#menu-item-25924:before, li#menu-item-25927:before, li#menu-item-25928:before,
+li#menu-item-25941:before, li#menu-item-25919:before, li#menu-item-25925:before, li#menu-item-25929:before, li#menu-item-25930:before,
+li#menu-item-25916:before, li#menu-item-25920:before {
     display: none;
  }
 
@@ -852,11 +854,6 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 
 
 
-#ui-id-1, #ui-id-2, #ui-id-3, #ui-id-4 {
-
-    border-right: 2px solid #0F7A68;
-
-}
 
 
 .nazione {

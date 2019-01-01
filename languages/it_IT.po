@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WEBMAPP - VERDENATURA\n"
-"POT-Creation-Date: 2018-12-31 11:55+0100\n"
-"PO-Revision-Date: 2018-12-31 11:56+0100\n"
+"POT-Creation-Date: 2019-01-01 14:27+0100\n"
+"PO-Revision-Date: 2019-01-01 21:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -15,14 +15,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: functions.php:79
+#: functions.php:85
 msgid "Subscribe to our newsletter"
-msgstr "Scarica Gratis l'Ebook"
+msgstr "Scarica Gratis l’Ebook"
+
+#: functions.php:91
+msgid ""
+"Subscribe to our newsletter to stay updated on new tours and all promotional "
+"offers. Verde Natura monthly newsletter also includes latest news from our "
+"blog, comments and tips."
+msgstr ""
+"Scarica GRATIS l'Ebook \"La Bicicletta, il vademecum di VERDE NATURA\". "
+"Iscriviti e Ricevi SUBITO il nostro Ebook in regalo, con tanti consigli "
+"pratici per le tue uscite in bicicletta! Riceverai inoltre la nostra "
+"NEWSLETTER con le ultime news dal blog e le nostre offerte."
+
+#: functions.php:96
+msgid "First Name"
+msgstr "Nome"
+
+#: functions.php:98
+msgid "Last Name"
+msgstr "Cognome"
+
+#: functions.php:102
+msgid "*I accept to receive promotionals e-mails as written in our"
+msgstr ""
+"*Accetto di ricevere la newsletter settimanale così come descritto nella "
+"nostra"
+
+#: functions.php:106
+msgid "Subscribe"
+msgstr "Iscriviti e ricevi l’Ebook"
 
 #: includes/social_icons-header.php:21
 msgid "Google"
@@ -36,7 +65,7 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: single-route.php:154
+#: single-route.php:167
 msgid "From"
 msgstr "Da"
 
