@@ -27,7 +27,7 @@ $current_post_type = get_post_type();
 
         $new = get_field( 'vn_new' );
         if( $new )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' alt='Novità'>";
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' id='card' alt='Novità'>";
 
 
         ?>
@@ -51,6 +51,8 @@ $current_post_type = get_post_type();
         if ( $desc_br )
             echo $desc_br;
 
+
+
         $price = get_field( 'vn_prezzo' );
         if ( $price )
         {
@@ -60,7 +62,7 @@ $current_post_type = get_post_type();
                 $sale_price_p = $sale_price . ' € ';
 
 
-            echo "<p class='prezzo'>" . __('Prices from' , 'wm-child-verdenatura') . " <span class='vn-sale-price cifra'>$sale_price_p</span><span class='cifra'>$price €</span></p>";
+            echo "<p class='prezzo-tab' >" . __('Prices from' , 'wm-child-verdenatura') . " <span class='vn-sale-price cifra'>$sale_price_p</span><span class='cifra'>$price €</span></p>";
         }
 
 
