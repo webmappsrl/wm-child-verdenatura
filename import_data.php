@@ -82,7 +82,7 @@ function megamenu_add_theme_verde_natura_1543588772($themes) {
         'toggle_background_from' => 'rgb(255, 255, 255)',
         'toggle_background_to' => 'rgb(255, 255, 255)',
         'mobile_menu_overlay' => 'on',
-        'mobile_menu_force_width_selector' => '10%',
+        //'mobile_menu_force_width_selector' => '10%',
         'mobile_background_from' => 'rgb(122, 180, 0)',
         'mobile_background_to' => 'rgb(122, 180, 0)',
         'mobile_menu_item_link_font_size' => '14px',

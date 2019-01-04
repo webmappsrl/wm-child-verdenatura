@@ -244,4 +244,13 @@ function vn_add_meta_for_social_sharing()
     <?php
     echo ob_get_clean();
 }
-?>
+
+
+add_filter( "megamenu_nav_menu_args", 'vn_fix_megamenu_mobile_menu' , 10 ,3 ) ;
+function vn_fix_megamenu_mobile_menu( $defaults, $menu_id, $current_theme_location )
+{
+    if ( isset( $defaults['items_wrap'] ) && strpos( $defaults['items_wrap'], 'data-mobile-force-width="10%"') !== false )
+        $defaults['items_wrap'] = str_replace( 'data-mobile-force-width="10%"' , '' , $defaults['items_wrap'] );
+
+    return $defaults;
+}
