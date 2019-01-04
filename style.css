@@ -472,6 +472,12 @@ div#et_mobile_nav_menu {
     background-color: rgba(0, 0, 0, 0.35);
 }
 
+@media only screen and (min-width: 576px) {
+    h1.txt-white {
+        font-size: 2.5rem;
+    }
+}
+
 
 .single-route-tree-spring {
 
@@ -506,10 +512,18 @@ div#et_mobile_nav_menu {
 
 }
 
+
+@media only screen and (max-width: 576px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
 /* SLIDER */
 
 .single-post-route-row  {
-margin-left: 20px !important;
+    margin-left: 20px !important;
     margin-right:20px !important;
 
 }
@@ -566,23 +580,23 @@ ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header
 
 }
 
- .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
-     border:none;
-     padding:0;
- }
+.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    border:none;
+    padding:0;
+}
 
- li.ui-state-default.ui-corner-top {
-     background: #FFF;
-     color: rgb(15, 122, 104) ;
-     font-family:Lato, sans-serif;
-     font-size: 15px;
-     text-align: center;
-     display: inline-block;
-     line-height: 32px;
-     height: 48px;
-     padding:0;
-     margin: 0;
- }
+li.ui-state-default.ui-corner-top {
+    background: #FFF;
+    color: rgb(15, 122, 104) ;
+    font-family:Lato, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    line-height: 32px;
+    height: 48px;
+    padding:0;
+    margin: 0;
+}
 
 .ui-corner-all {
     border: none;
@@ -847,7 +861,7 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 }
 
 
- .ui-state-active a:link, .ui-state-active a:visited {
+.ui-state-active a:link, .ui-state-active a:visited {
     background-color: #7AB400;
     color: #fff;
     width: 100%;
@@ -866,8 +880,8 @@ span.vn_taxonomy_image_single_route.vn_where_image_single_route {
 }
 
 .nazione img {
-width: 2.8rem;
-display: block;
+    width: 2.8rem;
+    display: block;
 
 }
 
@@ -879,6 +893,6 @@ display: block;
 .livello {
     display: block;
     float: left;
-margin-left: 5px;
+    margin-left: 5px;
 
 }
