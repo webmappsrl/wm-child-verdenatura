@@ -3,7 +3,11 @@
 
 
 add_shortcode( 'wm_gallery', 'wm_render_gallery' );
-function wm_render_gallery ( $atts ) {
+/**
+ * @param $atts
+ * @return string
+ */
+function wm_render_gallery ($atts ) {
 
     extract( shortcode_atts( array(
         'media_ids' => ''

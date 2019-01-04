@@ -157,13 +157,11 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                                     <p>Livello</p>
                                 </div> <!--.livello-->
 
-                                <div class="route-taxonomy">
+                                <div class="attività-route">
                                     <?php
-                                    
+                                    the_term_image_with_name( $post_id , 'activity' );
                                     ?>
-
                                 </div>
-
                             </div> <!--- .specifiche-viaggio -->
 
                             <div class="prezzo">

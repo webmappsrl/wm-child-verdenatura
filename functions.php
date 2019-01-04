@@ -76,7 +76,7 @@ function vn_add_ebook_form()
             <div class="vn-form-prefooter" style="background-color: #63BCF8;">
             <form action="https://fexe.mailupclient.com/Frontend/subscribe.aspx">
             <input name="list" type="hidden" value="108" autocomplete="off">
-            <input name="group" type="hidden" value="1348" autocomplete="off">                            
+            <input name="group" type="hidden" value="1348" autocomplete="off">
                 <header style="background-image:url(/wp-content/themes/wm-child-verdenatura/images/tree_spring.png); background-repeat: no-repeat;
                 background-position: right top; position: relative; background-size: 50%; display:block; height: 9.375rem;">
                 <h3 class="title-vn-form-ebook center"  style="text-align: center; color: #FFF; padding: 70px 0px 0px 0px; font-size: 38px; 
@@ -87,17 +87,23 @@ function vn_add_ebook_form()
                 </h3></header>
                 <p class="txt-white p-vn-form-ebook pad-lr-ml container pad-tb-s center" style="color: #FFF; font-size: 16px; font-family: Lato, sans-serif; text-align: center; font-weight: bold; line-height: 1.4;
    ">
-                Scarica GRATIS l\'Ebook "La Bicicletta, il vademecum di VERDE NATURA". Iscriviti e Ricevi SUBITO il nostro Ebook in regalo, con tanti consigli pratici per le tue uscite in bicicletta! Riceverai inoltre la nostra NEWSLETTER con le ultime news dal blog e le nostre offerte.
+                    <?php
+                    echo __('Subscribe to our newsletter to stay updated on new tours and all promotional offers. Verde Natura monthly newsletter also includes latest news from our blog, comments and tips.' ,'wm-child-verdenatura');
+                    ?>
                 </p>
             <fieldset class="pad-lr-ml container pad-tb-s">
-                <input data-cons-subject="first_name" type="text" name="campo1" value="" size="40" placeholder="Nome">
-                <input data-cons-subject="last_name" type="text" name="campo2" value="" size="40" placeholder="Cognome">
+                <input data-cons-subject="first_name" type="text" name="campo1" value="" size="40" placeholder=<?php
+                echo __('First name' ,'wm-child-verdenatura'); ?>>
+                <input data-cons-subject="last_name" type="text" name="campo2" value="" size="40" placeholder=<?php
+                echo __('Last ame' ,'wm-child-verdenatura'); ?>>
                 <input data-cons-subject="email" type="email" name="email" value="" size="40" required="required" placeholder="Email"><br>
                     <div class="block center clear mrg-b-m">
-                    <input data-cons-preference="general" type="checkbox" name="privacy" id="privacy1" required="required"><label for="privacy1" class="block center" style="line-height:1.2; text-align:left; color:#fff!important">*Accetto di ricevere la newsletter settimanale così come descritto nella nostra <a target="_blank" href="https://www.verde-natura.it/privacy/" class="txt-dark-green">Privacy</a>.</label>
+                    <input data-cons-preference="general" type="checkbox" name="privacy" id="privacy1" required="required"><label for="privacy1" class="block center" style="line-height:1.2; text-align:left; color:#fff!important"><?php
+                            echo __('*I accept to receive promotionals e-mails as written in our' ,'wm-child-verdenatura'); ?> <a target="_blank" href="https://www.verde-natura.it/privacy/" class="txt-dark-green">Privacy</a>.</label>
                     </div>
              </fieldset>
-                <input data-iub-consent-form="" name="Submit" type="submit" value="Iscriviti e ricevi l\'Ebook" class="btn btn-flat center-align">
+                <input data-iub-consent-form="" name="Submit" type="submit" value=<?php
+                echo __('Subscribe' ,'wm-child-verdenatura'); ?> class="btn btn-flat center-align">
            </form>
            </div> <!--chiudo .vn-form-prefooter-->
     <?php
@@ -142,21 +148,14 @@ function the_term_image_with_name( $post_id , $taxonomy )
 
             switch ( $taxonomy )
             {
-                case 'activity':
-                    $image = get_field( 'featured_icon' , $term );
-                    break;
+
                 case 'who':
                     $image = "/wp-content/themes/wm-child-verdenatura/images/logo-guida.png";
-                    break;
-                case 'when':
-                    $image = "/wp-content/themes/wm-child-verdenatura/images/";
                     break;
                 case 'where':
                     $image = "/wp-content/themes/wm-child-verdenatura/images/dest.png";
                     break;
-                case 'theme':
-                    $image = "/wp-content/themes/wm-child-verdenatura/images/";
-                    break;
+
                 default:
                     $image = false;
                     break;
@@ -164,19 +163,20 @@ function the_term_image_with_name( $post_id , $taxonomy )
 
             if ( $image )
             {
-
                 echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
                 echo "<img src='$image'>";
                 echo $term->name;
                 echo "</span>";
 
             }
-
-
-
         }
     }
 }
+
+
+
+
+
 
 /**
  * Adds meta for social sharing

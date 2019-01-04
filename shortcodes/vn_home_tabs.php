@@ -1,8 +1,8 @@
 <?php
 
 
+
 add_shortcode( 'vn_home_tabs', 'vn_render_home_tabs_shortcode' );
-// [bartag foo="foo-value"]
 function vn_render_home_tabs_shortcode( $atts ) {
 
     ob_start();
@@ -17,42 +17,57 @@ jQuery( function($) {
 
 
 <div id="tabs" class="vn-tab-home">
-  <ul>
-      <li><a href="#tabs-1"><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png"> IN BICICLETTA</a></li>
-      <li><a href="#tabs-2"><img src="/wp-content/themes/wm-child-verdenatura/images/bici-barca.png">IN BICI E BARCA</a></li>
-      <li><a href="#tabs-3"><img src="/wp-content/themes/wm-child-verdenatura/images/piedi.png">A PIEDI</a></li>
-      <li><a href="#tabs-4"><img src="/wp-content/themes/wm-child-verdenatura/images/famiglia.png">IN FAMIGLIA</a></li>
-      <li><a href="#tabs-5"><img src="/wp-content/themes/wm-child-verdenatura/images/esplorazione.png">ESPLORAZIONE</a></li>
-      <li><a href="#tabs-6"><img src="/wp-content/themes/wm-child-verdenatura/images/weekend.png">WEEKEND</a></li>
+  <ul class="tabs-home-tab">
+      <li><a href="#tabs-1" style="border-right: 1px solid #ccc;  background-color: #ca0a1d; color: white; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;"> IN BICICLETTA</a></li>
+      <li><a href="#tabs-2" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/bici-barca.png" class="bici-barca-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">IN BICI E BARCA</a></li>
+      <li><a href="#tabs-3" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/piedi.png" class="piedi-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">A PIEDI</a></li>
+      <li><a href="#tabs-4" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/famiglia.png" class="famiglia-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">IN FAMIGLIA</a></li>
+      <li><a href="#tabs-5" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/esplorazione.png" class="esplorazione-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">ESPLORAZIONE</a></li>
+      <li><a href="#tabs-6" style="font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/weekend.png" class="weekend-img" style="width: 2.3em;vertical-align: bottom; margin-right: 20px;">WEEKEND</a></li>
   </ul>
 
     <div id="tabs-1">
-     <p></p>
+        <p style="color: #666;"><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png" style="float: left; padding: 15px 10px 0 0;"> <h2>in bicicletta</h2>
+        Le vacanze in bicicletta in hotel, agriturismi ecc. su percorsi appositamente selezionati e testati lungo piste
+        ciclabili o tranquille strade secondarie. Scegliete dove, quando e con chi, al resto penseremo noi. Prenoteremo
+        gli hotel, vi metteremo a disposizione le bici adatte e i road book dettagliati e trasporteremo i vostri bagagli
+        da un hotel all’altro in modo che voi possiate semplicemente godere della vostra vacanza. In base alle vostre
+        esigenze potete scegliere la formula di viaggio in gruppo con la guida o la formula viaggio individuale.
+        </p>
     </div>
 
     <div id="tabs-2">
-      <p></p>
+      <p style="color: #666;"> <img src="/wp-content/themes/wm-child-verdenatura/images/bici-barca.png" style="float: left; padding: 15px 10px 0 0;"> <h2>in bici e barca</h2>
+        Un viaggio che unisce terra e acqua, una vacanza unica dove al tour in bicicletta viene unita la navigazione in mare o lungo fiumi e canali. Di giorno ci si sposta in bicicletta ritrovando poi la barca/hotel per la cena e la notte. Tutte le barche hanno cabine con servizi (salvo alcune come specificato nei programmi) e un salone dove viene servita la cena. Alle tratte in bicicletta che si alternano i momenti di relax sul ponte della barca. E se non volete pedalare, potrete passare la giornata in barca godendovi la navigazione.
+      </p>
     </div>
 
     <div id="tabs-3">
-      <p></p>
+        <p style="color: #666;"><img src="/wp-content/themes/wm-child-verdenatura/images/piedi.png" style="float: left; padding: 15px 10px 0 0;"> <h2> a piedi</h2>
+        Viaggi al ritmo dei propri passi non solo in montagna, ma anche e soprattutto in stupendi ambienti naturali come modo alternativo, sano ed interessante, per visitare i luoghi. Potete scegliere vacanze di gruppo con una guida esperta o in completa libertà. In ogni caso avrete sempre la certezza di un hotel o un rifugio prenotati per la notte e del servizio di trasporto bagagli
+        </p>
     </div>
 
     <div id="tabs-4">
-        <p></p>
+        <p style="color: #666;"><img src="/wp-content/themes/wm-child-verdenatura/images/famiglia.png" style="float: left; padding: 15px 10px 0 0;"> <h2>in famiglia</h2>
+        Viaggi pensati per le famiglie, dove la lunghezza e le caratteristiche dell’itinerario sono perfette per i bambini. Gli hotel hanno disponibilità di camere triple e quadruple e possiamo fornirvi il noleggio dei mezzi adatti per far viaggiare i più piccoli: cammellini, seggiolini, trailer ecc. Trovate i tour “speciali famiglie” in tutte le tipologie di viaggio : bici e barca, bicicletta e trekking. Se volete condividere questa vacanza con altre famiglie, potete scegliere un tour con la guida.
+        </p>
     </div>
 
     <div id="tabs-5">
-        <p></p>
+        <p style="color: #666;"><img src="/wp-content/themes/wm-child-verdenatura/images/esplorazione.png" style="float: left; padding: 15px 10px 0 0;"> <h2>esplorazione</h2>
+        Le nostre guide ogni stagione vanno in avanscoperta a testare nuovi itinerari. Se avete un po’ di spirito d’adattamento e un po’ di allenamento potrete da quest’anno accompagnarli in questi viaggi. I servizi saranno per la maggior parte prenotati e organizzati ma dovrete essere pronti anche a qualche imprevisto o cambiamento di percorso. Un’occasione da non perdere per chi cerca vacanze con un pizzico in più di avventura!
+        </p>
+    </div>
 
-              <div id="tabs-6">
-<p></p>
-              </div>
-</div>
+    <div id="tabs-6">
+        <p style="color: #666;"><img src="/wp-content/themes/wm-child-verdenatura/images/weekend.png"style="float: left; padding: 15px 10px 0 0;"><h2>weekend</h2>
+            Weekend e vacanze brevi a piedi e in bicicletta, pensati apposta per chi desidera inserire una parentesi slow all'interno di un viaggio lontano da casa, o per esplorare insieme alle nostre guide gli angoli nascosti del nostro bellissimo paese.
+        </p>
+    </div>
 
 
-
-<?php
+    <?php
 
     $html = ob_get_clean();
     return $html;

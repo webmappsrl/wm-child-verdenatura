@@ -13,11 +13,11 @@ ob_start();
 
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">DESCRIZIONE</a></li>
-    <li><a href="#tabs-2">PROGRAMMA</a></li>
-    <li><a href="#tabs-3">CARATTERISTICHE</a></li>
-      <li><a href="#tabs-4">PARTENZE E QUOTE</a></li>
-      <li><a href="#tabs-5">COME ARRIVARE</a></li>
+    <li><a href="#tabs-1" style="border-right: solid 2px #0F7A68;">DESCRIZIONE</a></li>
+    <li><a href="#tabs-2" style="border-right: solid 2px #0F7A68;">PROGRAMMA</a></li>
+    <li><a href="#tabs-3" style="border-right: solid 2px #0F7A68;">CARATTERISTICHE</a></li>
+      <li><a href="#tabs-4" style="border-right: solid 2px #0F7A68;">PARTENZE E QUOTE</a></li>
+      <li><a href="#tabs-5" >COME ARRIVARE</a></li>
   </ul>
 
   <div id="tabs-1">
