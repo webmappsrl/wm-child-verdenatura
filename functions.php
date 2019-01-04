@@ -207,7 +207,31 @@ function filtra_commento( $comment_text, $comment , $args )
     {
         $date_html = "<div class='journey-comment'>" . __('Journey from' , 'wm_comment_journey_date' ) . " $date</div>";
     }
-    return "$date_html<div class='my_comment_text'>$comment_text</div>";
+
+    $gallery = '';
+
+    $vn_gallery = get_field ('wm_comment_gallery' , $comment );
+    if ( is_array( $vn_gallery) && ! empty( $vn_gallery ) )
+    {
+        $vn_gallery_ids =  array_map(
+            function ($i) {
+                return $i ['ID'];
+            },
+            $vn_gallery );
+
+        $gallery = "<div class='wm-comment-images'>";
+        foreach ( $vn_gallery_ids  as $id)
+        {
+            $gallery .= '<span class="wm-comment-image">';
+            $gallery .= wp_get_attachment_image( $id, 'thumbnail');
+            $gallery .= '</span>';
+        }
+        $gallery = "</div>";
+
+    }
+
+
+    return "$date_html<div class='my_comment_text'>$comment_text</div>$gallery";
 }
 
 /**
