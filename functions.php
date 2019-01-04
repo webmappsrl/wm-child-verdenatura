@@ -30,6 +30,9 @@ function Divi_parent_theme_enqueue_styles() {
 	//enqueue script for jquery ui tabs
 }
 
+/**
+ * Material Icons
+ */
 
 add_action( 'wp_head' , 'aggiungi_material_icons' );
 function aggiungi_material_icons(){
@@ -39,14 +42,20 @@ function aggiungi_material_icons(){
     echo '<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>';
 }
 
+/**
+ * Load Bootstrap for wm-child-verdenatura
+ */
 add_action( 'wp_head' , 'aggiungi_bootstrap' );
 function aggiungi_bootstrap(){
     echo "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\">";
 }
 
+/**
+ * Search bar e map search
+ */
+
 //add_action ('et_header_top', 'vn_search_bar');
 function vn_search_bar() {
-
 
     echo '<div id="vn-search-bar-header"><input id="cerca-home" type="text" placeholder="Cerca" name="search">
       <button id="vn-search-lente" type="submit"><i class="fa fa-search"></i></button></div>';
@@ -58,17 +67,11 @@ function vn_search_map() {
     echo '<div id="vn-search-map"><i class="material-icons">language</i></div>';
 }
 
-function the_calcola_url( $num )
-{
 
-    $numero_arrotondato = floor( $num );
-    echo "/wp-content/themes/wm-child-verdenatura/images/diff-" . $numero_arrotondato . ".png";
-}
+/**
+ * VN E-book Forme
+ */
 
-
-
-
-// VN E-BOOK FORM
 add_action( 'et_after_main_content', 'vn_add_ebook_form' );
 function vn_add_ebook_form()
 {
@@ -116,6 +119,9 @@ function vn_add_ebook_form()
     }
 }
 
+/**
+ * Load Footer Image
+ */
 
 
 add_action( 'et_after_main_content', 'vn_add_footer_image' );
@@ -124,6 +130,9 @@ function vn_add_footer_image() {
     echo '<div id="vn-footer-img"></div>';
 }
 
+/**
+ * Load tab for Single Route post type
+ */
 
 
 function vn_add_route_tabs () {
@@ -135,6 +144,17 @@ $scheda = ob_get_clean();
 
 echo do_shortcode( $scheda );
 
+}
+
+/**
+ * Icons for Single Route post type
+ */
+
+function the_calcola_url( $num )
+{
+
+    $numero_arrotondato = floor( $num );
+    echo "/wp-content/themes/wm-child-verdenatura/images/diff-" . $numero_arrotondato . ".png";
 }
 
 
@@ -173,11 +193,26 @@ function the_term_image_with_name( $post_id , $taxonomy )
     }
 }
 
+/**
+ * Comments in single route
+ */
 
+add_filter( 'comment_text' , 'filtra_commento' , 10 , 3 );
 
+function filtra_commento( $comment_text, $comment , $args )
+{
+    $date_html = '';
+    $date = get_field('wm_comment_journey_date', $comment);
+    if ( $date )
+    {
+        $date_html = "<div class='journey-comment'>" . __('Journey from' , 'wm_comment_journey_date' ) . " $date</div>";
+    }
+    return "$date_html<div class='my_comment_text'>$comment_text</div>";
+}
 
+?>
 
-
+<?php
 /**
  * Adds meta for social sharing
  */
@@ -199,12 +234,7 @@ function vn_add_meta_for_social_sharing()
     <meta name="twitter:description" content="<?php the_excerpt()?>">
     <meta name="twitter:image" content="<?php the_post_thumbnail_url(); ?>">
     <meta name="twitter:card" content="<?php the_permalink();?>">
-
-
-
     <?php
     echo ob_get_clean();
-
-
 }
-
+?>

@@ -67,6 +67,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                                 comments_template( '', true );
                             }
                             ?>
+
                             <br>
                             <hr>
                         </div> <!--chiudo .scheda-commenti -->
@@ -218,8 +219,9 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
     </div> <!--chiudo #single-post-route-main-content -->
 </div> <!-- chiudo #content-area --->
 
-
 <?php
 
 
 get_footer();
+
+?>
