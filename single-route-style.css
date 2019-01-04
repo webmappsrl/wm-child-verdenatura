@@ -60,9 +60,49 @@ Text Domain: wm-child-verdenatura
 
 }
 
+@media only screen and (max-width: 1200px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 4.3rem;    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 4.3rem;    }
+}
 
 
+@media only screen and (max-width: 992px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 3.5rem;
+    }
+}
 
+@media only screen and (max-width: 768px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 3.0rem;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 2.8rem;
+        padding: 45px 20px 10px 20px;
+    }
+    .richiedi-preventivo button {
+        font-size: 10px;
+
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 2.5rem;
+        padding: 45px 20px 10px 20px;
+
+    }
+}
 
 
 /* SLIDER */
