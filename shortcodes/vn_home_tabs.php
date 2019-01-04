@@ -32,12 +32,11 @@ jQuery( function($) {
         ciclabili o tranquille strade secondarie. Scegliete dove, quando e con chi, al resto penseremo noi. Prenoteremo
         gli hotel, vi metteremo a disposizione le bici adatte e i road book dettagliati e trasporteremo i vostri bagagli
         da un hotel all’altro in modo che voi possiate semplicemente godere della vostra vacanza. In base alle vostre
-        esigenze potete scegliere la formula di viaggio in gruppo con la guida o la formula viaggio individuale.
-<?php
+        esigenze potete scegliere la formula di viaggio in gruppo con la guida o la formula viaggio individuale.        </p>
 
-    do_shortcode('[webmapp_anypost post_type="route" template="vnhome" posts_count=3 rows=1 posts_per_page=3 ]');
- ?>
-        </p>
+        <?php
+        echo do_shortcode('[webmapp_anypost post_type="route" template="vnhome" posts_count=3 rows=1 posts_per_page=3 ]');
+        ?>
     </div>
 
     <div id="tabs-2">
