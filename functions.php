@@ -165,21 +165,7 @@ function the_term_image_with_name( $post_id , $taxonomy )
     {
         foreach ( $terms as $term )
         {
-
-            switch ( $taxonomy )
-            {
-
-                case 'who':
-                    $image = "/wp-content/themes/wm-child-verdenatura/images/logo-guida.png";
-                    break;
-                case 'where':
-                    $image = "/wp-content/themes/wm-child-verdenatura/images/dest.png";
-                    break;
-
-                default:
-                    $image = false;
-                    break;
-            }
+            $image = get_field('wm_taxonomy_featured_icon' , $term );
 
             if ( $image )
             {
