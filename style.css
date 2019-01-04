@@ -459,7 +459,7 @@ div#et_mobile_nav_menu {
 
 /************** TAB IN HOME ********************/
 
-div.webmapp_post-title h2 {
+.webmapp_shortcode_any_post.post-type-route > div.webmapp_post-title h2 {
     font-family: Lato, sans-serif;
     font-size: 23px;
     line-height: 26px;
@@ -476,7 +476,6 @@ div.webmapp_post-title h2 {
 .webmapp_post_meta {
     font-family: Lato, sans-serif;
     font-size: 1rem;
-    line-height: 21px;
     line-height: 1.4;
     font-weight: 300;
     padding-top: 20px;
@@ -491,10 +490,14 @@ p.prezzo-tab {
 }
 span.vn-sale-price.cifra {
     font-size: 1.5rem;
-    font-weight: 400;
     text-decoration: line-through;
     color: #999;
     text-align: right;
     font-weight: 400;
 
+}
+
+img#card {
+    position: absolute;
+    width:20%;
 }

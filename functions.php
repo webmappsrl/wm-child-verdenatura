@@ -166,11 +166,10 @@ function the_term_image_with_name( $post_id , $taxonomy )
         foreach ( $terms as $term )
         {
             $image = get_field('wm_taxonomy_featured_icon' , $term );
-
-            if ( $image )
+            if ( isset($image['url']) )
             {
                 echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
-                echo "<img src='$image'>";
+                echo "<img src='".$image['url']."'>";
                 echo $term->name;
                 echo "</span>";
 

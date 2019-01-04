@@ -98,22 +98,21 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                             ?>
                             </p>
 
-                            <p class="durata-preventivo">Durata:
-                            <span class="durata-content">
+                            <div class="durata-preventivo">
                                 <?php
-                                $vn_durata = get_field('vn_durata');
-                                if ($vn_durata)
-                                    echo $vn_durata;
-                                ?> giorni </span>
-                            (
-
-                                <?php
-                                $vn_note_dur = get_field('vn_note_dur');
-                                if ( $vn_note_dur)
-                                    echo $vn_note_dur;
+                                $days = get_field('vn_durata');
+                                if ( $days )
+                                {
+                                    $nights = $days - 1;
+                                    echo "<p class='durata-preventivo-text'>";
+                                    echo __( 'Duration' , 'wm-child-verdenatura' ) . ": $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                                    $vn_note_dur = get_field( 'vn_note_dur' );
+                                    if ( $vn_note_dur )
+                                        echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
+                                    echo "</p>";
+                                }
                                 ?>
-
-                                )</p>
+                            </div>
                             <br>
 
 
