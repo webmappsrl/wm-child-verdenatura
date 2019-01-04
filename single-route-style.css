@@ -1,0 +1,483 @@
+/*
+Theme Name:     WEBMAPP - VERDENATURA
+Theme URI:
+Description:    Template single route post per VERDENATURA
+Author:         Webmapp (Silvia Eufemi, MArco Baroncini)
+Author URI:     webmapp.it
+Template:       Divi
+Version:        0.1.0
+Text Domain: wm-child-verdenatura
+*/
+
+
+/****************** TEMPLATE SINGLE POST ROUTE**************************/
+
+/*HEADER*/
+
+#single-post-route-main-content {
+    background: url(/wp-content/themes/wm-child-verdenatura/images/bg-body.jpg) no-repeat;
+}
+
+#single-post-route-main-content .page-title {
+
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+
+
+.single-route-tree-spring {
+
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    top: 0;
+    right: 0;
+    position:absolute;
+}
+
+.page-title {
+    position: relative;
+
+}
+
+
+#single-post-route-main-content .page-title h1 {
+
+    height: 260px;
+    color:white;
+    margin: 0;
+    padding-top: 6.25rem;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    min-height: 6.5rem;
+    text-shadow: 0 0 2px #000;
+    z-index: 1;
+    padding-left: 20px;
+    padding-right: 40px;
+
+}
+
+@media only screen and (max-width: 1200px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 4.3rem;    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 4.3rem;    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 3.0rem;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 2.8rem;
+        padding: 45px 20px 10px 20px;
+    }
+    .richiedi-preventivo button {
+        font-size: 10px;
+
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    #single-post-route-main-content .page-title h1 {
+        font-size: 2.5rem;
+        padding: 45px 20px 10px 20px;
+
+    }
+}
+
+
+/* SLIDER */
+
+.single-post-route-row  {
+    margin-left: 20px !important;
+    margin-right:20px !important;
+
+}
+
+p.sottotitolo-preventivo {
+    padding-left: 10px;
+    padding-bottom: 0;
+    color: rgb(15, 122, 104);
+    font-family:Lato, sans-serif;
+    font-size: 15px;
+    border-bottom: 1px solid rgb(15, 122, 104) ;
+    margin-right: 10px;
+
+}
+
+.top-gallery-single-post-route  {
+
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.top-gallery-single-post-route img {
+
+    border-radius: 10px;
+    box-shadow: 0 0 15px #000;
+}
+
+
+
+.scheda-preventivo {
+
+    height: auto;
+    background-color:white;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 15px;
+    margin-top: 40px;
+}
+
+div#tabs.ui-tabs.ui-corner-all.ui-widget.ui-widget-content {
+    padding:0;
+    border: 0;
+    margin: 0;
+}
+
+.ui-widget.ui-widget-content {
+    border: none;
+}
+
+ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
+    box-sizing: inherit;
+
+}
+
+.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+    border:none;
+    padding:0;
+}
+
+li.ui-state-default.ui-corner-top {
+    background: #FFF;
+    color: rgb(15, 122, 104) ;
+    font-family:Lato, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    display: inline-block;
+    line-height: 32px;
+    height: 48px;
+    padding:0;
+    margin: 0;
+}
+
+.ui-corner-all {
+    border: none;
+}
+
+p.main-content-preventivo {
+
+    padding: 10px;
+    font-family:"PT Sans", sans serif;
+    color: #444;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.button-preventivo button {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #7AB400;
+    border:none;
+    box-shadow: 3px 3px 5px #000 !important;
+    padding: 5px 25px 5px 25px;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    height: 36px;
+
+}
+
+.button-preventivo button:hover {
+
+    background-color: #0F7A68;
+    color: #FFF;
+}
+
+.button-preventivo {
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+/*Scheda commenti*/
+
+.scheda-commenti {
+    background-color: white;
+    border-top: solid 10px rgb(15, 122, 104);
+    padding: 20px;
+    margin-left: 30px;
+
+}
+
+button.button-esperienze {
+
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0F7A68;
+    border: 1px solid #0F7A68;
+    padding: 5px 25px 5px 25px;
+    margin-top: 40px;
+    height: 36px;
+}
+
+button.button-esperienze:hover {
+
+    background-color: #0F7A68;
+    color: #FFF;
+}
+
+/*ASIDE*/
+
+.box-preventivo-aside {
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 10px;
+    margin-right: 20px;
+    display: block;
+    padding-bottom: 20px;
+    font-family: "PT Sans", sans serif;
+
+
+}
+
+.richiedi-preventivo {
+    text-align:center;
+    display: block;
+    padding-left: 53px;
+    padding-right:43px;
+    margin-right: 10px;
+    border-top: 1px solid #0F7A68;
+    margin-top:10px;
+
+}
+
+.richiedi-preventivo button {
+    font-family: Lato, sans-serif;
+    font-size: 15px; font-weight: bold;
+    text-transform: uppercase;
+    color: #FFF;
+    background-color:#0F7A68;
+    padding: 5px 25px;
+    margin-top: 20px;
+    height: 36px;
+
+}
+
+.richiedi-preventivo button:hover {
+    color: #0F7A68;
+    background-color: #FFF;
+
+}
+
+h1.title-preventivo {
+
+    text-transform: uppercase;
+    font-weight:bold;
+    padding-left:10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+p.durata-preventivo{
+    font-size:13px;
+    padding-left: 10px;
+    color: black;
+    padding-bottom:0;
+}
+span.durata-content{
+    font-weight: bold;
+    font-size:13px;
+    color: black;
+}
+
+span.partenze_preventivo {
+    margin-left: 10px;
+    font-size:13px;
+    color: black;
+}
+
+p.vn-note {
+    padding-left: 10px;
+    padding-bottom: 15px;
+    font-size:13px;
+    color: black;
+    font-weight: bold;
+}
+
+span.content-partenze p{
+    margin-left: 10px;
+    font-size:13px;
+    color: black;
+    font-weight:bold;
+
+}
+
+
+.specifiche-viaggio {
+    padding: 10px;
+    box-sizing: inherit;
+    margin: 0 0 50px;
+    font-size: smaller;
+    font-family: Lato, sans-serif;
+    color: black;
+    text-align: center;
+
+
+}
+
+
+.prezzo {
+    text-align:right;
+    padding-right: 20px;
+    font-family: Lato, sans-serif;
+}
+
+.cifra {
+    font-weight: 400;
+    color: black;
+    font-size: 1.5rem;
+    font-family: Lato, sans-serif;
+}
+
+.map-material-placeholder img {
+
+    border-radius: 10px;
+}
+
+.map-material-placeholder {
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+}
+
+.interessi h1{
+    font-family: Lato, sans-serif;
+    color:#0F7A68;
+    font-weight: bold;
+    padding-left: 20px;
+
+
+}
+
+
+.interessi {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding-right: 20px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+
+}
+
+ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
+    border-bottom: 5px solid  #7AB400;
+
+}
+
+div#tabs-1, div#tabs-2, div#tabs-3, div#tabs-4, div#tabs-5 {
+    padding: 0 50px 50px 50px;
+    margin:0;
+}
+
+
+
+#tabs.ui-tabs.ui-corner-all.ui-widget.ui-widget-content ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
+    background: #fff;
+}
+
+
+#tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5   p{
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+
+}
+
+
+li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
+    border: none;
+    border-radius: 0;
+    margin:0;
+}
+
+#ui-id-1, #ui-id-2, #ui-id-3, #ui-id-4, #ui-id-5, #ui-id-6    {
+    color:#0F7A68;
+    font-family: Lato, sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    padding: 8px 1.4em 10px;
+}
+
+a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:hover  {
+    color: #7AB400;
+}
+
+
+.ui-state-active a:link, .ui-state-active a:visited {
+    background-color: #7AB400;
+    color: #fff;
+    width: 100%;
+}
+
+
+
+
+
+.nazione {
+    width: 25%;
+}
+
+span.vn_taxonomy_image_single_route.vn_where_image_single_route {
+    float:left;
+}
+
+.nazione img {
+    width: 2.8rem;
+    display: block;
+
+}
+
+.livello img {
+    display: block;
+    width: 2.8rem;
+}
+
+.livello {
+    display: block;
+    float: left;
+    margin-left: 5px;
+
+}

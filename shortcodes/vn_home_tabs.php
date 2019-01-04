@@ -18,22 +18,25 @@ jQuery( function($) {
 
 <div id="tabs" class="vn-tab-home">
   <ul class="tabs-home-tab">
-      <li><a href="#tabs-1" style="border-right: 1px solid #ccc;  background-color: #ca0a1d; color: white; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;"> IN BICICLETTA</a></li>
-      <li><a href="#tabs-2" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/bici-barca.png" class="bici-barca-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">IN BICI E BARCA</a></li>
-      <li><a href="#tabs-3" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/piedi.png" class="piedi-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">A PIEDI</a></li>
-      <li><a href="#tabs-4" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/famiglia.png" class="famiglia-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">IN FAMIGLIA</a></li>
-      <li><a href="#tabs-5" style="border-right: 1px solid #ccc;  font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/esplorazione.png" class="esplorazione-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">ESPLORAZIONE</a></li>
-      <li><a href="#tabs-6" style="font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/weekend.png" class="weekend-img" style="width: 2.3em;vertical-align: bottom; margin-right: 20px;">WEEKEND</a></li>
+      <li class="in-bici"><a href="#tabs-1" style="border-right: 1px solid #ccc;  background-color: white; color: #ca0a1d; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;"> IN BICICLETTA</a></li>
+      <li class="bici-barca"><a href="#tabs-2" style="border-right: 1px solid #ccc; background-color: white; color: #990066; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/bici-barca.png" class="bici-barca-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">IN BICI E BARCA</a></li>
+      <li class="a-piedi"><a href="#tabs-3" style="border-right: 1px solid #ccc; background-color: white; color: #ff9933; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/piedi.png" class="piedi-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">A PIEDI</a></li>
+      <li class="in-famiglia"><a href="#tabs-4" style="border-right: 1px solid #ccc;  background-color: white; color: #00cccc; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/famiglia.png" class="famiglia-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">IN FAMIGLIA</a></li>
+      <li class="esplo"><a href="#tabs-5" style="border-right: 1px solid #ccc; background-color: white; color: #b06131; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/esplorazione.png" class="esplorazione-img" style="width: 2.5em;vertical-align: bottom; margin-right: 20px;">ESPLORAZIONE</a></li>
+      <li class="wend"><a href="#tabs-6" style="background-color: white; color: #ffc400; font-weight: bold;"><img src="/wp-content/themes/wm-child-verdenatura/images/weekend.png" class="weekend-img" style="width: 2.3em;vertical-align: bottom; margin-right: 20px;">WEEKEND</a></li>
   </ul>
 
     <div id="tabs-1">
-        <p style="color: #666;"><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png" style="float: left; padding: 15px 10px 0 0;"> <h2>in bicicletta</h2>
+        <p style="color: #666; "><img src="/wp-content/themes/wm-child-verdenatura/images/bicicletta.png" style="float: left; padding: 15px 10px 0 0;"> <h2>in bicicletta</h2>
         Le vacanze in bicicletta in hotel, agriturismi ecc. su percorsi appositamente selezionati e testati lungo piste
         ciclabili o tranquille strade secondarie. Scegliete dove, quando e con chi, al resto penseremo noi. Prenoteremo
         gli hotel, vi metteremo a disposizione le bici adatte e i road book dettagliati e trasporteremo i vostri bagagli
         da un hotel all’altro in modo che voi possiate semplicemente godere della vostra vacanza. In base alle vostre
-        esigenze potete scegliere la formula di viaggio in gruppo con la guida o la formula viaggio individuale.
-        </p>
+        esigenze potete scegliere la formula di viaggio in gruppo con la guida o la formula viaggio individuale.        </p>
+
+        <?php
+        echo do_shortcode('[webmapp_anypost post_type="route" template="vnhome" posts_count=3 rows=1 posts_per_page=3 ]');
+        ?>
     </div>
 
     <div id="tabs-2">

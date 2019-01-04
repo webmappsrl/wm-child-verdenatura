@@ -67,6 +67,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                                 comments_template( '', true );
                             }
                             ?>
+
                             <br>
                             <hr>
                         </div> <!--chiudo .scheda-commenti -->
@@ -205,6 +206,10 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                             <h1>Può interessarti...</h1>
 
                             <div class="vn-post-interessi">
+                                <?php
+                                do_shortcode('[[webmapp_anypost post_type="route" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3]');
+                                ?>
+
 
                             </div><!-- chiudo .vn-post-interessi-->
                         </div>  <!--chiudo .interessi -->
@@ -218,8 +223,9 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
     </div> <!--chiudo #single-post-route-main-content -->
 </div> <!-- chiudo #content-area --->
 
-
 <?php
 
 
 get_footer();
+
+?>
