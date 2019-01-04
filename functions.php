@@ -226,6 +226,7 @@ function filtra_commento( $comment_text, $comment , $args )
             $gallery .= wp_get_attachment_image( $id, 'thumbnail');
             $gallery .= '</span>';
         }
+        $gallery = "</div>";
 
     }
 
