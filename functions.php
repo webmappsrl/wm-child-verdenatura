@@ -27,7 +27,7 @@ function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick-theme.css' );
 
     wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
-	//enqueue script for jquery ui tabs
+    //enqueue script for jquery ui tabs
 }
 
 /**
@@ -76,39 +76,39 @@ add_action( 'et_after_main_content', 'vn_add_ebook_form' );
 function vn_add_ebook_form()
 {
     ob_start (); ?>
-            <div class="vn-form-prefooter" style="background-color: #63BCF8;">
-            <form action="https://fexe.mailupclient.com/Frontend/subscribe.aspx">
+    <div class="vn-form-prefooter" style="background-color: #63BCF8;">
+        <form action="https://fexe.mailupclient.com/Frontend/subscribe.aspx">
             <input name="list" type="hidden" value="108" autocomplete="off">
             <input name="group" type="hidden" value="1348" autocomplete="off">
-                <header style="background-image:url(/wp-content/themes/wm-child-verdenatura/images/tree_spring.png); background-repeat: no-repeat;
+            <header style="background-image:url(/wp-content/themes/wm-child-verdenatura/images/tree_spring.png); background-repeat: no-repeat;
                 background-position: right top; position: relative; background-size: 50%; display:block; height: 9.375rem;">
                 <h3 class="title-vn-form-ebook center"  style="text-align: center; color: #FFF; padding: 70px 0px 0px 0px; font-size: 38px; 
                 font-family: PT Sans, sans-serif; font-weight: bold;">
-                <?php
-                echo __('Subscribe to our newsletter' ,'wm-child-verdenatura');
-                ?>
-                </h3></header>
-                <p class="txt-white p-vn-form-ebook pad-lr-ml container pad-tb-s center" style="color: #FFF; font-size: 16px; font-family: Lato, sans-serif; text-align: center; font-weight: bold; line-height: 1.4;
-   ">
                     <?php
-                    echo __('Subscribe to our newsletter to stay updated on new tours and all promotional offers. Verde Natura monthly newsletter also includes latest news from our blog, comments and tips.' ,'wm-child-verdenatura');
+                    echo __('Subscribe to our newsletter' ,'wm-child-verdenatura');
                     ?>
-                </p>
+                </h3></header>
+            <p class="txt-white p-vn-form-ebook pad-lr-ml container pad-tb-s center" style="color: #FFF; font-size: 16px; font-family: Lato, sans-serif; text-align: center; font-weight: bold; line-height: 1.4;
+   ">
+                <?php
+                echo __('Subscribe to our newsletter to stay updated on new tours and all promotional offers. Verde Natura monthly newsletter also includes latest news from our blog, comments and tips.' ,'wm-child-verdenatura');
+                ?>
+            </p>
             <fieldset class="pad-lr-ml container pad-tb-s">
                 <input data-cons-subject="first_name" type="text" name="campo1" value="" size="40" placeholder=<?php
                 echo __('First name' ,'wm-child-verdenatura'); ?>>
                 <input data-cons-subject="last_name" type="text" name="campo2" value="" size="40" placeholder=<?php
                 echo __('Last ame' ,'wm-child-verdenatura'); ?>>
                 <input data-cons-subject="email" type="email" name="email" value="" size="40" required="required" placeholder="Email"><br>
-                    <div class="block center clear mrg-b-m">
+                <div class="block center clear mrg-b-m">
                     <input data-cons-preference="general" type="checkbox" name="privacy" id="privacy1" required="required"><label for="privacy1" class="block center" style="line-height:1.2; text-align:left; color:#fff!important"><?php
-                            echo __('*I accept to receive promotionals e-mails as written in our' ,'wm-child-verdenatura'); ?> <a target="_blank" href="https://www.verde-natura.it/privacy/" class="txt-dark-green">Privacy</a>.</label>
-                    </div>
-             </fieldset>
-                <input data-iub-consent-form="" name="Submit" type="submit" value=<?php
-                echo __('Subscribe' ,'wm-child-verdenatura'); ?> class="btn btn-flat center-align">
-           </form>
-           </div> <!--chiudo .vn-form-prefooter-->
+                        echo __('*I accept to receive promotionals e-mails as written in our' ,'wm-child-verdenatura'); ?> <a target="_blank" href="https://www.verde-natura.it/privacy/" class="txt-dark-green">Privacy</a>.</label>
+                </div>
+            </fieldset>
+            <input data-iub-consent-form="" name="Submit" type="submit" value=<?php
+            echo __('Subscribe' ,'wm-child-verdenatura'); ?> class="btn btn-flat center-align">
+        </form>
+    </div> <!--chiudo .vn-form-prefooter-->
     <?php
     $html= ob_get_clean();
 
@@ -137,12 +137,12 @@ function vn_add_footer_image() {
 
 function vn_add_route_tabs () {
 
-ob_start();
-get_template_part('schede_single_route');
-$scheda = ob_get_clean();
+    ob_start();
+    get_template_part('schede_single_route');
+    $scheda = ob_get_clean();
 
 
-echo do_shortcode( $scheda );
+    echo do_shortcode( $scheda );
 
 }
 
@@ -205,9 +205,32 @@ function filtra_commento( $comment_text, $comment , $args )
     $date = get_field('wm_comment_journey_date', $comment);
     if ( $date )
     {
-        $date_html = "<div class='journey-comment'>" . __('Journey from' , 'wm_comment_journey_date' ) . " $date</div>";
+        $date_html = "<div class='wm-comment-date'>" . __('Journey from' , 'wm_comment_journey_date' ) . " $date</div>";
     }
-    return "$date_html<div class='my_comment_text'>$comment_text</div>";
+
+    $gallery = '';
+
+    $vn_gallery = get_field ('wm_comment_gallery' , $comment );
+    if ( is_array( $vn_gallery) && ! empty( $vn_gallery ) )
+    {
+        $vn_gallery_ids =  array_map(
+            function ($i) {
+                return $i ['ID'];
+            },
+            $vn_gallery );
+
+        $gallery = "<div class='wm-comment-images'>";
+        foreach ( $vn_gallery_ids  as $id)
+        {
+            $gallery .= '<span class="wm-comment-image">';
+            $gallery .= wp_get_attachment_image( $id, 'thumbnail');
+            $gallery .= '</span>';
+        }
+
+    }
+
+
+    return "$date_html<div class='wm-comment-text'>$comment_text</div>$gallery";
 }
 
 ?>
