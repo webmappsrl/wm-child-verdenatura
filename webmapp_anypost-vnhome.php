@@ -56,10 +56,11 @@ $current_post_type = get_post_type();
         $price = get_field( 'vn_prezzo' );
         if ( $price )
         {
+            $price = number_format( $price, 0, ',', '.');
             $sale_price_p = '';
             $sale_price = get_field( 'vn_prezzo_sc' );
             if ( $sale_price > 0 )
-                $sale_price_p = $sale_price . ' € ';
+                $sale_price_p = number_format( $sale_price, 0, ',', '.') . ' € ';
 
 
             echo "<p class='prezzo-tab' >" . __('Prices from' , 'wm-child-verdenatura') . " <span class='vn-sale-price cifra'>$sale_price_p</span><span class='cifra'>$price €</span></p>";
