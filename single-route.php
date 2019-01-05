@@ -8,6 +8,8 @@ $show_default_title = get_post_meta( get_the_ID(), '_et_pb_show_title', true );
 
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
+wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/single-route-style.css');
+
 
 ?>
 
@@ -60,6 +62,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                         <div class="scheda-commenti">
                             <h3>Racconti di viaggio</h3>
+                            <button class="button-esperienze">Raccontaci la tua esperienza</button>
                             <?php
 
                             if ( ( comments_open() || get_comments_number() ) && 'on' === et_get_option( 'divi_show_postcomments', 'on' ) )
@@ -145,7 +148,22 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                                 <div class="vn-target">
                                     <?php
-                                    the_term_image_with_name( $post_id , 'who' );
+                                    $vn_formula_fdn = get_field('wm_fdn');
+                                    if($vn_formula_fdn==true);
+                                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
+                                    if ($vn_formula_fdn==false);
+                                    echo '';
+
+
+                                    $vn_self_guided = get_field('wm_self_guided');
+                                    if($vn_self_guided==true);
+                                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
+                                    if($vn_self_guided==false);
+                                    echo '';
+
+                                    $vn_guided = get_field('wm_guided');
+                                    if($vn_sguided) true;
+                                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                     ?>
                                 </div> <!--.vn-target-->
 
@@ -206,7 +224,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                             <div class="vn-post-interessi">
                                 <?php
-                                do_shortcode('[[webmapp_anypost post_type="route" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3]');
+                                echo do_shortcode('[webmapp_anypost post_type="route" term_id="84" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3 ]');
                                 ?>
 
 

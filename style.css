@@ -21,44 +21,79 @@ img#logo {
 
     padding-bottom: 6px;
     height: auto;
+    width: 250px;
+
 }
 
 .logo_container {
     padding-left: 0;
     margin-left: 5px;
     margin-right: 38px;
-    right: 0;
-    left: 0;
     box-sizing: border-box;
-
+    display: block;
 }
+
+@media only screen and (max-width: 1024px) {
+    .logo_container  {
+        position: static;   }
+}
+
 
 
 .container.clearfix {
     padding-top: 0;
     bottom: 6px;
+
 }
 
 
 /* Main Menu */
 
 div#mega-menu-wrap-primary-menu {
-    bottom: 15px;
     font-family: Lato, sans-serif;
-    margin-right: 90px;
+}
+
+nav#top-menu-nav {
+    float:none;
+    margin-right: 75px;
 
 }
 
+@media only screen and (max-width: 1200px) {
+    nav#top-menu-nav  {
+        margin-right: 75px;
+        padding-right: 20px;
+    }
 
+  .logo_container {
+    display: block;
+    position: static;
+    width: 30%;
+    margin: auto;
+
+}
+
+    }
+
+
+@media only screen and (min-width: 993px) {
+    #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item.mega-item-align-float-left {
+        float:none;
+    }
+
+}
+
+div#et-top-navigation {
+    float:none;
+}
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-item > a.mega-menu-link {
     font-family: "PT Sans", sans-serif;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 
-
-    div#et_top_search {
+div#et_top_search {
         bottom: 3px;
         right: 113px;
         top: 0;
@@ -80,24 +115,10 @@ div#mega-menu-wrap-primary-menu {
     color: #333;
     font-weight: bold;
     font-family: "PT Sans", sans-serif;
-    font-size: 17px;
-    text-align: center;
+    font-size: 15px;
     padding-right: 45px;
 }
 
-
-@media only screen and (min-width: 601px) {
-    div#mega-menu-wrap-primary-menu {
-        height: 64px;
-        line-height: 64px;
-    }
-}
-
-@media only screen and (min-width: 0) {
-    div#mega-menu-wrap-primary-menu {
-        font-size: 14px;
-    }
-}
 
 /*Button hover pagine statiche*/
 
@@ -108,7 +129,7 @@ body #page-container .et_pb_button_0:hover {
 }
 
 
-    /* Search Bar */
+/* Search Bar */
 
 div#vn-search-map-2 > i.material-icons {
 
@@ -126,8 +147,11 @@ div#vn-search-map > i.material-icons {
     width: 40px;
     box-sizing: border-box;
     position: relative;
-    top: -16px;
-    right: 20px;
+    float: right;
+    right: -17px;
+    top: -44px;
+    left: 15px;
+
 }
 
 
@@ -138,18 +162,20 @@ form.et-search-form {
 }
 
 input.et-search-field {
-    right: 12px;
+    right: 123px;
     top: 16px;
     background-color: white;
     width: 210px;
     height: 37px;
     padding-left: 5px;
-    bottom: 5px;
+    bottom: 23px;
     border: 2px solid #7AB400;
 }
 
 span.et_close_search_field {
-    margin-right: 70px;
+    margin-right: 55px;
+    right: 36px;
+    bottom: 62px;
 }
 #et_search_icon:before {
     background-color: #7AB400;
@@ -160,8 +186,9 @@ span.et_close_search_field {
     width: 36px;
     height: 34px;
     position: absolute;
-    top: -16px;
-    left: 24px;
+    float: right;
+    left: 22px;
+    top: -47px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -180,14 +207,14 @@ span.et_close_search_field {
 
 li.text-secondary-menu {
 
-    padding-top: 15px;
+    padding-top: 10px;
     margin-left:60px;
 }
 
 div#top-header {
 
     background-color: #7AB400;
-    height: 50px;
+    height: 40px;
 }
 
 
@@ -250,7 +277,7 @@ ul#vn-top-menu {
 /* Aggiungo le icone al main-menu */
 
 
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-omino a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-omino a.mega-menu-link:before {
     content: '';
     width: 25px;
     height: 30px;
@@ -260,7 +287,7 @@ ul#vn-top-menu {
 
 }
 
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-bicicletta a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-bicicletta a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -270,7 +297,7 @@ ul#vn-top-menu {
     box-sizing: inherit;
 
 }
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-weekend a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-weekend a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -279,7 +306,7 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/weekend.png);
 }
 
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-famiglia a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-famiglia a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -290,7 +317,7 @@ ul#vn-top-menu {
 }
 
 
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-esplorazione a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-esplorazione a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -299,7 +326,7 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/esplorazione.png);
 
 }
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-bici-barca a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-bici-barca a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -308,7 +335,7 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/bici-barca.png);
 }
 
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-forbici a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-forbici a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -316,7 +343,7 @@ ul#vn-top-menu {
     background-size: cover;
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-forbici.png);
 }
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-individuale a.mega-menu-link:before {
+#mega-menu-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-individuale a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -324,7 +351,7 @@ ul#vn-top-menu {
     background-size: cover;
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png);
 }
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-guida a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-guida a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -333,7 +360,7 @@ ul#vn-top-menu {
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-guida.png);
 }
 
-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.vt_custom_menu_icon.logo-piedi a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-piedi a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
@@ -457,37 +484,44 @@ div#et_mobile_nav_menu {
     display: none;
 }
 
-/************** TAB IN HOME ********************/
+/************** SHORTCODE ANYPOST ********************/
 
-.webmapp_shortcode_any_post.post-type-route > div.webmapp_post-title h2 {
+ div.webmapp_post-title h2 {
     font-family: Lato, sans-serif;
     font-size: 23px;
     line-height: 26px;
     font-weight: bold;
-    background-color: #ca0a1d;
     color: white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 5px;
-
+     background-color: #7AB400;
 }
+
+
+
 
 .webmapp_post_meta {
     font-family: Lato, sans-serif;
-    font-size: 1rem;
-    line-height: 1.4;
     font-weight: 300;
-    padding-top: 20px;
-    color: rgba(0, 0, 0, 0.87);
-    border-bottom: #ca0a1d solid;
+    font-size: small;
+    line-height: 1.4;
+    padding: 20px 5px 5px 5px;
+    margin-bottom: 5px;
+    color: black;
+    border-bottom: #7AB400 solid;
 
+}
+
+.webmapp_posts_controller.webmapp-grid-system.webmapp-anypost-template-vnhome {
+    margin-bottom:10px;
 }
 
 p.prezzo-tab {
-    padding-top: 100px;
     text-align: right;
 }
+
 span.vn-sale-price.cifra {
     font-size: 1.5rem;
     text-decoration: line-through;
