@@ -149,21 +149,16 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                 <div class="vn-target">
                                     <?php
                                     $vn_formula_fdn = get_field('wm_fdn');
-                                    if($vn_formula_fdn==true);
-                                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
-                                    if ($vn_formula_fdn==false);
-                                    echo '';
-
+                                    if( $vn_formula_fdn );
+                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
 
                                     $vn_self_guided = get_field('wm_self_guided');
-                                    if($vn_self_guided==true);
-                                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
-                                    if($vn_self_guided==false);
-                                    echo '';
+                                    if( $vn_self_guided );
+                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
 
                                     $vn_guided = get_field('wm_guided');
-                                    if($vn_sguided) true;
-                                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
+                                    if( $vn_guided )
+                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                     ?>
                                 </div> <!--.vn-target-->
 
