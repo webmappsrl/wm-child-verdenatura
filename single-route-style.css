@@ -190,6 +190,10 @@ li.ui-state-default.ui-corner-top {
     border: none;
 }
 
+p.durata-preventivo-text {
+    margin-right: 43px;
+}
+
 p.main-content-preventivo {
 
     padding: 10px;
@@ -424,7 +428,6 @@ span.partenze_preventivo {
 
 p.vn-note {
     padding-left: 10px;
-    padding-bottom: 15px;
     font-size:13px;
     color: black;
     font-weight: bold;
@@ -441,13 +444,14 @@ span.content-partenze p{
 
 
 .specifiche-viaggio {
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     box-sizing: inherit;
     margin: 0 0 50px;
     font-size: smaller;
     font-family: "PT Sans", sans-serif;
     color: black;
     text-align: center;
+    display: flex;
 }
 
 
@@ -562,7 +566,7 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 }
 
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
-    width: 2.8rem;
+    width: 2.5rem;
     display:block;
     float: left;
     margin-left: 10px;
@@ -574,31 +578,39 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     float:left;
     display: inline-grid;
     padding-left: 5px;
-    padding-top: 15px;
     margin-bottom: 10px;
+    padding-top: 15px;
 
 
 }
 
 .nazione img {
-    width: 2.8rem;
+    width: 2.5rem;
     display: block;
 }
 
 .livello img {
     display: block;
-    width: 2.8rem;
+    width: 2.5rem;
 }
 
 .livello {
     display: block;
     float: left;
-    margin-left: 5px;
-    padding-top: 15px;
     margin-bottom: 10px;
+    padding-left: 5px;
+    padding-top: 15px;
+
+
+}
+
+.livello p {
+    padding-left: 3px;
 }
 
 .vn-target img {
     display: block;
-    width: 2.8rem;
+    width: 2.5rem;
+    padding-top: 15px;
+
 }

@@ -140,34 +140,32 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
                             <div class="specifiche-viaggio">
 
-                                <div class="nazione">
+                                <div class="nazione col-sm3">
                                     <?php
                                         the_term_image_with_name( $post_id , 'where' );
                                     ?>
                                 </div> <!--.nazione-->
 
-                                <div class="vn-target">
+                                <div class="vn-target col-sm3">
                                     <?php
                                     $vn_formula_fdn = get_field('wm_fdn');
-                                    if($vn_formula_fdn==true);
+                                    if($vn_formula_fdn==true)
                                     echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
-                                    if ($vn_formula_fdn==false);
-                                    echo '';
+
 
 
                                     $vn_self_guided = get_field('wm_self_guided');
-                                    if($vn_self_guided==true);
+                                    if($vn_self_guided==true)
                                     echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
-                                    if($vn_self_guided==false);
-                                    echo '';
+
 
                                     $vn_guided = get_field('wm_guided');
-                                    if($vn_sguided) true;
+                                    if($vn_sguided==true)
                                     echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                     ?>
                                 </div> <!--.vn-target-->
 
-                                <div class="livello">
+                                <div class="livello col-sm3">
                                 <?php
                                 $numero = get_field('vn_diff');
 
@@ -175,7 +173,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     <p>Livello</p>
                                 </div> <!--.livello-->
 
-                                <div class="attività-route">
+                                <div class="attività-route col-sm3">
                                     <?php
                                     the_term_image_with_name( $post_id , 'activity' );
                                     ?>

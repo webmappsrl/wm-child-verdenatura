@@ -178,6 +178,10 @@ function the_term_image_with_name( $post_id , $taxonomy )
     }
 }
 
+
+
+
+
 /**
  * Comments in single route
  */
