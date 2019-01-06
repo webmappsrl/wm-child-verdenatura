@@ -163,15 +163,26 @@ function the_term_image_with_name( $post_id , $taxonomy )
     {
         foreach ( $terms as $term )
         {
-            $image = get_field('wm_taxonomy_featured_icon' , $term );
-            if ( isset($image['url']) )
+            if ( $taxonomy == 'where' )
             {
                 echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
-                echo "<img src='".$image['url']."'>";
+                echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dest.png'>";
                 echo $term->name;
                 echo "</span>";
-
             }
+            else
+            {
+                $image = get_field('wm_taxonomy_featured_icon' , $term );
+                if ( isset($image['url']) )
+                {
+                    echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
+                    echo "<img src='".$image['url']."'>";
+                    echo $term->name;
+                    echo "</span>";
+
+                }
+            }
+
         }
     }
 }
