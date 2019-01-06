@@ -43,7 +43,7 @@ $current_post_type = get_post_type();
 
         $own_made = get_field( 'wm_fdn' );
         if ( $own_made )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' alt='Fatto da noi'>";
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' alt='Fatto da noi' id='fdn-card'>";
 
         $new = get_field( 'vn_new' );
         if( $new )

@@ -33,19 +33,6 @@ img#logo {
     display: block;
 }
 
-@media only screen and (max-width: 1200px) {
-   .logo_container {
-        position: static !important;
-        display:block !important;}
-}
-
-
-@media (min-width: 1024px) {
-    .logo_container {
-        display: block;
-        position: static;
-    }
-}
 
 
 .container.clearfix {
@@ -67,21 +54,7 @@ nav#top-menu-nav {
 
 }
 
-@media only screen and (max-width: 1200px) {
-    nav#top-menu-nav  {
-        margin-right: 75px;
-        padding-right: 20px;
-    }
 
-  .logo_container {
-    display: block;
-    position: static;
-    width: 30%;
-    margin: auto;
-
-}
-
-    }
 
 
 @media only screen and (min-width: 993px) {
@@ -470,6 +443,7 @@ a#ui-id-6 {
 }
 
 
+
 /* Colore dei link */
 
 #footer-widgets {
@@ -507,7 +481,10 @@ div#et_mobile_nav_menu {
      background-color: #7AB400;
 }
 
-
+.single-post-wm {
+    min-height: 23.5rem;
+    border-bottom: solid #7AB400;
+}
 
 
 .webmapp_post_meta {
@@ -518,8 +495,6 @@ div#et_mobile_nav_menu {
     padding: 20px 5px 5px 5px;
     margin-bottom: 5px;
     color: black;
-    border-bottom: #7AB400 solid;
-
 }
 
 .webmapp_posts_controller.webmapp-grid-system.webmapp-anypost-template-vnhome {
@@ -539,7 +514,7 @@ span.vn-sale-price.cifra {
 
 }
 
-img#card {
+img#card, img#fdn-card {
     position: absolute;
     width:20%;
 }

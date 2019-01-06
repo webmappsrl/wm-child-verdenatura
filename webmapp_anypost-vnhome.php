@@ -16,14 +16,14 @@ $current_post_type = get_post_type();
 <div class="col-sm-12 col-md-<?php echo $wm_anypost_bootstrap_col_type?> webmapp_shortcode_any_post post_type_<?php echo $wm_anypost_post_type?>">
 
 
-
+    <div class="single-post-wm">
     <div class="webmapp_post-featured-img">
         <?php
         echo "<a href='$title_link' title=\"".get_the_title()."\">";
 
         $own_made = get_field( 'wm_fdn' );
         if ( $own_made )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' alt='Fatto da noi'>";
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' id='fdn-card' alt='Fatto da noi'>";
 
         $new = get_field( 'vn_new' );
         if( $new )
@@ -70,6 +70,6 @@ $current_post_type = get_post_type();
         ?>
     </div>
 
-
+    </div>
 
 </div>
