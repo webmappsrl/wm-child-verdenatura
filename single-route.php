@@ -154,7 +154,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                         echo "<div class=\"vn-target vn-meta-align\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
                                         echo __('Made by us' , 'wm-child-verdenatura' );
-                                        echo "</div>";
+                                        echo "</div> <!--.vn-target-->";
                                     }
 
 
@@ -164,7 +164,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                         echo "<div class=\"vn-target vn-meta-align\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
                                         echo __('Self guided' , 'wm-child-verdenatura' );
-                                        echo "</div>";
+                                        echo "</div> <!--.vn-target-->";
                                     }
 
 
@@ -174,11 +174,11 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                         echo "<div class=\"vn-target vn-meta-align\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                         echo __('Guided' , 'wm-child-verdenatura' );
-                                        echo "</div>";
+                                        echo "</div> <!--.vn-target-->";
                                     }
 
                                     ?>
-                                </div> <!--.vn-target-->
+
 
 
                                 <?php
