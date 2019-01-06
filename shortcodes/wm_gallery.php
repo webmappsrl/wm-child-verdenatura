@@ -44,11 +44,12 @@ function wm_render_gallery ($atts ) {
                 fade: true,
                 asNavFor: '.slider-nav'
             })
+                /**
                 .on('setPosition', function (event, slick) {
                     slick.$slides.find('img').css('height', slick.$slideTrack.height() + 'px');
                     console.log (slick);
 
-                });
+                })**/;
             $('.slider-nav').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
