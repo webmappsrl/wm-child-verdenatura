@@ -27,7 +27,7 @@ function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick-theme.css' );
     wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
     wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/single-route-style.css');
-    //enqueue script for jquery ui tabs
+    //wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
 }
 
 /**
@@ -36,19 +36,12 @@ function Divi_parent_theme_enqueue_styles() {
 
 add_action( 'wp_head' , 'aggiungi_material_icons' );
 function aggiungi_material_icons(){
-    echo "<link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">";
+    echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
     //load jquery ui theme css
     echo '<link href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="stylesheet">';
-    echo '<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>';
+    echo '<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>';
 }
 
-/**
- * Load Bootstrap for wm-child-verdenatura
- */
-add_action( 'wp_head' , 'aggiungi_bootstrap' );
-function aggiungi_bootstrap(){
-    echo "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\">";
-}
 
 /**
  * Search bar e map search
