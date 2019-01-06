@@ -26,7 +26,7 @@ function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick.min.js', array ('jquery') );
     wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick-theme.css' );
     wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
-    wp_enqueue_style('route-single-post-style', get_template_directory_uri() . '/single-route-style.css');
+    wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/single-route-style.css');
     //enqueue script for jquery ui tabs
 }
 
@@ -166,11 +166,10 @@ function the_term_image_with_name( $post_id , $taxonomy )
         foreach ( $terms as $term )
         {
             $image = get_field('wm_taxonomy_featured_icon' , $term );
-
-            if ( $image )
+            if ( isset($image['url']) )
             {
                 echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
-                echo "<img src='$image'>";
+                echo "<img src='".$image['url']."'>";
                 echo $term->name;
                 echo "</span>";
 
@@ -178,6 +177,10 @@ function the_term_image_with_name( $post_id , $taxonomy )
         }
     }
 }
+
+
+
+
 
 /**
  * Comments in single route

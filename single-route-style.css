@@ -21,10 +21,15 @@ Text Domain: wm-child-verdenatura
 #single-post-route-main-content .page-title {
 
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 56px;
     background-color: rgba(0, 0, 0, 0.35);
 }
 
+@media only screen and (min-width: 576px) {
+    h1.txt-white {
+        font-size: 2.5rem;
+    }
+}
 
 
 .single-route-tree-spring {
@@ -62,18 +67,19 @@ Text Domain: wm-child-verdenatura
 
 @media only screen and (max-width: 1200px) {
     #single-post-route-main-content .page-title h1 {
-        font-size: 4.3rem;    }
+        font-size: 4.0rem;    }
 }
 
 @media only screen and (max-width: 1024px) {
     #single-post-route-main-content .page-title h1 {
-        font-size: 4.3rem;    }
+        font-size: 4.0rem;    }
 }
 
 
 @media only screen and (max-width: 992px) {
     #single-post-route-main-content .page-title h1 {
         font-size: 3.5rem;
+        padding-top: 80px;
     }
 }
 
@@ -86,19 +92,16 @@ Text Domain: wm-child-verdenatura
 
 @media only screen and (max-width: 576px) {
     #single-post-route-main-content .page-title h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
         padding: 45px 20px 10px 20px;
-    }
-    .richiedi-preventivo button {
-        font-size: 10px;
-
     }
 }
 
 
+
 @media only screen and (max-width: 425px) {
     #single-post-route-main-content .page-title h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
         padding: 45px 20px 10px 20px;
 
     }
@@ -127,7 +130,7 @@ p.sottotitolo-preventivo {
 .top-gallery-single-post-route  {
 
     padding-left: 30px;
-    padding-top: 20px;
+    padding-top: 24px;
 }
 
 .top-gallery-single-post-route img {
@@ -187,6 +190,10 @@ li.ui-state-default.ui-corner-top {
     border: none;
 }
 
+p.durata-preventivo-text {
+    margin-right: 43px;
+}
+
 p.main-content-preventivo {
 
     padding: 10px;
@@ -233,13 +240,95 @@ p.main-content-preventivo {
     border-top: solid 10px rgb(15, 122, 104);
     padding: 20px;
     margin-left: 30px;
+}
+
+h1#comments.page_title {
+    font-size: 14px;
+    font-family: Lato, sans-serif;
+    color: black;
+}
+
+div.journey-comment {
+    font-family: Lato, sans-serif;
+    color: black;
+    padding-bottom: 10px;
+    font-size: 15px;
+
+}
+
+h3#reply-title, .acf-field.acf-field-gallery.acf-field-wm-comment-gallery  {
+    font-family: "PT Sans", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+
+.acf-field .acf-label label {
+    text-transform: capitalize;
+}
+
+
+a.acf-button.button.button-primary.acf-gallery-add {
+    font-family: Lato, sans-serif;
+    font-size: large;
+    color: #7AB400;
+}
+
+div.my_comment_text {
+    font-family: Lato, sans-serif;
+    font-size: small;
+    color: black;
+    padding-left: 5px;
+    border-left: 4px solid rgb(15, 122, 104);
+    margin-left: 20px;
+    line-height: normal;
+}
+
+div.comment_postinfo > span.fn {
+    color: #0F7A68;
+    font-family: Lato, sans-serif;
+}
+
+div.comment_postinfo {
+    margin-bottom:0;
+}
+
+span.comment_date {
+    font-family: Lato, sans-serif;
+    color: black;
+    font-weight: 400;
+}
+
+a.comment-edit-link, p.logged-in-as a{
+    font-family: Lato, sans-serif;
+    color: #7AB400;
+}
+
+textarea#comment {
+    font-family: Lato, sans-serif;
+}
+
+
+
+a.comment-reply-link.et_pb_button, input#submit.et_pb_button {
+
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0F7A68;
+    border: 1px solid #0F7A68;
+    border-radius: 0;
+    padding: 5px 25px 5px 25px;
+    height: 36px;
 
 }
 
 button.button-esperienze {
 
     font-family: Lato, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     color: #0F7A68;
@@ -262,7 +351,7 @@ button.button-esperienze:hover {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 13px;
     padding-left: 10px;
     margin-right: 20px;
     display: block;
@@ -310,27 +399,35 @@ h1.title-preventivo {
     margin-bottom: 10px;
 }
 
-p.durata-preventivo{
+.durata-preventivo, span.webmapp_route_duration_notes{
     font-size:13px;
     padding-left: 10px;
     color: black;
     padding-bottom:0;
+    font-family: "PT Sans", sans-serif;
 }
-span.durata-content{
+.durata-preventivo-text p {
     font-weight: bold;
     font-size:13px;
     color: black;
+    font-family: "PT Sans", sans-serif;
+}
+
+p.webmapp_route_duration_days_nights {
+    font-size:small;
+    color: black;
+    font-family: "PT Sans", sans-serif;
 }
 
 span.partenze_preventivo {
     margin-left: 10px;
     font-size:13px;
     color: black;
+    font-family: "PT Sans", sans-serif;
 }
 
 p.vn-note {
     padding-left: 10px;
-    padding-bottom: 15px;
     font-size:13px;
     color: black;
     font-weight: bold;
@@ -341,34 +438,35 @@ span.content-partenze p{
     font-size:13px;
     color: black;
     font-weight:bold;
+    font-family: "PT Sans", sans-serif;
 
 }
 
 
 .specifiche-viaggio {
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     box-sizing: inherit;
     margin: 0 0 50px;
     font-size: smaller;
-    font-family: Lato, sans-serif;
+    font-family: "PT Sans", sans-serif;
     color: black;
     text-align: center;
-
-
+    display: flex;
 }
 
 
 .prezzo {
     text-align:right;
     padding-right: 20px;
-    font-family: Lato, sans-serif;
+    font-family: "PT Sans", sans-serif;
+    padding-top: 30px;
 }
 
 .cifra {
     font-weight: 400;
     color: black;
     font-size: 1.5rem;
-    font-family: Lato, sans-serif;
+    font-family: "PT Sans", sans-serif;
 }
 
 .map-material-placeholder img {
@@ -395,13 +493,16 @@ span.content-partenze p{
 
 .interessi {
     background-color: rgba(255, 255, 255, 0.8);
-    padding-right: 20px;
     border-radius: 10px;
     padding-bottom: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
     padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 
 }
+
+/*Tabella route*/
 
 ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
     border-bottom: 5px solid  #7AB400;
@@ -437,7 +538,6 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
     color:#0F7A68;
     font-family: Lato, sans-serif;
     font-size: 13px;
-    font-weight: 200;
     padding: 8px 1.4em 10px;
 }
 
@@ -452,32 +552,65 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
     width: 100%;
 }
 
+@media only screen and (max-width: 992px) {
+    .scheda-preventivo  #tabs  {
+        display: block;
+    }
+}
 
 
-
+/*Specifiche route*/
 
 .nazione {
     width: 25%;
 }
 
-span.vn_taxonomy_image_single_route.vn_where_image_single_route {
+span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
+    width: 2.5rem;
+    display:block;
+    float: left;
+    margin-left: 10px;
+
+}
+
+
+span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     float:left;
+    display: inline-grid;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+
+
 }
 
 .nazione img {
-    width: 2.8rem;
+    width: 2.5rem;
     display: block;
-
 }
 
 .livello img {
     display: block;
-    width: 2.8rem;
+    width: 2.5rem;
 }
 
 .livello {
     display: block;
     float: left;
-    margin-left: 5px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-top: 15px;
+
+
+}
+
+.livello p {
+    padding-left: 3px;
+}
+
+.vn-target img {
+    display: block;
+    width: 2.5rem;
+    padding-top: 15px;
 
 }

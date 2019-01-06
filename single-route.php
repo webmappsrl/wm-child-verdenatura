@@ -8,6 +8,8 @@ $show_default_title = get_post_meta( get_the_ID(), '_et_pb_show_title', true );
 
 $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
+wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/single-route-style.css');
+
 
 ?>
 
@@ -60,6 +62,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                         <div class="scheda-commenti">
                             <h3>Racconti di viaggio</h3>
+                            <button class="button-esperienze">Raccontaci la tua esperienza</button>
                             <?php
 
                             if ( ( comments_open() || get_comments_number() ) && 'on' === et_get_option( 'divi_show_postcomments', 'on' ) )
@@ -98,22 +101,21 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
                             ?>
                             </p>
 
-                            <p class="durata-preventivo">Durata:
-                            <span class="durata-content">
+                            <div class="durata-preventivo">
                                 <?php
-                                $vn_durata = get_field('vn_durata');
-                                if ($vn_durata)
-                                    echo $vn_durata;
-                                ?> giorni </span>
-                            (
-
-                                <?php
-                                $vn_note_dur = get_field('vn_note_dur');
-                                if ( $vn_note_dur)
-                                    echo $vn_note_dur;
+                                $days = get_field('vn_durata');
+                                if ( $days )
+                                {
+                                    $nights = $days - 1;
+                                    echo "<p class='durata-preventivo-text'>";
+                                    echo __( 'Duration' , 'wm-child-verdenatura' ) . ": $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                                    $vn_note_dur = get_field( 'vn_note_dur' );
+                                    if ( $vn_note_dur )
+                                        echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
+                                    echo "</p>";
+                                }
                                 ?>
-
-                                )</p>
+                            </div>
                             <br>
 
 
@@ -146,7 +148,17 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                                 <div class="vn-target">
                                     <?php
-                                    the_term_image_with_name( $post_id , 'who' );
+                                    $vn_formula_fdn = get_field('wm_fdn');
+                                    if( $vn_formula_fdn )
+                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
+
+                                    $vn_self_guided = get_field('wm_self_guided');
+                                    if( $vn_self_guided )
+                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
+
+                                    $vn_guided = get_field('wm_guided');
+                                    if( $vn_guided )
+                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                     ?>
                                 </div> <!--.vn-target-->
 
@@ -207,7 +219,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
                             <div class="vn-post-interessi">
                                 <?php
-                                do_shortcode('[[webmapp_anypost post_type="route" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3]');
+                                echo do_shortcode('[webmapp_anypost post_type="route" term_id="84" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3 ]');
                                 ?>
 
 
