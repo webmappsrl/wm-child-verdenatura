@@ -154,7 +154,8 @@ function the_calcola_url( $num )
 {
 
     $numero_arrotondato = floor( $num );
-    echo "/wp-content/themes/wm-child-verdenatura/images/diff-" . $numero_arrotondato . ".png";
+    if ( $numero_arrotondato != 0 )
+        echo "/wp-content/themes/wm-child-verdenatura/images/diff-" . $numero_arrotondato . ".png";
 }
 
 
