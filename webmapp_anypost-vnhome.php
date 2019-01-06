@@ -23,11 +23,11 @@ $current_post_type = get_post_type();
 
         $own_made = get_field( 'wm_fdn' );
         if ( $own_made )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' id='fdn-card' alt='Fatto da noi'>";
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' class='fdn-card' alt='Fatto da noi'>";
 
         $new = get_field( 'vn_new' );
         if( $new )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' id='card' alt='Novità'>";
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
 
 
         ?>
