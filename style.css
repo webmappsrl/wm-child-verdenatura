@@ -365,7 +365,7 @@ ul#vn-top-menu {
     background-size: cover;
     background-image: url(/wp-content/themes/wm-child-verdenatura/images/logo-forbici.png);
 }
-#mega-menu-#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-individuale a.mega-menu-link:before {
+#mega-menu-wrap-primary-menu #mega-menu-primary-menu li.mega-menu-item.logo-individuale a.mega-menu-link:before {
     content: '';
     width: 30px;
     height: 30px;
