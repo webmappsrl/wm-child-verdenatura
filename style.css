@@ -52,11 +52,21 @@ img#logo {
     nav#top-menu-nav {
         display:block;
     }
-#et-top-navigation {
+   #et-top-navigation {
     padding-left: 0 !important;
     width: 100%;
 }
 
+}
+
+@media only screen and (max-width: 768px) {
+    #top-menu-nav {
+        width: 100%;
+    }
+    #et-top-navigation {
+        padding-left: 0 !important;
+        width: 100%;
+    }
 }
 
 
