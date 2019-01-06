@@ -8,11 +8,6 @@ function vn_render_home_tabs_shortcode( $atts ) {
     ob_start();
     ?>
 
-<script>
-jQuery( function($) {
-    $( "#tabs" ).tabs();
-  } );
-  </script>
 
 
 
@@ -84,6 +79,16 @@ jQuery( function($) {
         </p>
 
     </div>
+
+    <script>
+        ( function($) {
+            $( "#tabs" ).tabs();
+        } )(jQuery);
+
+        jQuery(function(){
+            window.et_pb_smooth_scroll = () => {};
+        });
+    </script>
 
 
     <?php

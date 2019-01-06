@@ -75,7 +75,11 @@ ob_start();
     <script>
         ( function($) {
             $( "#tabs" ).tabs();
-        } ) (jQuery);
+        } )(jQuery);
+
+        jQuery(function(){
+            window.et_pb_smooth_scroll = () => {};
+        });
     </script>
 
 
