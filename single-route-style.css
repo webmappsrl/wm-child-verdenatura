@@ -44,6 +44,10 @@ Text Domain: wm-child-verdenatura
 
 .page-title {
     position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+
 
 }
 
@@ -129,8 +133,7 @@ p.sottotitolo-preventivo {
 
 .top-gallery-single-post-route  {
 
-    padding-left: 30px;
-    padding-top: 24px;
+    padding-left: 17px;
 }
 
 .top-gallery-single-post-route img {
@@ -233,13 +236,18 @@ p.main-content-preventivo {
     margin-bottom: 10px;
 }
 
+img#fdn-card {
+    position: absolute;
+    width: 16%;
+}
+
 /*Scheda commenti*/
 
 .scheda-commenti {
     background-color: white;
     border-top: solid 10px rgb(15, 122, 104);
     padding: 20px;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 h1#comments.page_title {
@@ -350,16 +358,21 @@ button.button-esperienze:hover {
 
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    margin-top: 20px;
     padding-top: 13px;
     padding-left: 10px;
-    margin-right: 20px;
+    margin-top: 10px;
     display: block;
     padding-bottom: 20px;
     font-family: "PT Sans", sans serif;
-
-
 }
+
+@media (min-width: 1024px) {
+    .col-sm-12.col-md-4 {s
+        bottom: 30px;
+    }
+}
+
+
 
 .richiedi-preventivo {
     text-align:center;
@@ -451,7 +464,6 @@ span.content-partenze p{
     font-family: "PT Sans", sans-serif;
     color: black;
     text-align: center;
-    display: flex;
 }
 
 
@@ -478,6 +490,8 @@ span.content-partenze p{
     padding-right: 20px;
     padding-top: 20px;
     padding-bottom: 10px;
+    text-align: center;
+
 
 }
 
@@ -562,7 +576,12 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 /*Specifiche route*/
 
 .nazione {
-    width: 25%;
+    float: left;
+    display: inline-grid;
+    padding-left: 5px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-right: 5px;
 }
 
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
@@ -580,6 +599,7 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     padding-left: 5px;
     margin-bottom: 10px;
     padding-top: 15px;
+    padding-right:2px;
 
 
 }
@@ -595,13 +615,11 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 }
 
 .livello {
-    display: block;
     float: left;
-    margin-bottom: 10px;
+    display: inline-grid;
     padding-left: 5px;
+    margin-bottom: 10px;
     padding-top: 15px;
-
-
 }
 
 .livello p {
