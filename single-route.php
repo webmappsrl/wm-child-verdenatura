@@ -146,29 +146,35 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     ?>
                                 </div> <!--.nazione-->
 
-                                <div class="vn-target">
+
                                     <?php
                                     $vn_formula_fdn = get_field('wm_fdn');
                                     if( $vn_formula_fdn )
                                     {
+                                        echo "<div class=\"vn-target vn-meta-align\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
                                         echo __('Made by us' , 'wm-child-verdenatura' );
+                                        echo "</div>";
                                     }
 
 
                                     $vn_self_guided = get_field('wm_self_guided');
                                     if( $vn_self_guided )
                                     {
+                                        echo "<div class=\"vn-target vn-meta-align\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
                                         echo __('Self guided' , 'wm-child-verdenatura' );
+                                        echo "</div>";
                                     }
 
 
                                     $vn_guided = get_field('wm_guided');
                                     if( $vn_guided )
                                     {
+                                        echo "<div class=\"vn-target vn-meta-align\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                         echo __('Guided' , 'wm-child-verdenatura' );
+                                        echo "</div>";
                                     }
 
                                     ?>
@@ -180,7 +186,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                 if ( $numero )
                                 {
                                     ?>
-                                <div class="livello">
+                                <div class="livello vn-meta-align">
                                     <img src="<?php the_calcola_url( $numero ) ?>">
                                     <p>Livello</p>
                                 </div> <!--.livello-->
@@ -189,19 +195,19 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
                                 ?>
 
-                                <div class="attività-route">
+                                <div class="attività-route vn-meta-align">
                                     <?php
                                     the_term_image_with_name( $post_id , 'activity' );
                                     ?>
                                 </div>
                             </div> <!--- .specifiche-viaggio -->
 
-                            <div class="prezzo">
+                            <div class="prezzo vn-meta-align">
                                 <?php
                                 echo __('From', 'wm-child-verdenatura');
                                 ?>
 
-                                <span class="cifra"><?php
+                                <span class="cifra vn-meta-align"><?php
                                 $vn_prezzo = get_field('vn_prezzo');
                                 if ($vn_prezzo)
                                 echo $vn_prezzo;
