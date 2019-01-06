@@ -43,8 +43,8 @@ img#logo {
 }
 
 
-@media only screen and (min-width: 1200px) {
-   .logo_container {
+@media only screen and (max-width: 1150px) and (min-width: 768px){
+    .et_header_style_left .logo_container {
        display: block;
     position: static;
        text-align: center;
@@ -52,7 +52,10 @@ img#logo {
     nav#top-menu-nav {
         display:block;
     }
-
+#et-top-navigation {
+    padding-left: 0 !important;
+    width: 100%;
+}
 
 }
 
@@ -67,7 +70,6 @@ div#mega-menu-wrap-primary-menu {
 nav#top-menu-nav {
     float:none;
     margin-right: 75px;
-
 }
 
 
@@ -198,7 +200,6 @@ span.et_close_search_field {
     }
     div#mega-menu-wrap-primary-menu {
         margin-right: 0;
-        width:183%;
     }
 
 }
@@ -546,7 +547,6 @@ div.webmapp_post-title h2 :hover {
 }
 
 .single-post-wm {
-    height: 23.5rem;
     border-bottom: solid #7AB400;
 }
 
@@ -559,7 +559,9 @@ div.webmapp_post-title h2 :hover {
     padding: 20px 5px 5px 5px;
     margin-bottom: 5px;
     color: black;
-    position:relative
+    position:relative;
+    height: 11.5rem;
+
 
 }
 
@@ -568,10 +570,9 @@ div.webmapp_post-title h2 :hover {
 }
 
 p.prezzo-tab {
-    text-align: right;
     position: absolute;
     bottom: 0;
-    left:0;
+    right: 0;
 }
 
 span.vn-sale-price.cifra {
@@ -586,4 +587,8 @@ span.vn-sale-price.cifra {
 img.card, img.fdn-card {
     position: absolute;
     width:20%;
+}
+
+.card:nth-child(2) {
+    left:25%;
 }
