@@ -150,15 +150,27 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     <?php
                                     $vn_formula_fdn = get_field('wm_fdn');
                                     if( $vn_formula_fdn )
+                                    {
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
+                                        echo __('Made by us' , 'wm-child-verdenatura' );
+                                    }
+
 
                                     $vn_self_guided = get_field('wm_self_guided');
                                     if( $vn_self_guided )
+                                    {
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
+                                        echo __('Self guided' , 'wm-child-verdenatura' );
+                                    }
+
 
                                     $vn_guided = get_field('wm_guided');
                                     if( $vn_guided )
+                                    {
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
+                                        echo __('Guided' , 'wm-child-verdenatura' );
+                                    }
+
                                     ?>
                                 </div> <!--.vn-target-->
 
