@@ -75,13 +75,20 @@ $current_post_type = get_post_type();
             ?>
         </div> <!--.vn-target-->
 
-        <div class="livello">
+
             <?php
             $numero = get_field('vn_diff');
 
-            ?>   <img src="<?php the_calcola_url( $numero ) ?>">
+            if ( $numero )
+            {
+                ?>
+        <div class="livello">
+            <img src="<?php the_calcola_url( $numero ) ?>">
             <p>Livello</p>
         </div> <!--.livello-->
+            <?php
+            }
+            ?>
 
         <div class="attività-route">
             <?php
