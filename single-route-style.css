@@ -461,7 +461,14 @@ span.content-partenze p{
     font-size: smaller;
     font-family: "PT Sans", sans-serif;
     color: black;
+    display: flex;
     text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+
+
 }
 
 
@@ -574,31 +581,27 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 /*Specifiche route*/
 
 .nazione {
-    float: left;
     display: inline-grid;
     padding-left: 5px;
     margin-bottom: 10px;
-    padding-top: 15px;
-    padding-right: 5px;
+    padding-right: 10px;
+
 }
 
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
     width: 2.5rem;
     display:block;
-    float: left;
     margin-left: 10px;
 
 }
 
 
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
-    float:left;
     display: inline-grid;
     padding-left: 5px;
     margin-bottom: 10px;
-    padding-top: 15px;
-    padding-right:2px;
-
+    text-align: center;
+    padding-right: 10px;
 
 }
 
@@ -613,11 +616,11 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 }
 
 .livello {
-    float: left;
     display: inline-grid;
     padding-left: 5px;
     margin-bottom: 10px;
-    padding-top: 15px;
+    padding-right: 10px;
+
 }
 
 .livello p {
@@ -626,8 +629,15 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 
 .vn-target img {
     display: block;
-    width: 2.5rem;
-    padding-top: 15px;
+    width: 1.90rem;
     text-align:center;
+}
+.vn-target {
+    padding-right: 10px;
+}
+
+.vn-meta-align {
+    text-align: -webkit-center;
+    display: inline-table;
 
 }
