@@ -95,18 +95,16 @@ function vn_add_ebook_form()
                     ?>
                 </p>
             <fieldset class="pad-lr-ml container pad-tb-s">
-                <input data-cons-subject="first_name" type="text" name="campo1" value="" size="40" placeholder=<?php
-                echo __('First name' ,'wm-child-verdenatura'); ?>>
-                <input data-cons-subject="last_name" type="text" name="campo2" value="" size="40" placeholder=<?php
-                echo __('Last ame' ,'wm-child-verdenatura'); ?>>
+                <input data-cons-subject="first_name" type="text" name="campo1" value="" size="40" placeholder="<?php echo __('First name' ,'wm-child-verdenatura'); ?>">
+                <input data-cons-subject="last_name" type="text" name="campo2" value="" size="40" placeholder="<?php echo __('Last name' ,'wm-child-verdenatura'); ?>">
                 <input data-cons-subject="email" type="email" name="email" value="" size="40" required="required" placeholder="Email"><br>
                     <div class="block center clear mrg-b-m">
                     <input data-cons-preference="general" type="checkbox" name="privacy" id="privacy1" required="required"><label for="privacy1" class="block center" style="line-height:1.2; text-align:left; color:#fff!important"><?php
                             echo __('*I accept to receive promotionals e-mails as written in our' ,'wm-child-verdenatura'); ?> <a target="_blank" href="https://www.verde-natura.it/privacy/" class="txt-dark-green">Privacy</a>.</label>
                     </div>
              </fieldset>
-                <input data-iub-consent-form="" name="Submit" type="submit" value=<?php
-                echo __('Subscribe' ,'wm-child-verdenatura'); ?> class="btn btn-flat center-align">
+                <input data-iub-consent-form="" name="Submit" type="submit" value="<?php
+                echo __('Subscribe' ,'wm-child-verdenatura'); ?>" class="btn btn-flat center-align">
            </form>
            </div> <!--chiudo .vn-form-prefooter-->
     <?php
@@ -154,7 +152,8 @@ function the_calcola_url( $num )
 {
 
     $numero_arrotondato = floor( $num );
-    echo "/wp-content/themes/wm-child-verdenatura/images/diff-" . $numero_arrotondato . ".png";
+    if ( $numero_arrotondato != 0 )
+        echo "/wp-content/themes/wm-child-verdenatura/images/diff-" . $numero_arrotondato . ".png";
 }
 
 
