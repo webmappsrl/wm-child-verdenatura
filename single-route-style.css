@@ -423,6 +423,14 @@ h1.title-preventivo {
     font-family: "PT Sans", sans-serif;
 }
 
+p.durata-txt {
+         font-family: "PT Sans", sans-serif;
+    color: black;
+    font-size: small;
+    padding-left: 10px;
+    padding-bottom: 0;
+}
+
 p.webmapp_route_duration_days_nights {
     font-size:small;
     color: black;
@@ -467,7 +475,6 @@ span.content-partenze p{
     margin-right: 20px;
     margin-top: 10px;
     padding-top: 10px;
-
 
 }
 
@@ -591,17 +598,15 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
     width: 2.5rem;
     display:block;
-    margin-left: 10px;
-
 }
 
 
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
-    display: inline-grid;
-    padding-left: 5px;
+    padding-left: 10px;
     margin-bottom: 10px;
-    text-align: center;
     padding-right: 10px;
+    display: block;
+
 
 }
 
@@ -617,9 +622,10 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 
 .livello {
     display: inline-grid;
-    padding-left: 5px;
     margin-bottom: 10px;
     padding-right: 10px;
+    padding-left: 10px;
+
 
 }
 
@@ -629,11 +635,12 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 
 .vn-target img {
     display: block;
-    width: 1.90rem;
+    width: 1.98rem;
     text-align:center;
 }
 .vn-target {
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .vn-meta-align {
