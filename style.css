@@ -219,7 +219,7 @@ et_pb_contactform_validate_field.et_contact_bottom_container {
     text-align: center;
 }
 
-div.et_pb_contact_form_0.et_pb_contact_form_container {
+div#et_pb_contact_form_0 {
     height: 340px;
 }
 
