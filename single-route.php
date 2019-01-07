@@ -83,8 +83,8 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                     <div class="col-sm-12 col-md-4">
                         <div class="box-preventivo-aside">
                             <h1 class="title-preventivo" style="color: #0f7a68;"><?php the_title();?></h1>
-                            <p class="sottotitolo-preventivo">Codice viaggio:
-                            <?php
+                            <p class="sottotitolo-preventivo"><?php
+                                echo __('Reference code: ' ,'wm-child-verdenatura');
                                 $n7webmapp_route_cod=get_field('n7webmapp_route_cod');
                                 If ($n7webmapp_route_cod)
                                 echo ($n7webmapp_route_cod);
@@ -118,13 +118,15 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                             </div>
                             <br>
 
-
-                            <span class="partenze_preventivo">Partenze:
+                            <?php
+                            echo "<p class='durata-txt'>";
+                            echo __('Departures: ' ,'wm-child-verdenatura');?>
                                 <span class="content-partenze">
                                 <?php
                                 $vn_part_sum = get_field('vn_part_sum');
                                 if ($vn_part_sum)
                                     echo $vn_part_sum;
+                                echo "</p>"
 
                                 ?>
                                 </span>
