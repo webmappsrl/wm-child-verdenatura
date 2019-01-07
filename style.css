@@ -169,7 +169,7 @@ form.et-search-form {
 }
 
 input.et-search-field {
-    right: 123px;
+    right: 60px;
     top: 16px;
     background-color: white;
     width: 210px;
@@ -214,13 +214,13 @@ span.et_close_search_field {
 
 }
 
-.et_contact_bottom_container {
-    float:none;
+et_pb_contactform_validate_field.et_contact_bottom_container {
+    float: none;
     text-align: center;
 }
 
 div#et_pb_contact_form_0 {
-    height: 280px;
+    height: 340px;
 }
 
 .et_pb_module.et_pb_code.et_pb_code_1 {
