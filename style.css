@@ -214,9 +214,9 @@ span.et_close_search_field {
 
 }
 
-et_pb_contactform_validate_field.et_contact_bottom_container {
-    float: none;
-    text-align: center;
+.et_contact_bottom_container {
+    float: none !important;
+    text-align: center !important;
 }
 
 div#et_pb_contact_form_0 {
