@@ -110,6 +110,9 @@ Text Domain: wm-child-verdenatura
     }
 }
 
+.col-sm-12.col-md-4 {
+    bottom: 23px;
+}
 
 /* SLIDER */
 
@@ -154,19 +157,21 @@ p.sottotitolo-preventivo {
 
 }
 
-/* the slides */
-.slick-slide {
-    margin: 0 1px;
-}
-/* the parent */
-.slick-list {
-    margin: 0 -1px;
-}
+
 
 .slick-list.draggable {
     padding: 0 !important;
 }
 
+.slider-nav.slick-initialized.slick-slider {
+    padding-top: 10px;
+}
+
+.top-gallery-single-post-route .slider-nav.slick-initialized.slick-slider img {
+    border-radius: 0;
+    box-shadow: none;
+
+}
 .scheda-preventivo {
 
     height: auto;
@@ -585,6 +590,9 @@ div#tabs-1, div#tabs-2, div#tabs-3, div#tabs-4, div#tabs-5 {
 
 }
 
+.vn-tab-route div#tabs-4 {
+    padding-top: 40px;
+}
 
 li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
     border: none;
@@ -637,7 +645,7 @@ font-weight: bold;
 }
 
 
-.vn-tab-route .durata-preventivo {
+p.part-e-pre {
     border-bottom: solid 2px #7AB400;
 }
 
@@ -663,10 +671,14 @@ font-weight: bold;
 
 span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     padding-left: 10px;
-    margin-bottom: 10px;
     padding-right: 10px;
     display: block;
-    font-size: smaller;
+    font-size: 0;
+    padding-top: 2px;
+    line-height: 6px;
+    padding-left: 20px;
+
+
 
 
 }
@@ -691,9 +703,73 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 .livello {
     margin-bottom: 10px;
     padding-left: 10px;
+}
 
+
+p.webmapp_anypost_show_all {
+  display:none;
+}
+
+.webmapp-anypost-template-vn_route_sb div.webmapp_post-title h2 {
+    padding: 20px 20px 5px 20px;
+    font-family:"PT Sans", sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight:700;
+    text-align: left;
+    display: block;
+    line-height: 0.9;
+    color: #444;
+    letter-spacing: -1px;
+}
+
+
+
+.webmapp-anypost-template-vn_route_sb .livello p {
+    text-align: -webkit-center;
+}
+
+.webmapp-anypost-template-vn_route_sb span.webmapp_route_duration_notes {
+    padding-left: 5px;
+}
+
+.webmapp-anypost-template-vn_route_sb .webmapp_route_duration {
+    padding-left:20px;
+    font-size: smaller;
+    color: black;
+    padding-bottom: 5px;
+}
+.webmapp-anypost-template-vn_route_sb .nazione  {
+    padding-left: 30px;
 
 }
+.webmapp-anypost-template-vn_route_sb span.dur-txt {
+    font-weight: bold;
+}
+
+.webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
+    text-align: -webkit-center;
+    padding-top:0;
+    padding-left:10px;
+}
+
+.webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_where_image_single_route, .webmapp-anypost-template-vn_route_sb .livello p {
+    text-align: -webkit-center;
+}
+
+.webmapp-anypost-template-vn_route_sb .vn-target {
+    padding: 0;
+}
+
+.webmapp-anypost-template-vn_route_sb .webmapp_post_meta {
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 0;
+    border-bottom: solid 1px #0F7A68;;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 
 .livello p {
     padding-left: 3px;
@@ -713,5 +789,4 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 .vn-meta-align {
     text-align: -webkit-center;
     display: inline-table;
-
 }

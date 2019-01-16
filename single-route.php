@@ -158,9 +158,17 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                             <div class="specifiche-viaggio">
 
                                 <div class="nazione">
+
+
                                     <?php
-                                        the_term_image_with_name( $post_id , 'where' );
+                                     the_term_image_with_name( $post_id , 'where' ) ;
                                     ?>
+                                    <?php
+
+                                    ?>
+
+
+
                                 </div> <!--.nazione-->
 
 

@@ -89,6 +89,7 @@
                         <?php
 
                             $facets = array(
+                                    'formula',
                                     'targets',
                                     'tipologia',
                                     'places_to_go',

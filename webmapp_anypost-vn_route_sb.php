@@ -57,7 +57,11 @@ $current_post_type = get_post_type();
 
         ?>
 
-        <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbanil; ?>')">
+        <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbnail = "http://vn.be.webmapp.it/wp-content/uploads/2018/11/GW101-salento-2-web-1.jpg";
+        if(has_post_thumbnail()) {
+            $get_the_post_thumbnail = get_the_post_thumbnail_url(get_the_ID() ,'full');
+        }
+        ; ?>')">
         </figure>
 
 
@@ -70,7 +74,7 @@ $current_post_type = get_post_type();
 
         <div class="nazione">
             <?php
-            the_term_image_with_name( $post_id , 'where' );
+           the_term_image_with_name( $post_id , 'where' );
             ?>
         </div> <!--.nazione-->
 

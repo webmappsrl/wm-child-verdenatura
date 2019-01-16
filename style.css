@@ -102,7 +102,7 @@ div#et_top_search {
         bottom: 3px;
         right: 113px;
         top: 0;
-    }
+}
 
 
 #mega-menu-wrap-primary-menu #mega-menu-primary-menu > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item > a.mega-menu-link
@@ -231,12 +231,12 @@ div#et_pb_contact_form_0 {
 }
 
 .et_pb_module.et_pb_code.et_pb_code_1 {
-    height: 497px;
+    height: 480px;
     overflow-y: scroll;
 }
 
 .et_pb_module.et_pb_text.et_pb_text_4.et_pb_bg_layout_dark.et_pb_text_align_left {
-    height: 497px;
+    height: 480px;
     margin-bottom:0;
 }
 
@@ -660,8 +660,31 @@ a#ui-id-6 {
 }
 
 
+.“my-col-sx” {
+    width: 34%;
+    float: left;
+}
 
+.“my-col-dx” {
+    width: 63%;
+    float: right;
 
+}
+
+.“my-col-dx” h3 {
+    font-family: Lato, sans-serif;
+    font-size: 17px;
+    line-height: 19px;
+    text-align: left;
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+
+.“my-col-dx”  p{
+    font-family: Lato, sans-serif;
+    text-align: left;
+    padding-bottom: 9px;
+}
 
 /* Colore dei link */
 
@@ -708,46 +731,7 @@ span.et_pb_contact_field_options_title {
      background-color: #7AB400;
 }
 
-.webmapp-anypost-template-vn_route_sb div.webmapp_post-title h2 {
-    font-family:"PT Sans", sans-serif;
-    font-size: 23px;
-    text-transform: uppercase;
-    font-weight:700;
-    text-align: left;
-    display: block;
-    line-height: 1.1;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 0;
-    padding-top: 10px;
 
-}
-
-.webmapp-anypost-template-vn_route_sb .webmapp_route_duration {
-    padding-left:10px;
-    font-size: smaller;
-    color: black;
-}
-
-.webmapp-anypost-template-vn_route_sb span.dur-txt {
-    font-weight: bold;
-}
-
-.webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
-    text-align: -webkit-center;
-}
-
-.webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_where_image_single_route, .webmapp-anypost-template-vn_route_sb .livello p {
-    text-align: -webkit-center;
-}
-
-.webmapp-anypost-template-vn_route_sb .vn-target {
-    padding: 0;
-}
-
-.webmapp-anypost-template-vn_route_sb .webmapp_post_meta {
-    height: 8.5rem;
-}
 
 .webmapp-anypost-template-vnhome div.webmapp_post-title h2:hover {
 }
@@ -763,20 +747,22 @@ padding-right: 10px;
 font-size: smaller;
 }
 
-.webmapp_post_meta {
-    font-family: "PT Sans", sans-serif;
+.webmapp-anypost-template-vnhome .webmapp_post_meta {
+    font-family: Lato, sans-serif;
     font-weight: 300;
-    font-size: smaller;
+    font-size: 14px;
     padding: 20px 5px 5px 5px;
     margin-bottom: 5px;
     color: black;
     position:relative;
     height: 11.5rem;
     display: flex;
-
+    line-height: 20px;
 }
 
-.webmapp_post_meta.webmapp-anypost-template-vn_route_sb {
+
+
+.webmapp-anypost-template-vn_route_sb .webmapp_post_meta {
     border-bottom: solid 1px #0f7a68;
 }
 
@@ -784,10 +770,6 @@ font-size: smaller;
     margin-bottom:10px;
 }
 
-p.webmapp_anypost_show_all {
-    padding-right: 10px;
-    color: #0f7a68;
-}
 
 p.prezzo-tab {
     position: absolute;
@@ -850,6 +832,17 @@ div#sidebar.h-facet {
 .side-facet {
     background-color: rgba(255, 255, 255, 0.4);
 }
+
+div#sidebar.side-facet {
+    width: 30%;
+}
+
+div#left-area.facetwp-template {
+    padding-right: 0;
+    width: 50%;
+}
+
+
 
 .facetwp-checkbox {
     font-family: "PT Sans", sans-serif;
