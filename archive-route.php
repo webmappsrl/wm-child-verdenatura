@@ -1,9 +1,13 @@
 <?php get_header(); ?>
 
-<div id="main-content">
+<div id="main-content" class="archive-route-page">
+    <div class="page-title">
+        <h1 class="txt-white" id="title-archive">Viaggi</h1>
+        <img class="single-route-tree-spring" alt="tree-spring" src="/wp-content/themes/wm-child-verdenatura/images/tree_spring.png">
+    </div>
 	<div class="container">
 		<div id="content-area" class="clearfix">
-			<div id="left-area" class="facetwp-template">
+            <div id="left-area" class="facetwp-template">
 		<?php
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post();
@@ -77,19 +81,25 @@
                 <?php
                     if ( shortcode_exists('facetwp') ) :
                 ?>
-                        <div id="sidebar">
-                            FILTERS
-                            <?php
+                            <div id="sidebar" class="h-facet" >
+                            <h2 class="filtra-viaggi">Filtra viaggi per...</h2>
+                            </div> <!-- chiudo .h-facet -->
+                        <div id="sidebar" class="side-facet">
+
+                        <?php
+
                             $facets = array(
                                     'targets',
-                                    'seasons',
+                                    'tipologia',
                                     'places_to_go',
-                                    'themes',
-                                    'wm_fdn'
+                                    'durata',
+                                    'seasons',
+                                    'themes'
+
                             );
                             foreach ( $facets as $facet )
                             {
-                                echo do_shortcode("[facetwp facet='$facet']");
+                                echo do_shortcode("[facetwp facet='$facet' title='$label']");
                             }
 
                             ?>

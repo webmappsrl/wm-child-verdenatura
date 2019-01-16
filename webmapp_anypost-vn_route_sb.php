@@ -27,12 +27,17 @@ $current_post_type = get_post_type();
         if ( $days )
         {
             $nights = $days - 1;
-            echo "<p class='webmapp_route_duration_days_nights'>";
-            echo __( 'Duration' , 'wm-child-verdenatura' ) . ": $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+            ?>
+            <?php
+            echo __( 'Duration' , 'wm-child-verdenatura' ) . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+            ?>
+            </span>
+
+            <?php
+
             $vn_note_dur = get_field( 'vn_note_dur' );
             if ( $vn_note_dur )
                 echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
-            echo "</p>";
         }
         ?>
     </div>

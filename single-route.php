@@ -37,6 +37,15 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                     <!--Colonna destra-->
 
                     <div class="col-sm-12 col-md-8">
+                        <div class="gallery-fdn">
+                            <?php
+                            $vn_formula_fdn = get_field('wm_fdn');
+                            if( $vn_formula_fdn )
+                            {
+                                echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
+                            }
+                            ?>
+                        </div>
                         <div class="top-gallery-single-post-route">
                             <?php
                             $vn_gallery_route=get_field ('n7webmap_track_media_gallery');
@@ -107,32 +116,38 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                 if ( $days )
                                 {
                                     $nights = $days - 1;
-                                    echo "<p class='durata-preventivo-text'>";
-                                    echo __( 'Duration' , 'wm-child-verdenatura' ) . ": $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
-                                    $vn_note_dur = get_field( 'vn_note_dur' );
+                                    ?>
+                                     <?php
+                                    echo __( 'Duration' , 'wm-child-verdenatura' ) . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                                ?>
+                                    </span>
+
+                                    <?php
+
+                                     $vn_note_dur = get_field( 'vn_note_dur' );
                                     if ( $vn_note_dur )
                                         echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
-                                    echo "</p>";
                                 }
                                 ?>
                             </div>
                             <br>
 
-                            <?php
-                            echo "<p class='durata-txt'>";
+
+                            <p class='durata-txt'>
+                                <?php
                             echo __('Departures: ' ,'wm-child-verdenatura');?>
-                                <span class="content-partenze">
+                            </p>
+                                <div class="content-partenze">
                                 <?php
                                 $vn_part_sum = get_field('vn_part_sum');
                                 if ($vn_part_sum)
                                     echo $vn_part_sum;
-                                echo "</p>"
-
                                 ?>
-                                </span>
-                            </span>
+                            </div>
+
 
                             <p class="vn-note">
+
                             <?php
                             $vn_note = get_field('vn_note');
                             if ( $vn_note)
@@ -204,12 +219,12 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                 </div>
                             </div> <!--- .specifiche-viaggio -->
 
-                            <div class="prezzo vn-meta-align">
+                            <div class="prezzo">
                                 <?php
                                 echo __('From', 'wm-child-verdenatura');
                                 ?>
 
-                                <span class="cifra vn-meta-align"><?php
+                                <span class="cifra"><?php
                                 $vn_prezzo = get_field('vn_prezzo');
                                 if ($vn_prezzo)
                                 echo $vn_prezzo;

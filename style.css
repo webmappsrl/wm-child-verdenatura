@@ -35,11 +35,9 @@ img#logo {
 }
 
 
-
 .container.clearfix {
-    padding-top: 0;
+    padding-top: 0!important;
     bottom: 6px;
-
 }
 
 
@@ -111,6 +109,14 @@ div#et_top_search {
 {    background-color: rgb(15, 122, 104);
 }
 
+ul.mega-sub-menu li {
+    font-family: Lato, sans-serif !important;
+    font-size: 15px;
+}
+
+ul.mega-sub-menu li:hover {
+    border-bottom: solid 1px rgb(15, 122, 104)  !important;
+}
 
 /* Tolgo border di default all'ultima voce del main-menu */
 
@@ -169,7 +175,8 @@ form.et-search-form {
 }
 
 input.et-search-field {
-    right: 60px;
+    right: 10px;
+    margin-right: 0;
     top: 16px;
     background-color: white;
     width: 210px;
@@ -181,7 +188,7 @@ input.et-search-field {
 
 span.et_close_search_field {
     margin-right: 55px;
-    right: 36px;
+    right: 55px;
     bottom: 62px;
 }
 #et_search_icon:before {
@@ -224,21 +231,23 @@ div#et_pb_contact_form_0 {
 }
 
 .et_pb_module.et_pb_code.et_pb_code_1 {
-    height: 480px;
+    height: 497px;
     overflow-y: scroll;
 }
 
 .et_pb_module.et_pb_text.et_pb_text_4.et_pb_bg_layout_dark.et_pb_text_align_left {
-    height: 480px;
+    height: 497px;
     margin-bottom:0;
 }
 
  /* Menu secondario */
 
 li.text-secondary-menu {
-
-    padding-top: 10px;
-    margin-left:60px;
+    font-family: Lato, sans-serif;
+    padding-top: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 23px;
 }
 
 div#top-header {
@@ -247,6 +256,10 @@ div#top-header {
     height: 40px;
 }
 
+
+div#et-secondary-menu {
+    margin-top: 0px;
+}
 
 #et-secondary-menu {
     width: 100%;
@@ -269,10 +282,10 @@ ul#vn-top-menu {
 
     background-color: white;
     margin-right: 0;
-    padding-right: 10px;
-     padding-top: 10px;
-     border-bottom: solid 2px white;
-                      }
+     padding-top: 7px;
+     margin-left: 0 !important;
+
+ }
 
 .et-social-facebook a.icon:before {
     content: '';
@@ -280,8 +293,18 @@ ul#vn-top-menu {
     background: url(/wp-content/themes/wm-child-verdenatura/images/facebook.png) no-repeat;
     background-size: cover;
     width: 29px;
-    height: 29px;
+    height: 30px;
     vertical-align: baseline;
+}
+
+li.et-social-icon.et-social-google-plus {
+    border-right: solid  #7AB400 9px;
+    padding-right: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-left: 7px;
+    margin-left: 0 !important;
 }
 
 .et-social-twitter a.icon:before {
@@ -290,8 +313,29 @@ ul#vn-top-menu {
     background: url(/wp-content/themes/wm-child-verdenatura/images/twitter.png) no-repeat;
     background-size: cover;
     width: 29px;
-    height: 29px;
+    height: 30px;
     vertical-align: baseline;
+}
+
+li.et-social-icon.et-social-facebook {
+    border-right: solid  #7AB400 9px;
+    padding-right: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-left: 4px;
+    margin-left: 0 !important;
+
+}
+
+li.et-social-icon.et-social-twitter {
+    padding-right: 7px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-left: 4px;
+    margin-left: 0 !important;
+
 }
 
 .et-social-google-plus a.icon:before {
@@ -408,6 +452,11 @@ button.pulsante-viaggi {
     font-style: italic;
     font-size: 12px;
     font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+
 }
 
 button.pulsante-viaggi:hover {
@@ -477,6 +526,12 @@ a.txt-dark-green {
 
 }
 
+/* Messaggio di errore email */
+.et-pb-contact-message {
+    display:none;
+}
+
+
 /* Footer */
 
 /* Immagine di background */
@@ -520,15 +575,91 @@ ul#menu-menu-footer-1, ul#menu-menu-footer-2, ul#menu-menu-footer-3 {
 }
 
 /*Tab home*/
+
+.vn-tab-home {
+border-bottom-right-radius: 0.625rem;
+border-bottom-left-radius: 0.625rem;
+}
+
 a#ui-id-6 {
     padding-bottom: 8px;
 }
 
-/*Calendario statico*/
+.vn-tab-home .ui-state-active a#ui-id-1,
+.vn-tab-home .ui-state-active a#ui-id-1:link,
+.vn-tab-home .ui-state-active a#ui-id-1:visited
+{
+    background-color: #ca0a1d !important;
+    color: #fff !important;
+}
+
+
+
+
+.vn-tab-home .ui-state-active a#ui-id-2,
+.vn-tab-home .ui-state-active a#ui-id-2:link,
+.vn-tab-home .ui-state-active a#ui-id-2:visited {
+    background-color: #990066 !important;
+    color: #fff !important;
+}
+
+.vn-tab-home .ui-state-active a#ui-id-3,
+.vn-tab-home .ui-state-active a#ui-id-3:link,
+.vn-tab-home .ui-state-active a#ui-id-3:visited {
+    background-color: #ff9933 !important;
+    color: #fff !important;
+}
+
+.vn-tab-home .ui-state-active a#ui-id-4,
+.vn-tab-home .ui-state-active a#ui-id-4:link,
+.vn-tab-home .ui-state-active a#ui-id-4:visited {
+    background-color: #00cccc !important;
+    color: #fff !important;
+}
+
+.vn-tab-home .ui-state-active a#ui-id-5,
+.vn-tab-home .ui-state-active a#ui-id-5:link,
+.vn-tab-home .ui-state-active a#ui-id-5:visited {
+    background-color: #b06131 !important;
+    color: #fff !important;
+}
+
+.vn-tab-home .ui-state-active a#ui-id-6,
+.vn-tab-home .ui-state-active a#ui-id-6:link,
+.vn-tab-home .ui-state-active a#ui-id-6:visited {
+    background-color: #ffc400 !important;
+    color: #fff !important;
+}
+
+.vn-tab-home .ui-state-active a#ui-id-1,
+.vn-tab-home .ui-state-active a#ui-id-1:link,
+.vn-tab-home .ui-state-active a#ui-id-1:visited
+
+
+.vn-tab-route .ui-state-active a#ui-id-1,
+.vn-tab-route .ui-state-active a#ui-id-1:link,
+.vn-tab-route .ui-state-active a#ui-id-1:visited, .vn-tab-route .ui-state-active a#ui-id-2,
+.vn-tab-route .ui-state-active a#ui-id-2:link,
+.vn-tab-route .ui-state-active a#ui-id-2:visited, .vn-tab-route .ui-state-active a#ui-id-3,
+.vn-tab-route .ui-state-active a#ui-id-3:link,
+.vn-tab-route .ui-state-active a#ui-id-3:visited,
+.vn-tab-route .ui-state-active a#ui-id-4,
+.vn-tab-route .ui-state-active a#ui-id-4:link,
+.vn-tab-route .ui-state-active a#ui-id-4:visited,
+.vn-tab-route .ui-state-active a#ui-id-5,
+.vn-tab-route .ui-state-active a#ui-id-5:link,
+.vn-tab-route .ui-state-active a#ui-id-5:visited {
+    color: #fff;
+}
+
+
+    /*Calendario statico*/
 
 .calendario-home {
     overflow-y: scroll;
 }
+
+
 
 
 
@@ -554,6 +685,14 @@ div#et_mobile_nav_menu {
     display: none;
 }
 
+span.et_pb_contact_field_options_title {
+    display:none;
+}
+
+.et_pb_contact p input[type=checkbox]:checked+label i:before, .et_pb_contact p input[type=radio]:checked+label i:before, .et_pb_subscribe .et_pb_contact_field input[type=checkbox]:checked+label i:before, .et_pb_subscribe .et_pb_contact_field input[type=radio]:checked+label i:before {
+    color: #7AB400 !important;
+}
+
 /************** SHORTCODE ANYPOST ********************/
 
 .webmapp-anypost-template-vnhome div.webmapp_post-title h2 {
@@ -577,37 +716,77 @@ div#et_mobile_nav_menu {
     text-align: left;
     display: block;
     line-height: 1.1;
-    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 0;
+    padding-top: 10px;
 
 }
 
+.webmapp-anypost-template-vn_route_sb .webmapp_route_duration {
+    padding-left:10px;
+    font-size: smaller;
+    color: black;
+}
+
+.webmapp-anypost-template-vn_route_sb span.dur-txt {
+    font-weight: bold;
+}
+
+.webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
+    text-align: -webkit-center;
+}
+
+.webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_where_image_single_route, .webmapp-anypost-template-vn_route_sb .livello p {
+    text-align: -webkit-center;
+}
+
+.webmapp-anypost-template-vn_route_sb .vn-target {
+    padding: 0;
+}
+
+.webmapp-anypost-template-vn_route_sb .webmapp_post_meta {
+    height: 8.5rem;
+}
 
 .webmapp-anypost-template-vnhome div.webmapp_post-title h2:hover {
-    padding: 1.275rem 0.625rem !important;
-
 }
 
 .single-post-wm {
     border-bottom: solid #7AB400;
 }
 
+.webmapp-anypost-template-vnhome .nazione    { display: inline-grid;
+padding-left: 5px;
+margin-bottom: 10px;
+padding-right: 10px;
+font-size: smaller;
+}
 
 .webmapp_post_meta {
-    font-family: Lato, sans-serif;
+    font-family: "PT Sans", sans-serif;
     font-weight: 300;
-    font-size: small;
-    line-height: 1.4;
+    font-size: smaller;
     padding: 20px 5px 5px 5px;
     margin-bottom: 5px;
     color: black;
     position:relative;
     height: 11.5rem;
+    display: flex;
 
+}
 
+.webmapp_post_meta.webmapp-anypost-template-vn_route_sb {
+    border-bottom: solid 1px #0f7a68;
 }
 
 .webmapp_posts_controller.webmapp-grid-system.webmapp-anypost-template-vnhome {
     margin-bottom:10px;
+}
+
+p.webmapp_anypost_show_all {
+    padding-right: 10px;
+    color: #0f7a68;
 }
 
 p.prezzo-tab {
@@ -624,12 +803,81 @@ span.vn-sale-price.cifra {
     font-weight: 400;
 
 }
-
-img.card, img.fdn-card {
+ img.fdn-card {
     position: absolute;
-    width:20%;
+    width:50px;
+    top: 0;
+    left: 12px;
+    box-shadow: 2px 3px 3px #333;
+    margin-right: 10px;
+
+}
+
+img.card {
+    position: absolute;
+    width:50px;
 }
 
 .card:nth-child(2) {
     left:25%;
+}
+
+/*FACET WP STYLE*/
+h2.filtra-viaggi {
+    font-family: "PT Sans", sans-serf;
+    color: #0f7a68;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.h-facet {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+div#sidebar.h-facet {
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.archive-route-page {
+    background: url(/wp-content/themes/wm-child-verdenatura/images/bg-body.jpg) no-repeat;
+}
+
+.side-facet {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.facetwp-checkbox {
+    font-family: "PT Sans", sans-serif;
+    font-size: 15px;
+    color: #000;
+    line-height: 25px;
+}
+
+/*Archive page*/
+
+h1#title-archive  {
+    height: 190px;
+    color:white;
+    margin: 0;
+    padding-top: 6.25rem;
+    font-family: "PT Sans", sans-serif;
+    font-size: 3.8rem;
+    line-height: 110%;
+    font-weight: 400;
+    min-height: 6.5rem;
+    text-shadow: 0 0 2px #000;
+    z-index: 1;
+    padding-right: 40px;
+    padding-left: 40px;
+    background-color: rgba(0, 0, 0, 0.35);
+
+}
+
+.archive-route-page .container {
+    padding-top: 0 !important;
 }

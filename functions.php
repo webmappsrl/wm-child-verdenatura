@@ -260,3 +260,26 @@ function vn_fix_megamenu_mobile_menu( $defaults, $menu_id, $current_theme_locati
 
     return $defaults;
 }
+
+function fwp_add_facet_labels() {
+    ?>
+    <script>
+        (function($) {
+            $(document).on('facetwp-loaded', function() {
+                $('.facetwp-facet').each(function() {
+                    var $facet = $(this);
+                    var facet_name = $facet.attr('data-name');
+                    var facet_label = FWP.settings.labels[facet_name];
+
+                    if ($facet.closest('.facet-wrap').length < 1) {
+                        $facet.wrap('<div class="facet-wrap"></div>');
+                        $facet.before('<h3 class="facet-label">' + facet_label + '</h3>');
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <?php
+}
+add_action( 'wp_head', 'fwp_add_facet_labels', 100 );
+
