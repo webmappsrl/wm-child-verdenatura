@@ -46,37 +46,34 @@ Text Domain: wm-child-verdenatura
     position: relative;
     padding-bottom: 20px;
     margin-bottom: 20px;
-
-
-
 }
 
 
 #single-post-route-main-content .page-title h1 {
 
-    height: 260px;
     color:white;
     margin: 0;
     padding-top: 6.25rem;
     font-family: "PT Sans", sans-serif;
     font-size: 3.8rem;
+    line-height: 110%;
     font-weight: 400;
-    min-height: 6.5rem;
     text-shadow: 0 0 2px #000;
     z-index: 1;
-    padding-left: 20px;
     padding-right: 40px;
+    letter-spacing: -2px;
+
 
 }
 
 @media only screen and (max-width: 1200px) {
     #single-post-route-main-content .page-title h1 {
-        font-size: 4.0rem;    }
+        font-size: 3.8rem;    }
 }
 
 @media only screen and (max-width: 1024px) {
     #single-post-route-main-content .page-title h1 {
-        font-size: 4.0rem;    }
+        font-size: 3.8rem;    }
 }
 
 
@@ -84,6 +81,8 @@ Text Domain: wm-child-verdenatura
     #single-post-route-main-content .page-title h1 {
         font-size: 3.5rem;
         padding-top: 80px;
+        width: 83.3333333333%;
+
     }
 }
 
@@ -132,7 +131,6 @@ p.sottotitolo-preventivo {
 }
 
 .top-gallery-single-post-route  {
-
     padding-left: 17px;
 }
 
@@ -142,7 +140,32 @@ p.sottotitolo-preventivo {
     box-shadow: 0 0 15px #000;
 }
 
+/*Icona Fatti da Noi Slide*/
 
+.gallery-fdn img {
+
+    position: absolute;
+    z-index: 2;
+    border-left-width: 10px;
+    margin-left: 10px;
+    left: 45px;
+    width: 7%;
+    box-shadow: 2px 3px 3px #333;
+
+}
+
+/* the slides */
+.slick-slide {
+    margin: 0 1px;
+}
+/* the parent */
+.slick-list {
+    margin: 0 -1px;
+}
+
+.slick-list.draggable {
+    padding: 0 !important;
+}
 
 .scheda-preventivo {
 
@@ -238,7 +261,10 @@ p.main-content-preventivo {
 
 img#fdn-card {
     position: absolute;
-    width: 16%;
+    width: 50px;
+    left: 20px;
+    box-shadow: 2px 3px 3px #333;
+
 }
 
 /*Scheda commenti*/
@@ -416,12 +442,13 @@ h1.title-preventivo {
     padding-bottom:0;
     font-family: "PT Sans", sans-serif;
 }
-.durata-preventivo-text p {
+p.durata-preventivo-text {
     font-weight: bold;
     font-size:13px;
     color: black;
     font-family: "PT Sans", sans-serif;
 }
+
 
 p.durata-txt {
          font-family: "PT Sans", sans-serif;
@@ -429,13 +456,19 @@ p.durata-txt {
     font-size: small;
     padding-left: 10px;
     padding-bottom: 0;
+    line-height: 7px;
+
 }
+
+
 
 p.webmapp_route_duration_days_nights {
     font-size:small;
     color: black;
     font-family: "PT Sans", sans-serif;
     padding-bottom: 10px;
+    padding-left: 10px;
+
 }
 
 span.partenze_preventivo {
@@ -450,6 +483,7 @@ p.vn-note {
     font-size:13px;
     color: black;
     font-weight: bold;
+    padding-top: 10px;
 }
 
 span.content-partenze p{
@@ -463,10 +497,8 @@ span.content-partenze p{
 
 
 .specifiche-viaggio {
-    padding: 0 10px 10px 10px;
     box-sizing: inherit;
-    margin: 0 0 50px;
-    font-size: smaller;
+    font-size: small;
     font-family: "PT Sans", sans-serif;
     color: black;
     display: flex;
@@ -474,7 +506,7 @@ span.content-partenze p{
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 10px;
-    padding-top: 10px;
+    padding: 10px;
 
 }
 
@@ -483,7 +515,7 @@ span.content-partenze p{
     text-align:right;
     padding-right: 20px;
     font-family: "PT Sans", sans-serif;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .cifra {
@@ -507,22 +539,24 @@ span.content-partenze p{
 }
 
 .interessi h1{
-    font-family: Lato, sans-serif;
+    font-family: "PT Sans", sans-serif;
     color:#0F7A68;
-    font-weight: bold;
+    font-weight: 600;
     padding-left: 20px;
-
+    border-bottom: 1px solid #0F7A68;
+    padding-top: 10px;
+margin-right:10px;
+    margin-left: 10px;
+    text-align: center;
+    letter-spacing: -1px;
 
 }
 
 
 .interessi {
-    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    padding-bottom: 20px;
-    padding-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+
 
 }
 
@@ -582,6 +616,39 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
     }
 }
 
+.content-partenze {
+    font-size: small;
+    color: black;
+    font-family: "PT Sans", sans-serif;
+    padding-left: 10px;
+}
+
+p.vn-note-route {
+    padding-top: 40px;
+}
+
+.durata-preventivo p.durata-txt {
+    padding-left:0;
+}
+
+.durata-preventivo span.dur-txt {
+    padding-bottom: 0;
+font-weight: bold;
+}
+
+
+.vn-tab-route .durata-preventivo {
+    border-bottom: solid 2px #7AB400;
+}
+
+.vn-tab-route #tabs-3 a {
+    color: #7AB400;
+}
+
+.vn-tab-route div#tabs-3, .vn-tab-route div#tabs-2, .vn-tab-route div#tabs-5   {
+    padding-top: 40px;
+}
+
 
 /*Specifiche route*/
 
@@ -590,12 +657,7 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
     padding-left: 5px;
     margin-bottom: 10px;
     padding-right: 10px;
-
-}
-
-span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
-    width: 2.5rem;
-    display:block;
+    font-size: smaller;
 }
 
 
@@ -604,7 +666,15 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     margin-bottom: 10px;
     padding-right: 10px;
     display: block;
+    font-size: smaller;
 
+
+}
+
+.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
+
+    width: 2.5rem;
+    display: block;
 
 }
 
@@ -619,9 +689,7 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 }
 
 .livello {
-    display: inline-grid;
     margin-bottom: 10px;
-    padding-right: 10px;
     padding-left: 10px;
 
 
@@ -629,6 +697,7 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 
 .livello p {
     padding-left: 3px;
+    font-size: smaller;
 }
 
 .vn-target img {
