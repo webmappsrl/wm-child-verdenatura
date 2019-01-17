@@ -28,11 +28,13 @@ $current_post_type = get_post_type();
         $new = get_field( 'vn_new' );
         if( $new )
             echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
-
-
         ?>
 
-        <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbanil; ?>')">
+        <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbnail = "http://vn.be.webmapp.it/wp-content/uploads/2018/11/GW101-salento-2-web-1.jpg";
+        if(has_post_thumbnail()) {
+            $get_the_post_thumbnail = get_the_post_thumbnail_url(get_the_ID() ,'full');
+        }
+        ; ?>')">
         </figure>
 
         <div class="webmapp_post-title">

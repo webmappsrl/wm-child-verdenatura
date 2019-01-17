@@ -65,26 +65,31 @@ ob_start();
             if ( $days )
             {
                 $nights = $days - 1;
-                echo "<p class='dur-txt'>";
-                echo __( 'Duration: ' , 'wm-child-verdenatura' ) . ": $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                ?>
+                <?php
+                echo __( 'Duration' , 'wm-child-verdenatura' ) . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                ?>
+                </span>
+
+                <?php
+
                 $vn_note_dur = get_field( 'vn_note_dur' );
                 if ( $vn_note_dur )
                     echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
-                echo "</p>";
             }
             ?>
-            <?php
-            echo "<p class='durata-txt'>";
-            echo __('Departures: ' ,'wm-child-verdenatura');?>
-            <span class="content-partenze">
-                                <?php
-                                $vn_part_sum = get_field('vn_part_sum');
-                                if ($vn_part_sum)
-                                    echo $vn_part_sum;
-                                echo "</p>"
+        </div>
 
-                                ?>
-                                </span>
+        <p class='durata-txt'>
+            <?php
+            echo __('Departures: ' ,'wm-child-verdenatura');?>
+        </p>
+        <div class="content-partenze">
+            <?php
+            $vn_part_sum = get_field('vn_part_sum');
+            if ($vn_part_sum)
+                echo $vn_part_sum;
+            ?>
         </div>
 
         <p class="part-e-pre">

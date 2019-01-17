@@ -20,7 +20,7 @@ function wm_render_gallery ($atts ) {
 
     <div class="slider-for">
             <?php foreach ($images as $id) {
-                echo '<div style="height: 100%;">';
+                echo '<div style="height: auto;">';
                 echo wp_get_attachment_image( $id, 'large');
                 echo '</div>';
             }
@@ -42,6 +42,7 @@ function wm_render_gallery ($atts ) {
                 slidesToScroll: 1,
                 arrows: false,
                 fade: true,
+                adaptiveHeight: true,
                 asNavFor: '.slider-nav'
             })
                 /**
@@ -51,7 +52,7 @@ function wm_render_gallery ($atts ) {
 
                 })**/;
             $('.slider-nav').slick({
-                slidesToShow: 3,
+                slidesToShow: 6,
                 slidesToScroll: 1,
                 asNavFor: '.slider-for',
                 dots: false,

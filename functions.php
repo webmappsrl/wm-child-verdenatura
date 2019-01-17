@@ -47,11 +47,11 @@ function aggiungi_material_icons(){
  * Search bar e map search
  */
 
-//add_action ('et_header_top', 'vn_search_bar');
+// add_action ('et_header_top', 'vn_search_bar');
 function vn_search_bar() {
 
     echo '<div id="vn-search-bar-header"><input id="cerca-home" type="text" placeholder="Cerca" name="search">
-      <button id="vn-search-lente" type="submit"><i class="fa fa-search"></i></button></div>';
+      <button id="vn-search-lente" type="submit"  onclick="location.href=\'http://vn.be.webmapp.it/route/?fwp_title\'"><i class="fa fa-search"></i></button></div>';
 
 }
 
@@ -59,6 +59,20 @@ add_action( 'et_header_top', 'vn_search_map' );
 function vn_search_map() {
     echo '<div id="vn-search-map"><i class="material-icons">language</i></div>';
 }
+
+
+function my_search_form( $form ) {
+    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( 'http://vn.be.webmapp.it/route/?fwp_title' ) . '" >
+    <div><label class="screen-reader-text" for="s">' . __( 'Cerca:' ) . '</label>
+    <input type="text" value="' . get_search_query() . '" name="s" id="s" />
+    <input type="submit" id="searchsubmit" value="'. esc_attr__( 'Cerca' ) .'" />
+    </div>
+    </form>';
+
+    return $form;
+}
+
+add_filter( 'get_search_form', 'my_search_form' );
 
 
 /**
