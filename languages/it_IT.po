@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WEBMAPP - VERDENATURA\n"
-"POT-Creation-Date: 2019-01-07 09:31+0100\n"
-"PO-Revision-Date: 2019-01-07 09:44+0100\n"
+"POT-Creation-Date: 2019-01-19 18:43+0100\n"
+"PO-Revision-Date: 2019-01-19 18:44+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -20,11 +20,19 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: functions.php:81
+#: functions.php:67
+msgid "Cerca:"
+msgstr ""
+
+#: functions.php:69
+msgid "Cerca"
+msgstr ""
+
+#: functions.php:96
 msgid "Subscribe to our newsletter"
 msgstr "Scarica Gratis l’Ebook"
 
-#: functions.php:87
+#: functions.php:102
 msgid ""
 "Subscribe to our newsletter to stay updated on new tours and all promotional "
 "offers. Verde Natura monthly newsletter also includes latest news from our "
@@ -35,25 +43,25 @@ msgstr ""
 "pratici per le tue uscite in bicicletta! Riceverai inoltre la nostra "
 "NEWSLETTER con le ultime news dal blog e le nostre offerte."
 
-#: functions.php:91
+#: functions.php:106
 msgid "First name"
 msgstr "Nome"
 
-#: functions.php:92
+#: functions.php:107
 msgid "Last name"
 msgstr "Cognome"
 
-#: functions.php:96
+#: functions.php:111
 msgid "*I accept to receive promotionals e-mails as written in our"
 msgstr ""
 "*Accetto di ricevere la newsletter settimanale così come descritto nella "
 "nostra "
 
-#: functions.php:100
+#: functions.php:115
 msgid "Subscribe"
 msgstr "Iscriviti e ricevi l’ebook"
 
-#: functions.php:199
+#: functions.php:214
 msgid "Journey from"
 msgstr "Viaggio del"
 
@@ -69,43 +77,95 @@ msgstr ""
 msgid "Twitter"
 msgstr ""
 
-#: single-route.php:87
-msgid "Reference code: "
-msgstr "Codice viaggio: "
+#: shortcodes/vn_route_tabs.php:17
+msgid "HIGHLIGHTS"
+msgstr "DESCRIZIONE"
 
-#: single-route.php:111 webmapp_anypost-vn_route_sb.php:31
+#: shortcodes/vn_route_tabs.php:20
+msgid "ITINERARY"
+msgstr "PROGRAMMA"
+
+#: shortcodes/vn_route_tabs.php:23
+msgid "TRIP INFO"
+msgstr "CARATTERISTICHE"
+
+#: shortcodes/vn_route_tabs.php:26
+msgid "DATES AND PRICES"
+msgstr "PARTENZE E QUOTE"
+
+#: shortcodes/vn_route_tabs.php:29
+msgid "HOW TO GET THERE"
+msgstr "COME ARRIVARE"
+
+#: shortcodes/vn_route_tabs.php:80 single-route.php:144
+#: webmapp_anypost-vn_route_sb.php:32
 msgid "Duration"
 msgstr "Durata: "
 
-#: single-route.php:111 webmapp_anypost-vn_route_sb.php:31
+#: shortcodes/vn_route_tabs.php:80 single-route.php:144
+#: webmapp_anypost-vn_route_sb.php:32
 msgid "days"
 msgstr "giorni"
 
-#: single-route.php:111 webmapp_anypost-vn_route_sb.php:31
+#: shortcodes/vn_route_tabs.php:80 single-route.php:144
+#: webmapp_anypost-vn_route_sb.php:32
 msgid "nights"
 msgstr "notti"
 
-#: single-route.php:122
+#: shortcodes/vn_route_tabs.php:95 single-route.php:161
 msgid "Departures: "
 msgstr "Partenze: "
 
-#: single-route.php:156
+#: single-route.php:82 single-route.php:263
+msgid "ASK FOR A QUOTE"
+msgstr "RICHIEDI PREVENTIVO"
+
+#: single-route.php:88
+msgid "Your experiences"
+msgstr "Racconti di viaggio"
+
+#: single-route.php:91
+msgid ""
+"Share your experience with us or read the stories of those who traveled with "
+"us.\n"
+"\n"
+msgstr ""
+"Condividi la tua esperienza o leggi quella di coloro che hanno già viaggiato "
+"con noi.\n"
+
+#: single-route.php:96
+msgid "SHARE YOUR EXPERIENCE"
+msgstr "RACCONTACI LA TUA ESPERIENZA"
+
+#: single-route.php:119
+msgid "Reference code: "
+msgstr "Codice viaggio: "
+
+#: single-route.php:198
 msgid "Made by us"
 msgstr "Fatti da noi"
 
-#: single-route.php:166
+#: single-route.php:208
 msgid "Self guided"
 msgstr "Viaggio individuale"
 
-#: single-route.php:176
+#: single-route.php:218
 msgid "Guided"
 msgstr "Viaggio con guida"
 
-#: single-route.php:207
+#: single-route.php:233
+msgid "Level"
+msgstr "Livello"
+
+#: single-route.php:249
 msgid "From"
 msgstr "Da"
 
-#: webmapp_anypost-vnhome.php:66
+#: single-route.php:288
+msgid "You might be interested in..."
+msgstr "Può interessarti…"
+
+#: webmapp_anypost-vnhome.php:75
 msgid "Prices from"
 msgstr "A partire da"
 

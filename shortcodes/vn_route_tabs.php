@@ -13,11 +13,21 @@ ob_start();
 
 <div id="tabs" class="vn-tab-route">
   <ul>
-    <li><a href="#tabs-1" style="border-right: solid 2px #0F7A68;">DESCRIZIONE</a></li>
-    <li><a href="#tabs-2" style="border-right: solid 2px #0F7A68;">PROGRAMMA</a></li>
-    <li><a href="#tabs-3" style="border-right: solid 2px #0F7A68;">CARATTERISTICHE</a></li>
-      <li><a href="#tabs-4" style="border-right: solid 2px #0F7A68;">PARTENZE E QUOTE</a></li>
-      <li><a href="#tabs-5" >COME ARRIVARE</a></li>
+    <li><a href="#tabs-1" style="border-right: solid 2px #0F7A68;"><?php
+            echo __('HIGHLIGHTS' ,'wm-child-verdenatura');
+            ?></a></li>
+    <li><a href="#tabs-2" style="border-right: solid 2px #0F7A68;"><?php
+            echo __('ITINERARY' ,'wm-child-verdenatura');
+            ?></a></li>
+    <li><a href="#tabs-3" style="border-right: solid 2px #0F7A68;"><?php
+            echo __('TRIP INFO' ,'wm-child-verdenatura');
+            ?></a></li>
+      <li><a href="#tabs-4" style="border-right: solid 2px #0F7A68;"><?php
+              echo __('DATES AND PRICES' ,'wm-child-verdenatura');
+              ?></a></li>
+      <li><a href="#tabs-5" ><?php
+              echo __('HOW TO GET THERE' ,'wm-child-verdenatura');
+              ?></a></li>
   </ul>
 
   <div id="tabs-1">

@@ -34,6 +34,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
             <div class="webmapp-container-fluid">
                 <div class="row single-post-route-row">
 
+
                     <!--Colonna destra-->
 
                     <div class="col-sm-12 col-md-8">
@@ -42,9 +43,21 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                             $vn_formula_fdn = get_field('wm_fdn');
                             if( $vn_formula_fdn )
                             {
-                                echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
+                                echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg" class="fdn-card">';
                             }
+
+                            $dog_friendly = get_field ('vn_meta_dog');
+                            if ( $dog_friendly)
+                                echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
+
+
+                            $new = get_field( 'vn_new' );
+                            if( $new )
+                                echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
+
                             ?>
+
+
                         </div>
                         <div class="top-gallery-single-post-route">
                             <?php
@@ -66,12 +79,23 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                             ?>
                         </div> <!--chiudo .scheda-preventivo-->
 
-                        <div class="button-preventivo"><button>Richiedi preventivo</button>
+                        <div class="button-preventivo"><button><?php
+                                echo __('ASK FOR A QUOTE' ,'wm-child-verdenatura');
+                                ?></button>
                         </div> <!--chiudo .button-preventivo -->
 
                         <div class="scheda-commenti">
-                            <h3>Racconti di viaggio</h3>
-                            <button class="button-esperienze">Raccontaci la tua esperienza</button>
+                            <h3><?php
+                                echo __('Your experiences' ,'wm-child-verdenatura');
+                                ?></h3>
+                            <p class="p-ex"><?php
+                                echo __('Share your experience with us or read the stories of those who traveled with us.
+
+' ,'wm-child-verdenatura');
+                                ?></p>
+                            <button class="button-esperienze"><?php
+                                echo __('SHARE YOUR EXPERIENCE' ,'wm-child-verdenatura');
+                                ?></button>
                             <?php
 
                             if ( ( comments_open() || get_comments_number() ) && 'on' === et_get_option( 'divi_show_postcomments', 'on' ) )
@@ -161,13 +185,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
 
                                     <?php
-                                     the_term_image_with_name( $post_id , 'where' ) ;
-                                    ?>
-                                    <?php
-
-                                    ?>
-
-
+                                        the_term_image_with_name( $post_id , 'where' ) ; ?>
 
                                 </div> <!--.nazione-->
 
@@ -213,7 +231,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     ?>
                                 <div class="livello vn-meta-align">
                                     <img src="<?php the_calcola_url( $numero ) ?>">
-                                    <p>Livello</p>
+                                    <p> <?php __('Level' ,'wm-child-verdenatura');?></p>
                                 </div> <!--.livello-->
                                     <?php
                                 }
@@ -242,7 +260,9 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
                             <div class="richiedi-preventivo">
                                 <button>
-                                    Richiedi preventivo
+                                    <?php
+                                    echo __('ASK FOR A QUOTE' ,'wm-child-verdenatura');
+                                    ?>
                                 </button>
                             </div>
 
@@ -265,7 +285,9 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
 
                         <div class="interessi">
-                            <h1>Può interessarti...</h1>
+                            <h1><?php
+                                echo __('You might be interested in...' ,'wm-child-verdenatura');
+                                ?></h1>
 
                             <div class="vn-post-interessi">
                                 <?php

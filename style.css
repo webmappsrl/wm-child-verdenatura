@@ -145,10 +145,8 @@ body #page-container .et_pb_button_0:hover {
 /* Search Bar */
 
 div#vn-search-map-2 > i.material-icons {
-
     font-size: 39px !important;
     line-height: 1.1;
-
 }
 
 
@@ -164,7 +162,6 @@ div#vn-search-map > i.material-icons {
     right: -17px;
     top: -44px;
     left: 15px;
-
 }
 
 
@@ -188,7 +185,7 @@ input.et-search-field {
 
 span.et_close_search_field {
     margin-right: 55px;
-    right: 55px;
+    right: 50px;
     bottom: 62px;
 }
 #et_search_icon:before {
@@ -218,8 +215,8 @@ span.et_close_search_field {
     div#mega-menu-wrap-primary-menu {
         margin-right: 0;
     }
-
 }
+
 
 .et_contact_bottom_container {
     float: none !important;
@@ -452,10 +449,7 @@ button.pulsante-viaggi {
     font-style: italic;
     font-size: 12px;
     font-weight: bold;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding: 5px 10px;
 
 }
 
@@ -531,7 +525,6 @@ a.txt-dark-green {
     display:none;
 }
 
-
 /* Footer */
 
 /* Immagine di background */
@@ -574,7 +567,7 @@ ul#menu-menu-footer-1, ul#menu-menu-footer-2, ul#menu-menu-footer-3 {
     }
 }
 
-/*Tab home*/
+/* VN HOME TABS - VN HOME TABS EN */
 
 .vn-tab-home {
 border-bottom-right-radius: 0.625rem;
@@ -585,6 +578,7 @@ a#ui-id-6 {
     padding-bottom: 8px;
 }
 
+
 .vn-tab-home .ui-state-active a#ui-id-1,
 .vn-tab-home .ui-state-active a#ui-id-1:link,
 .vn-tab-home .ui-state-active a#ui-id-1:visited
@@ -593,12 +587,25 @@ a#ui-id-6 {
     color: #fff !important;
 }
 
-
+.vn-tab-home-en .ui-state-active a#ui-id-1,
+.vn-tab-home-en .ui-state-active a#ui-id-1:link,
+.vn-tab-home-en .ui-state-active a#ui-id-1:visited
+{
+    background-color: #ca0a1d !important;
+    color: #fff !important;
+}
 
 
 .vn-tab-home .ui-state-active a#ui-id-2,
 .vn-tab-home .ui-state-active a#ui-id-2:link,
 .vn-tab-home .ui-state-active a#ui-id-2:visited {
+    background-color: #990066 !important;
+    color: #fff !important;
+}
+
+.vn-tab-home-en .ui-state-active a#ui-id-2,
+.vn-tab-home-en .ui-state-active a#ui-id-2:link,
+.vn-tab-home-en .ui-state-active a#ui-id-2:visited {
     background-color: #990066 !important;
     color: #fff !important;
 }
@@ -610,9 +617,23 @@ a#ui-id-6 {
     color: #fff !important;
 }
 
+.vn-tab-home-en .ui-state-active a#ui-id-3,
+.vn-tab-home-en .ui-state-active a#ui-id-3:link,
+.vn-tab-home-en .ui-state-active a#ui-id-3:visited {
+    background-color: #ff9933 !important;
+    color: #fff !important;
+}
+
 .vn-tab-home .ui-state-active a#ui-id-4,
 .vn-tab-home .ui-state-active a#ui-id-4:link,
 .vn-tab-home .ui-state-active a#ui-id-4:visited {
+    background-color: #00cccc !important;
+    color: #fff !important;
+}
+
+.vn-tab-home-en .ui-state-active a#ui-id-4,
+.vn-tab-home-en .ui-state-active a#ui-id-4:link,
+.vn-tab-home-en .ui-state-active a#ui-id-4:visited {
     background-color: #00cccc !important;
     color: #fff !important;
 }
@@ -624,12 +645,28 @@ a#ui-id-6 {
     color: #fff !important;
 }
 
+.vn-tab-home-en .ui-state-active a#ui-id-5,
+.vn-tab-home-en .ui-state-active a#ui-id-5:link,
+.vn-tab-home-en .ui-state-active a#ui-id-5:visited {
+    background-color: #b06131 !important;
+    color: #fff !important;
+}
+
 .vn-tab-home .ui-state-active a#ui-id-6,
 .vn-tab-home .ui-state-active a#ui-id-6:link,
 .vn-tab-home .ui-state-active a#ui-id-6:visited {
     background-color: #ffc400 !important;
     color: #fff !important;
 }
+
+.vn-tab-home-en .ui-state-active a#ui-id-6,
+.vn-tab-home-en .ui-state-active a#ui-id-6:link,
+.vn-tab-home-en .ui-state-active a#ui-id-6:visited {
+    background-color: #ffc400 !important;
+    color: #fff !important;
+}
+
+
 
 .vn-tab-home .ui-state-active a#ui-id-1,
 .vn-tab-home .ui-state-active a#ui-id-1:link,
@@ -713,7 +750,7 @@ span.et_pb_contact_field_options_title {
 }
 
 .et_pb_contact p input[type=checkbox]:checked+label i:before, .et_pb_contact p input[type=radio]:checked+label i:before, .et_pb_subscribe .et_pb_contact_field input[type=checkbox]:checked+label i:before, .et_pb_subscribe .et_pb_contact_field input[type=radio]:checked+label i:before {
-    color: #7AB400 !important;
+    color: #0f7a68 !important;
 }
 
 /************** SHORTCODE ANYPOST ********************/
@@ -740,7 +777,8 @@ span.et_pb_contact_field_options_title {
     border-bottom: solid #7AB400;
 }
 
-.webmapp-anypost-template-vnhome .nazione    { display: inline-grid;
+.webmapp-anypost-template-vnhome .nazione    {
+    display: inline-grid;
 padding-left: 5px;
 margin-bottom: 10px;
 padding-right: 10px;
@@ -785,6 +823,10 @@ span.vn-sale-price.cifra {
     font-weight: 400;
 
 }
+
+/*CARD IMAGES*/
+
+
  img.fdn-card {
     position: absolute;
     width:50px;
@@ -792,8 +834,22 @@ span.vn-sale-price.cifra {
     left: 12px;
     box-shadow: 2px 3px 3px #333;
     margin-right: 10px;
+     box-shadow: 2px 3px 3px #333;
+ }
 
+ img.df-card {
+    width: 50px;
+    position: absolute;
+    box-shadow: 2px 3px 3px #333;
 }
+
+.gallery-fdn .df-card:nth-child(2) {
+    left:14%;
+}
+.df-card:nth-child(2) {
+    left:25%;
+}
+
 
 img.card {
     position: absolute;
@@ -804,7 +860,18 @@ img.card {
     left:25%;
 }
 
+.gallery-fdn .card:nth-child(3) {
+    left:22%;
+}
+
+
 /*FACET WP STYLE*/
+
+.archive-route-page .container {
+    margin-right: 40px;
+    margin-left: 100px;
+}
+
 h2.filtra-viaggi {
     font-family: "PT Sans", sans-serf;
     color: #0f7a68;
@@ -823,6 +890,7 @@ h2.filtra-viaggi {
 div#sidebar.h-facet {
     padding-bottom: 0;
     padding-left: 0;
+    width: 30%;
 }
 
 .archive-route-page {
@@ -839,7 +907,8 @@ div#sidebar.side-facet {
 
 div#left-area.facetwp-template {
     padding-right: 0;
-    width: 50%;
+    width: 65%;
+    margin-right: 40px;
 }
 
 
@@ -873,4 +942,24 @@ h1#title-archive  {
 
 .archive-route-page .container {
     padding-top: 0 !important;
+}
+
+.archive-route-page article {
+    background-color: #fff;
+    border-radius: 10px;
+
+
+}
+
+.archive-route-page h2.entry-title {
+    margin: 0 !important;
+    color: #FFF;
+    font-size: 1.875rem;
+    padding: 0.5rem 0.9375rem;
+font-family: "PT Sans", sans-serif;
+    background-color: #7AB400;
+    text-align: left;
+    font-weight: 500;
+    letter-spacing: -1px;
+
 }
