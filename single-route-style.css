@@ -700,10 +700,8 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
 
 .vn-target img {
     display: block;
-    width: 1.98rem;
     text-align:center;
-    height: 40px ;
-
+    height: 40px;
 }
 .vn-target {
     padding-right: 10px;
@@ -754,7 +752,6 @@ p.webmapp_anypost_show_all {
     font-size: smaller;
 }
 
-}
 .webmapp-anypost-template-vn_route_sb span.dur-txt {
     font-weight: bold;
 }

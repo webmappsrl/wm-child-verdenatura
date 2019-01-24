@@ -872,11 +872,53 @@ img.card {
     margin-left: 100px;
 }
 
+h3.facet-label {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 11px;
+    color: rgba(0,0,0, 0.87);
+    text-align: left;
+    padding: 20px 0 10px 0;
+    margin-right: 20px;
+    border-bottom: solid 1px #0f7a68;
+    margin-bottom: 8px;
+}
+
+.fs-option-label {
+    color: rgba(0,0,0, 0.87) !important;
+}
+
+.fs-label-wrap {
+    background-color: transparent !important;
+    border: none !important;
+    color: rgba(0,0,0, 0.87);
+}
+
+.facetwp-checkbox.checked {
+background-image: none;
+}
+
+.facetwp-facet.facetwp-facet-viaggio_con_guida.facetwp-type-checkboxes,
+.facetwp-facet.facetwp-facet-formula.facetwp-type-checkboxes,
+.facetwp-facet.facetwp-facet-targets.facetwp-type-checkboxes,
+.facetwp-facet.facetwp-facet-tipologia.facetwp-type-checkboxes,
+.facetwp-facet.facetwp-facet-places_to_go.facetwp-type-fselect,
+.facetwp-facet.facetwp-facet-durata.facetwp-type-checkboxes {
+    margin-bottom: 0;
+}
+
+ div.facetwp-checkbox.unchecked{
+    background-color: #fff;
+    border: none;
+    box-shadow: 2px 2px 3px;
+}
+
 h2.filtra-viaggi {
     font-family: "PT Sans", sans-serf;
     color: #0f7a68;
     font-size: 23px;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .h-facet {
@@ -895,6 +937,7 @@ div#sidebar.h-facet {
 
 .archive-route-page {
     background: url(/wp-content/themes/wm-child-verdenatura/images/bg-body.jpg) no-repeat;
+    background-color: #F2F7FB;
 }
 
 .side-facet {
@@ -903,14 +946,14 @@ div#sidebar.h-facet {
 
 div#sidebar.side-facet {
     width: 30%;
+    padding-left: 15px;
 }
 
 div#left-area.facetwp-template {
     padding-right: 0;
     width: 65%;
-    margin-right: 40px;
+    margin-right: 20px;
 }
-
 
 
 .facetwp-checkbox {
@@ -937,18 +980,27 @@ h1#title-archive  {
     padding-right: 40px;
     padding-left: 40px;
     background-color: rgba(0, 0, 0, 0.35);
+}
 
+.archive-route-page div#content-area {
+    margin-right: 10px;
 }
 
 .archive-route-page .container {
     padding-top: 0 !important;
+    width: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+
 }
 
 .archive-route-page article {
-    background-color: #fff;
+    height: auto;
+    position: relative;
+background-color: #fff;
     border-radius: 10px;
-
-
+    padding-bottom: 45px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .archive-route-page h2.entry-title {
@@ -961,5 +1013,195 @@ font-family: "PT Sans", sans-serif;
     text-align: left;
     font-weight: 500;
     letter-spacing: -1px;
+    padding-left: 33%;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 
+}
+
+.route-infos {
+    width:75%;
+    padding: 0 0.75rem;
+    background-color: white;
+    border-right: solid 1px #0f7a68;
+}
+
+.scheda-route {
+    display: table;
+    background-color: white;
+    padding-left: 30%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.route-infos p.main-content-preventivo {
+    font-family: "Lato", sans-serif;
+    color: black;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.route-infos p.vn-note {
+    font-weight: 500;
+    font-size: small;
+    line-height: 15px;
+}
+
+.dx {
+    float: right;
+}
+
+.sx {
+    float: left;
+}
+
+.icone-scheda-archive.dx {
+    width: 24%;
+    margin-bottom: 20px;
+    font-size: smaller;
+    font-family:Lato, sans-serif;
+    color: black;
+
+}
+
+.archive-route-page.durata-preventivo span.dur-txt {
+    font-weight: normal ;
+}
+.archive-route-page .content-partenze p {
+    font-weight: 500;
+    line-height: 19px;
+}
+
+.archive-route-page p.durata-text {
+    font-weight: bold;
+    line-height: 27px;
+
+}
+.icone-scheda-archive {
+    display: grid;
+    padding-top: 15px;
+    background-color: white;
+}
+
+.archive-route-page span.vn_taxonomy_image_single_route.vn_where_image_single_route {
+    text-align: -webkit-center;
+padding-left: 5px;
+}
+
+.archive-route-page span.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
+    width: 2.0rem;
+}
+
+
+.archive-route-page span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+    font-size: 0;
+    padding-top: 2px;
+    line-height: 6px;
+    margin-bottom: 10px;
+
+}
+.archive-route-page .vn-target {
+    margin-bottom: 10px;
+}
+
+
+.archive-route-page .vn-target img {
+    height: 32px;
+}
+
+.archive-route-page .nazione img {
+    width: 1.9rem;
+}
+
+.archive-route-page .nazione {
+    text-align: -webkit-center;
+}
+
+.archive-route-page .nazione:last-child {
+    margin-bottom: 10px;
+}
+
+
+.archive-route-page .livello.vn-meta-align {
+    padding-left:0;
+    margin-bottom: 10px;
+
+
+}
+
+.archive-route-page .livello img {
+    width: 2.1rem;
+}
+
+.archive-route-page .entry-featured-image-url {
+    width: 30%;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+button.details-butt {
+    background-color:  #0f7a68;
+    color: #fff;
+    font-family: Lato, sans-serif;
+    font-weight:bold;
+    font-size: 15px;
+    border-color: #0F7A68;
+    height: 36px;
+    line-height: 36px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button.details-butt a {
+    color: white;
+}
+
+span.det-btt.dx {
+    width: 14%;
+    margin-right: 11px;
+}
+
+
+.archive-route-page .cifra {
+    vertical-align: middle;
+}
+
+.archive-route-page .prezzo {
+    width: 81%;
+    padding-bottom: 10px;
+    padding-right: 0;
+    float: left;
+    padding-top: 6px;
+
+}
+
+.archive-route-page p.vn-note {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.archive-route-page .gallery-fdn img {
+    margin-left: 0;
+    left: 4px;
+}
+
+.archive-route-page .gallery-fdn .df-card:nth-child(2) {
+    left: 8%;
+}
+
+.archive-route-page .gallery-fdn .card:nth-child(3) {
+    left: 16%;
 }
