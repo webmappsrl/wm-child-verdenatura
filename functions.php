@@ -4,6 +4,7 @@ require ('import_data.php');
 require ('shortcodes/vn_home_tabs.php');
 require ('shortcodes/vn_route_tabs.php');
 require ('shortcodes/wm_gallery.php');
+require ('shortcodes/vn_home_tabs_en.php');
 
 add_action('after_setup_theme', 'vn_theme_setup');
 

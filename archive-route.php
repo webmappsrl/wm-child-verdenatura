@@ -96,7 +96,6 @@
                                     'durata',
                                     'seasons',
                                     'themes'
-
                             );
                             foreach ( $facets as $facet )
                             {

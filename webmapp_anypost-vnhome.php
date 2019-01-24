@@ -21,13 +21,20 @@ $current_post_type = get_post_type();
         <?php
         echo "<a href='$title_link' title=\"".get_the_title()."\">";
 
+
         $own_made = get_field( 'wm_fdn' );
         if ( $own_made )
             echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' class='fdn-card' alt='Fatto da noi'>";
 
+        $dog_friendly = get_field ('vn_meta_dog');
+        if ( $dog_friendly)
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
+
+
         $new = get_field( 'vn_new' );
         if( $new )
             echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
+
         ?>
 
         <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbnail = "http://vn.be.webmapp.it/wp-content/uploads/2018/11/GW101-salento-2-web-1.jpg";

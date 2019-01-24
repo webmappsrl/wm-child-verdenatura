@@ -50,10 +50,15 @@ $current_post_type = get_post_type();
         if ( $own_made )
             echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' alt='Fatto da noi' id='fdn-card'>";
 
+
+        $dog_friendly = get_field ('vn_meta_dog');
+        if ( $dog_friendly)
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
+
+
         $new = get_field( 'vn_new' );
         if( $new )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' alt='Novità'>";
-
+            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
 
         ?>
 
