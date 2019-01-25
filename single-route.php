@@ -191,7 +191,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     $vn_formula_fdn = get_field('wm_fdn');
                                     if( $vn_formula_fdn )
                                     {
-                                        echo "<div class=\"vn-target vn-meta-align\">";
+                                        echo "<div class=\"vn-target vn-meta-align fdn-sp\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
                                         echo __('Made by us' , 'wm-child-verdenatura' );
                                         echo "</div> <!--.vn-target-->";
@@ -201,7 +201,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     $vn_self_guided = get_field('wm_self_guided');
                                     if( $vn_self_guided )
                                     {
-                                        echo "<div class=\"vn-target vn-meta-align\">";
+                                        echo "<div class=\"vn-target vn-meta-align ind-sp\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
                                         echo __('Self guided' , 'wm-child-verdenatura' );
                                         echo "</div> <!--.vn-target-->";
@@ -211,7 +211,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     $vn_guided = get_field('wm_guided');
                                     if( $vn_guided )
                                     {
-                                        echo "<div class=\"vn-target vn-meta-align\">";
+                                        echo "<div class=\"vn-target vn-meta-align guid-sp\">";
                                         echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
                                         echo __('Guided' , 'wm-child-verdenatura' );
                                         echo "</div> <!--.vn-target-->";

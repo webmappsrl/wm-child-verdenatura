@@ -86,14 +86,15 @@
                                 </p>
 
                             <div class="durata-preventivo">
+
                             <?php
                             $days = get_field('vn_durata');
                             if ( $days )
                             {
                             $nights = $days - 1;
-                            ?>
+                            ?> <span class="dur">
                             <?php
-                            echo __( 'Duration' , 'wm-child-verdenatura' ) . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                            echo __('Duration' , 'wm-child-verdenatura' ) . "</span>" . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
                             ?>
                             </span>
 

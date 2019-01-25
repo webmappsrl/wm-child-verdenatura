@@ -847,21 +847,22 @@ span.vn-sale-price.cifra {
     left:14%;
 }
 .df-card:nth-child(2) {
-    left:25%;
+    left:23%;
 }
 
 
 img.card {
     position: absolute;
     width:50px;
+    left: 4%;
 }
 
 .card:nth-child(2) {
     left:25%;
 }
 
-.gallery-fdn .card:nth-child(3) {
-    left:22%;
+.card:nth-child(3) {
+    left:42%;
 }
 
 
@@ -1067,18 +1068,23 @@ font-family: "PT Sans", sans-serif;
 }
 
 .archive-route-page.durata-preventivo span.dur-txt {
-    font-weight: normal ;
+    font-weight: normal !important;
 }
-.archive-route-page .content-partenze p {
-    font-weight: 500;
+
+span.dur {
+    font-weight:bold;
+}
+
+.archive-route-page .content-partenze p strong {
+    font-weight: 500 !important;
     line-height: 19px;
 }
 
-.archive-route-page p.durata-text {
+.archive-route-page p.durata-txt {
     font-weight: bold;
-    line-height: 27px;
-
 }
+
+
 .icone-scheda-archive {
     display: grid;
     padding-top: 15px;
@@ -1099,7 +1105,7 @@ padding-left: 5px;
     padding-left: 10px;
     padding-right: 10px;
     display: block;
-    font-size: 0;
+    color: transparent;
     padding-top: 2px;
     line-height: 6px;
     margin-bottom: 10px;
@@ -1126,17 +1132,15 @@ padding-left: 5px;
     margin-bottom: 10px;
 }
 
-
 .archive-route-page .livello.vn-meta-align {
     padding-left:0;
     margin-bottom: 10px;
-
-
 }
 
 .archive-route-page .livello img {
     width: 2.1rem;
 }
+
 
 .archive-route-page .entry-featured-image-url {
     width: 30%;
