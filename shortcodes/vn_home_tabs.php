@@ -79,6 +79,7 @@ function vn_render_home_tabs_shortcode( $atts ) {
         </p>
 
     </div>
+</div>
 
     <script>
         ( function($) {
