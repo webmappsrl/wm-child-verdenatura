@@ -1,4 +1,5 @@
 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <?php
 
@@ -96,6 +97,21 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                             <button class="button-esperienze"><?php
                                 echo __('SHARE YOUR EXPERIENCE' ,'wm-child-verdenatura');
                                 ?></button>
+
+                                <script>
+                                $(document).ready(function() {
+                                 //Faccio sparire il pulsante "Mostra"
+                                 $("#respond").hide();
+                                 $(".button-esperienze").click(function(){
+                                 $("#respond").show();
+                                 $("#respond").hide();
+                                 });
+
+
+                               })
+                                </script>
+
+
                             <?php
 
                             if ( ( comments_open() || get_comments_number() ) && 'on' === et_get_option( 'divi_show_postcomments', 'on' ) )
@@ -106,6 +122,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
                             <br>
                             <hr>
+
                         </div> <!--chiudo .scheda-commenti -->
 
 
@@ -188,14 +205,6 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
 
                                     <?php
-                                    $vn_formula_fdn = get_field('wm_fdn');
-                                    if( $vn_formula_fdn )
-                                    {
-                                        echo "<div class=\"vn-target vn-meta-align fdn-sp\">";
-                                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
-                                        echo __('Made by us' , 'wm-child-verdenatura' );
-                                        echo "</div> <!--.vn-target-->";
-                                    }
 
 
                                     $vn_self_guided = get_field('wm_self_guided');
@@ -228,18 +237,27 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     ?>
                                 <div class="livello vn-meta-align">
                                     <img src="<?php the_calcola_url( $numero ) ?>">
-                                    <p> <?php __('Level' ,'wm-child-verdenatura');?></p>
+                                    <p> <?php echo __('Level' ,'wm-child-verdenatura');?></p>
+
                                 </div> <!--.livello-->
                                     <?php
                                 }
 
                                 ?>
-
+<div class="act-tar">
                                 <div class="attività-route vn-meta-align">
                                     <?php
                                     the_term_image_with_name( $post_id , 'activity' );
                                     ?>
                                 </div>
+
+                                <div class="targets-route vn-meta-align">
+                                    <?php
+                                    the_term_image_with_name( $post_id , 'who' );
+                                    ?>
+                                </div>
+
+</div> <!--.act-tar-->
                             </div> <!--- .specifiche-viaggio -->
 
                             <div class="prezzo">
@@ -261,6 +279,20 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                     echo __('ASK FOR A QUOTE' ,'wm-child-verdenatura');
                                     ?>
                                 </button>
+                                <script>
+                                $(document).ready(function() {
+                                 //Faccio sparire il pulsante "Mostra"
+                                 $("#respond").hide();
+                                 $(".button-esperienze").click(function(){
+                                 $("#respond").hide();
+                                 $("#respond").show();
+                                 });
+
+                                 $(".button-esperienze").click(function(){
+                                 $("#respond").show();
+                                 });
+                                });
+                                </script>
                             </div>
 
 

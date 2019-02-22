@@ -37,6 +37,8 @@ ob_start();
           if ( $vn_note)
               echo $vn_note;
           ?>
+
+
       </p>
     <p class="desc-route">
         <?php
@@ -90,17 +92,17 @@ ob_start();
             ?>
         </div>
 
-        <p class='durata-txt'>
+        <span class='durata-txt'>
             <?php
             echo __('Departures: ' ,'wm-child-verdenatura');?>
-        </p>
-        <div class="content-partenze">
+        </span>
+        <span class="content-partenze">
             <?php
             $vn_part_sum = get_field('vn_part_sum');
             if ($vn_part_sum)
                 echo $vn_part_sum;
             ?>
-        </div>
+        </span>
 
         <p class="part-e-pre">
             <?php

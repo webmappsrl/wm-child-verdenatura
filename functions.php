@@ -89,7 +89,7 @@ function vn_add_ebook_form()
             <input name="group" type="hidden" value="1348" autocomplete="off">
                 <header style="background-image:url(/wp-content/themes/wm-child-verdenatura/images/tree_spring.png); background-repeat: no-repeat;
                 background-position: right top; position: relative; background-size: 50%; display:block; height: 9.375rem;">
-                <h3 class="title-vn-form-ebook center"  style="text-align: center; color: #FFF; padding: 70px 0px 0px 0px; font-size: 38px; 
+                <h3 class="title-vn-form-ebook center"  style="text-align: center; color: #FFF; padding: 70px 0px 0px 0px; font-size: 38px;
                 font-family: PT Sans, sans-serif; font-weight: bold;">
                 <?php
                 echo __('Subscribe to our newsletter' ,'wm-child-verdenatura');
@@ -189,10 +189,22 @@ function the_term_image_with_name( $post_id , $taxonomy )
 
                 }
             }
+            if ( $taxonomy == 'who' )
+            {
+                echo "<div class='targets vn_{$taxonomy}_image_single_route'>";
+                echo "<img src='".$image['url']."'>";
+                $image = get_field('wm_taxonomy_featured_icon' , $term );
+                echo "</div>";
+
+
+            }
+
+}
+
 
         }
     }
-}
+
 
 
 
@@ -296,4 +308,4 @@ function fwp_add_facet_labels() {
     <?php
 }
 add_action( 'wp_head', 'fwp_add_facet_labels', 100 );
-
+?>

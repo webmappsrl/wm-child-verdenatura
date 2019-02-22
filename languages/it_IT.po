@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WEBMAPP - VERDENATURA\n"
-"POT-Creation-Date: 2019-01-19 18:43+0100\n"
-"PO-Revision-Date: 2019-01-19 18:44+0100\n"
+"POT-Creation-Date: 2019-02-21 22:44+0100\n"
+"PO-Revision-Date: 2019-02-21 22:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -20,19 +20,62 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: functions.php:67
+#: archive-route.php:97 shortcodes/vn_route_tabs.php:82 single-route.php:162
+#: webmapp_anypost-vn_route_sb.php:32
+msgid "Duration"
+msgstr "Durata: "
+
+#: archive-route.php:97 shortcodes/vn_route_tabs.php:82 single-route.php:162
+#: webmapp_anypost-vn_route_sb.php:32
+msgid "days"
+msgstr "giorni"
+
+#: archive-route.php:97 shortcodes/vn_route_tabs.php:82 single-route.php:162
+#: webmapp_anypost-vn_route_sb.php:32
+msgid "nights"
+msgstr "notti"
+
+#: archive-route.php:112 shortcodes/vn_route_tabs.php:97 single-route.php:179
+msgid "Departures: "
+msgstr "Partenze: "
+
+#: archive-route.php:145
+msgid "Made by us"
+msgstr "Fatti da noi"
+
+#: archive-route.php:155 single-route.php:215
+msgid "Self guided"
+msgstr "Viaggio individuale"
+
+#: archive-route.php:165 single-route.php:225
+msgid "Guided"
+msgstr "Viaggio con guida"
+
+#: archive-route.php:182 single-route.php:240
+msgid "Level"
+msgstr "Livello"
+
+#: archive-route.php:195 single-route.php:265
+msgid "From"
+msgstr "Da"
+
+#: archive-route.php:209
+msgid "DETAILS"
+msgstr "DETTAGLI"
+
+#: functions.php:66
 msgid "Cerca:"
 msgstr ""
 
-#: functions.php:69
+#: functions.php:68
 msgid "Cerca"
 msgstr ""
 
-#: functions.php:96
+#: functions.php:95
 msgid "Subscribe to our newsletter"
 msgstr "Scarica Gratis l’Ebook"
 
-#: functions.php:102
+#: functions.php:101
 msgid ""
 "Subscribe to our newsletter to stay updated on new tours and all promotional "
 "offers. Verde Natura monthly newsletter also includes latest news from our "
@@ -43,25 +86,25 @@ msgstr ""
 "pratici per le tue uscite in bicicletta! Riceverai inoltre la nostra "
 "NEWSLETTER con le ultime news dal blog e le nostre offerte."
 
-#: functions.php:106
+#: functions.php:105
 msgid "First name"
 msgstr "Nome"
 
-#: functions.php:107
+#: functions.php:106
 msgid "Last name"
 msgstr "Cognome"
 
-#: functions.php:111
+#: functions.php:110
 msgid "*I accept to receive promotionals e-mails as written in our"
 msgstr ""
 "*Accetto di ricevere la newsletter settimanale così come descritto nella "
 "nostra "
 
-#: functions.php:115
+#: functions.php:114
 msgid "Subscribe"
 msgstr "Iscriviti e ricevi l’ebook"
 
-#: functions.php:214
+#: functions.php:225
 msgid "Journey from"
 msgstr "Viaggio del"
 
@@ -97,34 +140,15 @@ msgstr "PARTENZE E QUOTE"
 msgid "HOW TO GET THERE"
 msgstr "COME ARRIVARE"
 
-#: shortcodes/vn_route_tabs.php:80 single-route.php:144
-#: webmapp_anypost-vn_route_sb.php:32
-msgid "Duration"
-msgstr "Durata: "
-
-#: shortcodes/vn_route_tabs.php:80 single-route.php:144
-#: webmapp_anypost-vn_route_sb.php:32
-msgid "days"
-msgstr "giorni"
-
-#: shortcodes/vn_route_tabs.php:80 single-route.php:144
-#: webmapp_anypost-vn_route_sb.php:32
-msgid "nights"
-msgstr "notti"
-
-#: shortcodes/vn_route_tabs.php:95 single-route.php:161
-msgid "Departures: "
-msgstr "Partenze: "
-
-#: single-route.php:82 single-route.php:263
+#: single-route.php:84 single-route.php:279
 msgid "ASK FOR A QUOTE"
 msgstr "RICHIEDI PREVENTIVO"
 
-#: single-route.php:88
+#: single-route.php:90
 msgid "Your experiences"
 msgstr "Racconti di viaggio"
 
-#: single-route.php:91
+#: single-route.php:93
 msgid ""
 "Share your experience with us or read the stories of those who traveled with "
 "us.\n"
@@ -133,35 +157,15 @@ msgstr ""
 "Condividi la tua esperienza o leggi quella di coloro che hanno già viaggiato "
 "con noi.\n"
 
-#: single-route.php:96
+#: single-route.php:98
 msgid "SHARE YOUR EXPERIENCE"
 msgstr "RACCONTACI LA TUA ESPERIENZA"
 
-#: single-route.php:119
+#: single-route.php:137
 msgid "Reference code: "
 msgstr "Codice viaggio: "
 
-#: single-route.php:198
-msgid "Made by us"
-msgstr "Fatti da noi"
-
-#: single-route.php:208
-msgid "Self guided"
-msgstr "Viaggio individuale"
-
-#: single-route.php:218
-msgid "Guided"
-msgstr "Viaggio con guida"
-
-#: single-route.php:233
-msgid "Level"
-msgstr "Livello"
-
-#: single-route.php:249
-msgid "From"
-msgstr "Da"
-
-#: single-route.php:288
+#: single-route.php:318
 msgid "You might be interested in..."
 msgstr "Può interessarti…"
 

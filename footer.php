@@ -42,10 +42,12 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 				<?php
 					if ( false !== et_get_option( 'show_footer_social_icons', true ) ) {
 						get_template_part( 'includes/social_icons', 'footer' );
+
 					}
 
 					echo et_core_esc_previously( et_get_footer_credits() );
 				?>
+
 					</div>	<!-- .container -->
 				</div>
 			</footer> <!-- #main-footer -->
