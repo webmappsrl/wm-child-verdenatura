@@ -567,6 +567,28 @@ ul#menu-menu-footer-1, ul#menu-menu-footer-2, ul#menu-menu-footer-3 {
     }
 }
 
+div#footer-info {
+  padding-bottom: 0;
+  line-height: 1.5;
+}
+
+p.cit-pie {
+  text-align: center;
+  padding-bottom: 0;
+  font-family: "Lato", sans-serif;
+  font-size: small;
+}
+span.vn-cit-pie {
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  font-size: small;
+}
+p.sec-cit-pie {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-size: small;
+}
+
 /* VN HOME TABS - VN HOME TABS EN */
 
 .vn-tab-home {

@@ -75,6 +75,7 @@ Text Domain: wm-child-verdenatura
     z-index: 1;
     padding-right: 40px;
     letter-spacing: -2px;
+    width: 83.3333333333%;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -126,11 +127,13 @@ Text Domain: wm-child-verdenatura
 p.sottotitolo-preventivo {
     padding-left: 10px;
     padding-bottom: 0;
-    color: rgb(15, 122, 104);
-    font-family:Lato, sans-serif;
+    color: #0F7A68;
+    font-family: Lato, sans-serif;
     font-size: 15px;
     border-bottom: 1px solid rgb(15, 122, 104) ;
     margin-right: 10px;
+    line-height: 23px;
+    font-weight: 400;
 
 }
 
@@ -181,6 +184,9 @@ img#fdn-card {
     left:22%;
 }
 
+.gallery-fdn .card:nth-child(2) {
+    left: 14%;
+}
 
 /*BOX PREVENTIVO */
 
@@ -270,6 +276,7 @@ div#tabs-1, div#tabs-2, div#tabs-3, div#tabs-4, div#tabs-5 {
 }
 
 
+
 /*Tab typo and color */
 #tabs.ui-tabs.ui-corner-all.ui-widget.ui-widget-content ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
     background: #fff;
@@ -278,6 +285,8 @@ div#tabs-1, div#tabs-2, div#tabs-3, div#tabs-4, div#tabs-5 {
 #tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5   p{
     font-family: Lato, sans-serif;
     font-size: 15px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.87);
 }
 
 .vn-tab-route div#tabs-4 {
@@ -294,7 +303,13 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
     color:#0F7A68;
     font-family: Lato, sans-serif;
     font-size: 13px;
-    padding: 8px 1.4em 10px;
+    padding-left:13px;
+    padding-right: 13px;
+    padding-bottom: 10.5px;
+
+}
+#ui-id-5 {
+padding-right: 35px;
 }
 
 a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:hover  {
@@ -304,7 +319,7 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
 
 .ui-state-active a:link, .ui-state-active a:visited {
     background-color: #7AB400;
-    color: #fff;
+    color: #fff !important;
     width: 100%;
 }
 
@@ -326,8 +341,47 @@ a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:ho
     padding-top: 40px;
 }
 
+tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.scheda-preventivo #tabs-4 tbody tr:first-child,
+.scheda-preventivo #tabs-3 table > tbody > tr:nth-child(1) {
+  color:  #0F7A68;
+}
+
+.scheda-preventivo a {
+  color: #7AB400 !important;
+  font-weight: bold;
+}
+
+.scheda-preventivo a :hover {
+  color: #0F7A68 !important;
+}
 
 
+
+.scheda-preventivo span.durata-txt  {
+  font-size: small;
+  font-family: "PT Sans", sans-serif;
+}
+
+.scheda-preventivo .durata-preventivo {
+  padding-bottom: 0;
+  padding-left: 0;
+  line-height: 1;
+
+}
+
+.scheda-preventivo .content-partenze p {
+  display: inline;
+  margin-left:0;
+}
+
+.scheda-preventivo p.vn-note-route {
+  font-size: 17px;
+  line-height: 26px;
+}
 /*Scheda commenti*/
 
 .scheda-commenti {
@@ -345,12 +399,19 @@ h1#comments.page_title {
     color: black;
 }
 
+h3#reply-title {
+  display: none;
+}
+
+#comment-wrap {
+    padding-top: 19px;
+}
+
 div.journey-comment {
     font-family: Lato, sans-serif;
     color: black;
     padding-bottom: 10px;
     font-size: 15px;
-
 }
 
 h3#reply-title, .acf-field.acf-field-gallery.acf-field-wm-comment-gallery  {
@@ -445,6 +506,7 @@ button.button-esperienze:hover {
     border-radius: 10px;
     padding-top: 13px;
     padding-left: 10px;
+    padding-right: 10px;
     display: block;
     padding-bottom: 20px;
     font-family: "PT Sans", sans serif;
@@ -497,6 +559,7 @@ h1.title-preventivo {
     padding-left:10px;
     padding-right: 10px;
     margin-bottom: 10px;
+    font-size: 28px;
 }
 
 .durata-preventivo, span.webmapp_route_duration_notes{
@@ -546,6 +609,52 @@ p.vn-note {
     color: black;
     font-weight: bold;
     padding-top: 10px;
+  line-height: 1.5;
+}
+p.vn-note-route {
+  border-bottom: solid 2px #7AB400;
+  padding-top: 40px;
+}
+
+.scheda-preventivo #tabs-1 ul {
+  list-style: disc;
+  padding-left: 40px;
+   padding-top: 30px;
+}
+
+.scheda-preventivo #tabs-1 h5 {
+    font-size: 25px;
+}
+
+.scheda-preventivo #tabs-1 ul li::before {
+  content: "\2022";
+  color: #7AB400;
+  position: absolute;
+  left: 71px;
+top: 210px;
+}
+
+.scheda-preventivo #tabs-1 ul li{
+  padding-bottom: 10px;
+}
+
+.scheda-preventivo .durata-preventivo span.dur-txt {
+  font-weight: normal !important;
+}
+
+.content-partenze {
+  font-weight:bold;
+}
+
+.box-preventivo-aside .content-partenze p {
+padding-top: 7px;
+line-height: 1.5;
+font-weight: bold;
+}
+
+
+.durata-preventivo span.webmapp_route_duration_notes {
+  padding-left: 0;
 }
 
 span.content-partenze p{
@@ -565,11 +674,9 @@ span.content-partenze p{
     color: black;
     display: flex;
     text-align: center;
-    margin-left: 20px;
     margin-right: 20px;
     margin-top: 10px;
     padding: 10px;
-
 }
 
 
@@ -596,8 +703,6 @@ span.content-partenze p{
     padding-top: 20px;
     padding-bottom: 10px;
     text-align: center;
-
-
 }
 
 .interessi h1{
@@ -611,7 +716,6 @@ margin-right:10px;
     margin-left: 10px;
     text-align: center;
     letter-spacing: -1px;
-
 }
 
 
@@ -627,26 +731,30 @@ margin-right:10px;
     padding-left: 10px;
 }
 
-p.vn-note-route {
-    padding-top: 40px;
-}
-
 .durata-preventivo p.durata-txt {
     padding-left:0;
 }
 
 .durata-preventivo span.dur-txt {
     padding-bottom: 0;
-font-weight: bold;
+    font-weight: bold;
+    padding-left: 7px;
 }
-
 
 p.part-e-pre {
     border-bottom: solid 2px #7AB400;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
 }
 
 
 /**ICONE SPECIFICHE ROUTE ASIDE**/
+
+
+.specifiche-viaggio img {
+    max-width: none;
+  }
 
 .nazione {
     display: inline-grid;
@@ -677,10 +785,27 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     padding-left: 20px;
 }
 
-.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
+span.vn_taxonomy_image_single_route.vn_who_image_single_route {
+    display: none;
+}
+.targets img {
+  width:  2.5rem;
+  display: block;
+  padding-bottom: 10px;
 
+}
+
+.targets-route.vn-meta-align {
+  padding-left: 10px;
+}
+
+.vn_taxonomy_image_single_route.vn_activity_image_single_route img {
     width: 2.5rem;
     display: block;
+}
+
+.vn_taxonomy_image_single_route.vn_activity_image_single_route {
+  line-height: 1;
 }
 
 
@@ -716,6 +841,31 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     display: inline-table;
 }
 
+.vn-target.vn-meta-align.ind-sp img {
+  width: 40px;
+  padding-bottom: 6px;
+}
+.vn-target.vn-meta-align.ind-sp {
+  line-height: 1.5;
+}
+
+.vn-target.vn-meta-align.guid-sp {
+  line-height: 1.5;
+}
+
+.vn-target.vn-meta-align.guid-sp img {
+  max-width: 113%;
+  padding-bottom: 6px;
+}
+
+.vn-target.vn-meta-align.fdn-sp img {
+  width: 143%;
+  padding-bottom: 6px;
+}
+.vn-target.vn-meta-align.fdn-sp {
+  line-height: 1.5;
+
+}
 
 /* WEBMAPP ANYPOST TEMPLATE VN ROUTE */
 
@@ -754,6 +904,12 @@ p.webmapp_anypost_show_all {
     font-size: smaller;
 }
 
+.webmapp-anypost-template-vn_route_sb .nazione img {
+  margin-left: 5px;
+}
+
+
+
 .webmapp-anypost-template-vn_route_sb span.dur-txt {
     font-weight: bold;
 }
@@ -761,12 +917,13 @@ p.webmapp_anypost_show_all {
 .webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     text-align: -webkit-center;
     padding-top:0;
-    padding-left:10px;
+    padding-left:20px;
 }
 
 .webmapp-anypost-template-vn_route_sb span.vn_taxonomy_image_single_route.vn_where_image_single_route, .webmapp-anypost-template-vn_route_sb .livello p {
     color: black;
     font-family: "PT Sans", sans-serif;
+    text-align: center;
 }
 
 .webmapp-anypost-template-vn_route_sb .vn-target {
@@ -781,6 +938,4 @@ p.webmapp_anypost_show_all {
     margin-left: 20px;
     margin-right: 20px;
     display: -webkit-box;
-
 }
-

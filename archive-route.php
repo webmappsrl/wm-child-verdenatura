@@ -206,7 +206,7 @@
                                  <button class="details-butt"> <a href="<?php
                                      the_permalink(); ?>">
                                         <?php
-                                        echo __('DETAILS' ,'wm-child-verdenatura');
+                                        echo __('DETAILS','wm-child-verdenatura');
                                         ?>
                                          </a>
                                     </button>
