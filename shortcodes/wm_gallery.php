@@ -61,8 +61,10 @@ function wm_render_gallery ($atts ) {
                 focusOnSelect: true,
                 autoplay: true
             });
+           
         } )(jQuery);
 
+        
 
     </script>
 
