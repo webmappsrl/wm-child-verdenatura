@@ -11,7 +11,7 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/single-route-style.css');
 
-
+$language = ICL_LANGUAGE_CODE;
 ?>
 
 
@@ -62,12 +62,14 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                         </div>
                         <div class="top-gallery-single-post-route">
                             <?php
-                            $vn_gallery_route=get_field ('n7webmap_track_media_gallery');
+                            $vn_gallery_route = get_field('wm_route_gallery');//n7webmap_track_media_gallery//wm_route_gallery
+                            //print_r($vn_gallery_route);
                             if (is_array($vn_gallery_route) && ! empty($vn_gallery_route)) {
                                 $vn_id_gallery_route=  array_map(function ($i) {
-                                  return $i ['ID'];
+                                  return $i['ID'];
                                 },$vn_gallery_route);
                                 $stringa_id_gallery= implode (',', $vn_id_gallery_route);
+                                //print_r($vn_id_gallery_route);
                                 echo do_shortcode ("[wm_gallery media_ids='$stringa_id_gallery']");
                             }
                             ?>
@@ -76,23 +78,48 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
                         <div class="scheda-preventivo">
                             <?php
+                            //echo do_shortcode('[caldepartures name="Bob"]');
                             echo do_shortcode('[vn_route_tabs]');
                             ?>
                         </div> <!--chiudo .scheda-preventivo-->
 
-                        <div class="button-preventivo"><button><?php
-                                echo __('ASK FOR A QUOTE' ,'wm-child-verdenatura');
-                                ?></button>
-                        </div> <!--chiudo .button-preventivo -->
+
+                        <?php 
+                        $products = get_field('product');
+                        $departure_periods = get_field('departures_periods');
+                        $departure_dates = get_field('departure_dates');
+                        if( empty($products) && (empty($departure_periods) || empty($departure_dates))){
+                            $hide_button = "hide-button";
+                            } else {
+                                $hide_popup_contact = "hide-button";
+                            }
+                        ?>
+                        <div class="container-button-preventivo">
+                            <div class="button-preventivo <?php echo $hide_button;?>"><a target='_blank' href="http://vnquote.webmapp.it/#/<?php echo $post_id.'?lang='.$language;?>">
+                                        <?php //
+                                        echo __('MAKE A QUOTE' ,'wm-child-verdenatura');
+                                        ?>
+                                    </a>
+                            </div> <!--chiudo .button-preventivo -->
+                            <div class="button-preventivo <?php echo $hide_popup_contact;?>"><a class="fancybox" href="#contact_form_pop">
+                                        <?php //
+                                        echo __('REQUEST INFORMATION' ,'wm-child-verdenatura');
+                                        ?>
+                                    </a>
+                            </div> <!--chiudo .button-richiedi informazione -->
+
+                        </div>
+                        
+                        <div class="fancybox-hidden" style="display: none;">
+                            <div id="contact_form_pop"><?php echo do_shortcode('[contact-form-7 id="45093" title="Contact form 1"]');?></div>
+                        </div>
 
                         <div class="scheda-commenti">
                             <h3><?php
                                 echo __('Your experiences' ,'wm-child-verdenatura');
                                 ?></h3>
                             <p class="p-ex"><?php
-                                echo __('Share your experience with us or read the stories of those who traveled with us.
-
-' ,'wm-child-verdenatura');
+                                echo __('Share your experience with us or read the stories of those who traveled with us.' ,'wm-child-verdenatura');
                                 ?></p>
                             <button class="button-esperienze"><?php
                                 echo __('SHARE YOUR EXPERIENCE' ,'wm-child-verdenatura');
@@ -103,8 +130,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                  //Faccio sparire il pulsante "Mostra"
                                  $("#respond").hide();
                                  $(".button-esperienze").click(function(){
-                                 $("#respond").show();
-                                 $("#respond").hide();
+                                 $("#respond").toggle();
                                  });
 
 
@@ -132,7 +158,7 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
                     <div class="col-sm-12 col-md-4">
                         <div class="box-preventivo-aside">
-                            <h1 class="title-preventivo" style="color: #0f7a68;"><?php the_title();?></h1>
+                            <h2 class="title-preventivo" style="color: #0f7a68;"><?php the_title();?></h2>
                             <p class="sottotitolo-preventivo"><?php
                                 echo __('Reference code: ' ,'wm-child-verdenatura');
                                 $n7webmapp_route_cod=get_field('n7webmapp_route_cod');
@@ -174,16 +200,98 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                             <br>
 
 
-                            <p class='durata-txt'>
+                            <div class="departure-preventivo-aside"> <!------------ Departure / Partenze -->
+                                <span class='durata-txt'>
+                                    <p class="tab-section">
+                                        <?php
+                                        if( have_rows('departures_periods') ){
+                                        echo __('Departures:' ,'wm-child-verdenatura');}?>
+                                    </p>
+                                </span>
+                                
                                 <?php
-                            echo __('Departures: ' ,'wm-child-verdenatura');?>
-                            </p>
-                                <div class="content-partenze">
-                                <?php
-                                $vn_part_sum = get_field('vn_part_sum');
-                                if ($vn_part_sum)
-                                    echo $vn_part_sum;
-                                ?>
+                                    if( have_rows('departures_periods') ): ?>
+                                    <p class="part-e-pre"></p>
+                                    
+                                    <div class="departure_name">
+                                    </div>
+                                    <div class="grid-container-period-aside">
+                                    
+                                        <?php while( have_rows('departures_periods') ): the_row(); 
+                                
+                                        // vars
+                                        $name = get_sub_field('name');
+                                        $start = get_sub_field('start');
+                                        $stop = get_sub_field('stop');
+                                        $week_days = get_sub_field('week_days');
+                                        $dateformatstring = "l";
+                                
+                                        ?>
+                                
+                                        <div class="departure_start">
+                                            <?php if( $start ): ?>
+                                                <p><?php echo __('From:' ,'wm-child-verdenatura').' '.$start; ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="departure_stop">
+                                            <?php if( $stop ): ?>
+                                                <p><?php echo __('To:' ,'wm-child-verdenatura').' '.$stop; ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="departure_week_days">
+                                            <?php if( $week_days ): ?>
+                                                <ul>
+                                                    <?php if (count($week_days) == 7) { ?>
+                                                        <li style="display: inline;" ><?php echo __('Every day' ,'wm-child-verdenatura'); ?></li>
+                                                        <?php }else { ?>
+                                                            <span><?php echo __('Only' ,'wm-child-verdenatura').' '; ?></span>
+                                                            <?php 
+                                                            $i = 0;
+                                                            $len = count($week_days);
+                                                            foreach( $week_days as $week_day ): 
+                                                                if ($i == 0){ ?>
+                                                                    <li style="display: inline;" ><?php echo date_i18n($dateformatstring, strtotime($week_day)); ?></li>
+                                                                <?php } elseif ($i == $len -1){ ?>
+                                                                    <?php echo __('and' ,'wm-child-verdenatura').' '; ?><li style="display: inline;" ><?php echo date_i18n($dateformatstring, strtotime($week_day)); ?></li>
+                                                                <?php } else { ?>
+                                                                <span><?php echo __(',' ,'wm-child-verdenatura').' '; ?></span><li style="display: inline;" ><?php echo date_i18n($dateformatstring, strtotime($week_day)); ?></li>
+                                                                <?php } $i++ ;?>
+                                                    <?php endforeach; } ?>
+                                                </ul>
+                                            <?php endif; ?>
+                                    </div>
+                                
+                                    <?php endwhile; ?>
+                                
+                                    </div>
+                                
+                                    <?php endif; ?>
+                                    
+                                    <?php // ---------- single departures ----------------//
+                                    if( have_rows('departure_dates') ): ?>
+                                    <div class="single-departure">
+                                            <p class="tab-section"><?php echo __('Single departures' ,'wm-child-verdenatura');?></p>
+                                            <p class="part-e-pre"></p>
+                                    </div>
+                                    <div class="grid-container-single">
+                                    
+                                    <?php while( have_rows('departure_dates') ): the_row(); 
+                                
+                                        // vars
+                                        $date = get_sub_field('date');            
+                                        ?>
+                                
+                                        <div class="departure_name">
+                                            <?php if( $date ): ?>
+                                                <p><?php echo $date; ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                
+                                    <?php endwhile; ?>
+                                
+                                    </div>
+                                
+                                    <?php endif; ?> <!-- End ---------- single departures -->
                             </div>
 
 
@@ -236,9 +344,10 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                 {
                                     ?>
                                 <div class="livello vn-meta-align">
-                                    <img src="<?php the_calcola_url( $numero ) ?>">
+                                    <a class="fancybox" href="#difficulty_icon_popup">
+                                        <img src="<?php the_calcola_url( $numero ) ?>">
+                                    </a>
                                     <p> <?php echo __('Level' ,'wm-child-verdenatura');?></p>
-
                                 </div> <!--.livello-->
                                     <?php
                                 }
@@ -266,34 +375,26 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
                                 ?>
 
                                 <span class="cifra"><?php
-                                $vn_prezzo = get_field('vn_prezzo');
+                                $vn_prezzo = get_field('wm_route_price');
                                 if ($vn_prezzo)
                                 echo $vn_prezzo;
                                 ?>
                                 € </span>
                             </div> <!--.prezzo -->
 
-                            <div class="richiedi-preventivo">
-                                <button>
-                                    <?php
-                                    echo __('ASK FOR A QUOTE' ,'wm-child-verdenatura');
+                            <div class="button-preventivo <?php echo $hide_button;?>">
+                                <a href="http://vnquote.webmapp.it/#/<?php echo $post_id.'?lang='.$language;?>">
+                                    <?php //
+                                    echo __('MAKE A QUOTE' ,'wm-child-verdenatura');
                                     ?>
-                                </button>
-                                <script>
-                                $(document).ready(function() {
-                                 //Faccio sparire il pulsante "Mostra"
-                                 $("#respond").hide();
-                                 $(".button-esperienze").click(function(){
-                                 $("#respond").hide();
-                                 $("#respond").show();
-                                 });
-
-                                 $(".button-esperienze").click(function(){
-                                 $("#respond").show();
-                                 });
-                                });
-                                </script>
+                                </a>
                             </div>
+                            <div class="button-preventivo <?php echo $hide_popup_contact;?>"><a class="fancybox" href="#contact_form_pop">
+                                        <?php //
+                                        echo __('REQUEST INFORMATION' ,'wm-child-verdenatura');
+                                        ?>
+                                    </a>
+                            </div> <!--chiudo .button-richiedi informazione -->
 
 
                         </div> <!-- chiudo .box-preventivo-aside -->
@@ -314,13 +415,13 @@ wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/s
 
 
                         <div class="interessi">
-                            <h1><?php
+                            <h2><?php
                                 echo __('You might be interested in...' ,'wm-child-verdenatura');
-                                ?></h1>
+                                ?></h2>
 
                             <div class="vn-post-interessi">
                                 <?php
-                                echo do_shortcode('[webmapp_anypost post_type="route" term_id="84" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3 ]');
+                                echo do_shortcode('[webmapp_anypost post_type="route" term_id="84" template="vn_route_sb" posts_count=3 rows=3 posts_per_page=3 orderby="rand"]');
                                 ?>
 
 

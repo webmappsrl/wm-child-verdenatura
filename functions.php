@@ -3,8 +3,19 @@
 require ('import_data.php');
 require ('shortcodes/vn_home_tabs.php');
 require ('shortcodes/vn_route_tabs.php');
+require ('shortcodes/vn_blog_tabs.php');
+require ('shortcodes/search_filter_home.php');
+require ('shortcodes/calendar_departures_home.php');
+require ('shortcodes/calendar_departures_all.php');
 require ('shortcodes/wm_gallery.php');
 require ('includes/woocommerce.php');
+require ('includes/preventivi-json.php');
+
+
+
+add_action('woocommerce_before_cart', 'preventivi_json_to_text',15);
+add_action('woocommerce_before_checkout_form', 'preventivi_json_to_text',15);
+
 
 
 add_action('after_setup_theme', 'vn_theme_setup');
@@ -16,12 +27,34 @@ function vn_theme_setup(){
     load_theme_textdomain('wm-child-verdenatura', get_stylesheet_directory() . '/languages');
 }
 
+/**
+ * exclude the test page from search
+ */
+function fb_search_filter($query) {
+    if ( !$query->is_admin ) {
+        $query->set('post__not_in', array(49693) ); // id of page or post
+    }
 
+    return $query;
+}
+add_filter( 'pre_get_posts', 'fb_search_filter' );
+
+/**
+ * exclude the taxonomy Bici e barca from tipologia
+ */
+add_filter( 'facetwp_index_row', function( $params, $class ) {
+    if ( 'tipologia' == $params['facet_name'] ) {
+        print_r($params);
+        $excluded_terms = array( 'in-bici-e-barca' );
+        if ( in_array( $params['facet_display_value'], $excluded_terms ) ) {
+            return false;
+        }
+    }
+    return $params;
+}, 10, 2 );
 
 
 add_action( 'wp_enqueue_scripts', 'Divi_parent_theme_enqueue_styles' );
-
-
 function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_style( 'divi-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick.css' );
@@ -33,6 +66,11 @@ function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_style('slick-lightbox-master', get_stylesheet_directory_uri() . '/third-parts/slick-lightbox-master/dist/slick-lightbox.css');
     //wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
 }
+
+function admin_css_load() {
+    wp_enqueue_style('style-admin-css', get_stylesheet_directory_uri().'/style-admin.css');
+}
+add_action('admin_enqueue_scripts', 'admin_css_load');
 
 /**
  * Material Icons
@@ -51,11 +89,15 @@ function aggiungi_material_icons(){
  * Search bar e map search
  */
 
-// add_action ('et_header_top', 'vn_search_bar');
+ add_action ('et_header_top', 'vn_search_bar');
 function vn_search_bar() {
-
-    echo '<div id="vn-search-bar-header"><input id="cerca-home" type="text" placeholder="Cerca" name="search">
-      <button id="vn-search-lente" type="submit"  onclick="location.href=\'http://vn.be.webmapp.it/route/?fwp_title\'"><i class="fa fa-search"></i></button></div>';
+    $lang = $_GET['lang'];
+    echo '<div id="vn-search-bar-header"><form id="searchform" action="/route/"  method="get">
+	<input type="search" placeholder="Cerca &hellip;" value="" name="fwp_search_box"><input type="hidden" name="lang" value="'.$lang.'"/>
+	<button id="vn-search-lente" type="submit"><i class="fa fa-search"></i></button>
+    </form></div>';
+    // echo '<div id="vn-search-bar-header"><input id="cerca-home" type="text" placeholder="Cerca" name="search">
+    //   <button id="vn-search-lente" type="submit"  onclick="location.href=\'http://vn.be.webmapp.it/route/?fwp_title\'"><i class="fa fa-search"></i></button></div>';
 
 }
 
@@ -200,19 +242,10 @@ function the_term_image_with_name( $post_id , $taxonomy )
                 $image = get_field('wm_taxonomy_featured_icon' , $term );
                 echo "</div>";
 
-
             }
-
 }
-
-
         }
     }
-
-
-
-
-
 
 /**
  * Comments in single route
@@ -312,4 +345,46 @@ function fwp_add_facet_labels() {
     <?php
 }
 add_action( 'wp_head', 'fwp_add_facet_labels', 100 );
+
+// remove drop down show counts from wpfacet
+add_filter( 'facetwp_facet_dropdown_show_counts', function( $return, $params ) {
+    
+    $return = false;
+    
+    return $return;
+}, 10, 2 );
+
+//  order wpfacet Duration and Seasosn months in archive route page
+add_filter( 'facetwp_facet_orderby', function( $orderby, $facet ) {
+    if ( 'durata' == $facet['name'] ) {
+        $orderby = 'f.facet_value+0 ASC';
+    }
+    if ( 'seasons' == $facet['name'] ) {
+        $orderby = 'FIELD(f.facet_display_value, "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre")';
+    }
+    return $orderby;
+}, 10, 2 );
+
+/*
+    wpfacet translate default labels
+*/
+
+add_filter( 'facetwp_i18n', function( $string ) {
+    if ( isset( FWP()->facet->http_params['lang'] ) ) {
+        $lang = FWP()->facet->http_params['lang'];
+
+        $translations = array();
+        $translations['en']['Cerca'] = 'Search';
+
+        if ( isset( $translations[ $lang ][ $string ] ) ) {
+            return $translations[ $lang ][ $string ];
+        }
+    }
+
+    return $string;
+});
+
+/**
+ * language switch for woocommerce add to cart
+ */
 ?>

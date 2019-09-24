@@ -7,13 +7,18 @@ global $wm_anypost_bootstrap_col_type,
        $wm_anypost_post_type;
 
 $title_link = get_the_permalink();
-$get_the_post_thumbanil = get_the_post_thumbnail_url(get_the_ID() ,'full');
 $current_post_type = get_post_type();
-
+$get_the_post_thumbanil = '';
+if(get_the_post_thumbnail_url()) {
+    $get_the_post_thumbanil = get_the_post_thumbnail_url(get_the_ID() , 'medium_large');
+} else {
+    $verde_natura_image = wp_get_attachment_image_src(40702,'medium_large');
+    $get_the_post_thumbanil = $verde_natura_image[0];
+}
 
 ?>
 
-<div class="col-sm-12 col-md-<?php echo $wm_anypost_bootstrap_col_type?> webmapp_shortcode_any_post post_type_<?php echo $wm_anypost_post_type?>">
+<div class="col-vn-route webmapp_shortcode_any_post post_type_<?php echo $wm_anypost_post_type?>">
 
     <div class="webmapp_post-title">
         <h2>
@@ -45,28 +50,28 @@ $current_post_type = get_post_type();
     <div class="webmapp_post-featured-img">
         <?php
         echo "<a href='$title_link' title=\"".get_the_title()."\">";
-
-        $own_made = get_field( 'wm_fdn' );
-        if ( $own_made )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg' alt='Fatto da noi' id='fdn-card'>";
-
-
-        $dog_friendly = get_field ('vn_meta_dog');
-        if ( $dog_friendly)
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
-
-
-        $new = get_field( 'vn_new' );
-        if( $new )
-            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
-
         ?>
 
-        <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbnail = "http://vn.be.webmapp.it/wp-content/uploads/2018/11/GW101-salento-2-web-1.jpg";
-        if(has_post_thumbnail()) {
-            $get_the_post_thumbnail = get_the_post_thumbnail_url(get_the_ID() ,'full');
-        }
-        ; ?>')">
+        <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbanil;?>')">
+            <div class="gallery-fdn">
+                <?php
+                $vn_formula_fdn = get_field('wm_fdn');
+                if( $vn_formula_fdn )
+                {
+                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg" class="fdn-card">';
+                }
+
+                $dog_friendly = get_field ('vn_meta_dog');
+                if ( $dog_friendly)
+                    echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
+
+
+                $new = get_field( 'vn_new' );
+                if( $new )
+                    echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
+
+                ?>
+            </div>
         </figure>
 
 
@@ -97,7 +102,9 @@ $current_post_type = get_post_type();
             {
                 ?>
         <div class="livello">
-            <img src="<?php the_calcola_url( $numero ) ?>">
+            <a class="fancybox" href="#difficulty_icon_popup">
+                <img src="<?php the_calcola_url( $numero ) ?>">
+            </a>
             <p>Livello</p>
         </div> <!--.livello-->
             <?php
