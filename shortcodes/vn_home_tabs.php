@@ -4,17 +4,23 @@
 
 add_shortcode( 'vn_home_tabs', 'vn_render_home_tabs_shortcode' );
 function vn_render_home_tabs_shortcode( $atts ) {
-
+    $get_language = $_GET['lang'];
+    // $catsArray = '';
+    // if ($get_language == 'en') {
+    //     $catsArray = array(294,391,89,519,539,365);
+    // } else {
+        $catsArray = array(84,522,81,505,538,369);
+    // }
+    $terms = get_terms( array(
+        'hide_empty' => false,
+        'include' => $catsArray,
+        'orderby'  => 'include',
+    ) );
     ob_start();
     ?>
     <div id="tabs" class="vn-tab-home">
         <ul class="tabs-home-tab">
         <?php 
-            $terms = get_terms( array(
-                'taxonomy' => array ('activity','who'),
-                'hide_empty' => false,
-                'exclude' => array ( 83,116,391 ),
-            ) );
             $i = 1;
             $li_string = '';
             $div_string ='';
@@ -29,13 +35,15 @@ function vn_render_home_tabs_shortcode( $atts ) {
                     $color = get_field('wm_taxonomy_color',$term);
                     $page_title = $get_term->name;
                     $term_description = $get_term->description;
-                    $li_string .= '<li class="'.$term_slug.'"><a href="#tabs-'.$term_slug.'" id="'.$term_slug.'" style="border-right: 1px solid #ccc; color: '.$color.'; font-weight: bold;"><img src="'.$iconimageurl.'" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;">'.$page_title.'</a></li>';
+                    $li_string .= '<li class="'.$term_slug.'"><a href="#tabs-'.$term_slug.'" id="'.$term_slug.'" style="color: '.$color.'; font-weight: bold;"><img src="'.$iconimageurl.'" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;">'.$page_title.'</a></li>';
                     $div_string .= '
                         <div id="tabs-'.$term_slug.'" class="'.$term_slug.'" style="border-top: 5px solid '.$color.';">
-                            <div><img src="'.$iconimageurl.'" style="float: left; padding: 15px 10px 0 0;"><h2>'.$page_title.'</h2>
-                            <p>'.$term_description.'</p></div>
+                            <div class="desc-vn-home-container"><img src="'.$iconimageurl.'" style="float: left; padding: 15px 10px 0 0;"><h2>'.$page_title.'</h2>
+                            <p>'.$term_description.'</p>
+                            </div>
+                            <div class="bottun-vn-home-container"><a href="/route/?lang='.$get_language.'&fwp_targets='.$term_slug.'" class="bottun-vn-home-tabs">'. __( 'See all' , 'wm-child-verdenatura' ).'</a></div>
                             
-                            [webmapp_anypost post_type="route" term_id="'.$term_id.'" template="vnhome" posts_count=3 rows=1 posts_per_page=3]
+                            [webmapp_anypost post_type="route" term_id='.$term_id.' template="vnhome" posts_count=3 rows=1 posts_per_page=3 activity_color="'.$color.'"]
                             
                         </div>';
                     $i++;
@@ -49,13 +57,15 @@ function vn_render_home_tabs_shortcode( $atts ) {
                     $color = get_field('wm_taxonomy_color',$term);
                     $page_title = $get_term->name;
                     $term_description = $get_term->description;
-                    $li_string .= '<li class="'.$term_slug.'"><a href="#tabs-'.$term_slug.'" id="'.$term_slug.'" style="border-right: 1px solid #ccc; color: '.$color.'; font-weight: bold;"><img src="'.$iconimageurl.'" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;">'.$page_title.'</a></li>';
+                    $li_string .= '<li class="'.$term_slug.'"><a href="#tabs-'.$term_slug.'" id="'.$term_slug.'" style="color: '.$color.'; font-weight: bold;"><img src="'.$iconimageurl.'" class="bici-img" style="width: 2.5em; vertical-align: bottom; margin-right: 20px;">'.$page_title.'</a></li>';
                     $div_string .= '
                         <div id="tabs-'.$term_slug.'" class="'.$term_slug.'" style="border-top: 5px solid '.$color.';">
-                            <div><img src="'.$iconimageurl.'" style="float: left; padding: 15px 10px 0 0;"><h2>'.$page_title.'</h2>
-                            <p>'.$term_description.'</p></div>
+                            <div class="desc-vn-home-container"><img src="'.$iconimageurl.'" style="float: left; padding: 15px 10px 0 0;"><h2>'.$page_title.'</h2>
+                            <p>'.$term_description.'</p>
+                            </div>
+                            <div class="bottun-vn-home-container"><a href="/route/?lang='.$get_language.'&fwp_tipologia='.$term_slug.'" class="bottun-vn-home-tabs">'. __( 'See all' , 'wm-child-verdenatura' ).'</a></div>
                             
-                            [webmapp_anypost post_type="route" term_id="'.$term_id.'" template="vnhome" posts_count=3 rows=1 posts_per_page=3]
+                            [webmapp_anypost post_type="route" term_id='.$term_id.' template="vnhome" posts_count=3 rows=1 posts_per_page=3 activity_color="'.$color.'"]
                             
                         </div>';
                     $i++;

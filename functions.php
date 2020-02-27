@@ -5,6 +5,7 @@ require ('shortcodes/vn_home_tabs.php');
 require ('shortcodes/vn_route_tabs.php');
 require ('shortcodes/vn_blog_tabs.php');
 require ('shortcodes/search_filter_home.php');
+require ('shortcodes/vn_home_slider.php');
 require ('shortcodes/calendar_departures_home.php');
 require ('shortcodes/calendar_departures_all.php');
 require ('shortcodes/wm_gallery.php');
@@ -15,6 +16,7 @@ require ('includes/preventivi-json.php');
 
 add_action('woocommerce_before_cart', 'preventivi_json_to_text',15);
 add_action('woocommerce_before_checkout_form', 'preventivi_json_to_text',15);
+add_action('woocommerce_before_checkout_billing_form', 'wm_birthday_datepicker', 90, 1);
 
 
 
@@ -30,14 +32,54 @@ function vn_theme_setup(){
 /**
  * exclude the test page from search
  */
-function fb_search_filter($query) {
+
+function fb_search_filter( $query ) {
     if ( !$query->is_admin ) {
-        $query->set('post__not_in', array(49693) ); // id of page or post
+    $query->set('post__not_in', array(49693,49931) ); // id of page or post
+    }  
+    
+    if ( is_post_type_archive('route') && $query->is_main_query()) {
+        if ( isset($_GET['wm_route_code']) ) {
+
+            global $wpdb;
+            $get_value = $_GET['wm_route_code'];
+            
+            $result = $wpdb->get_results("SELECT DISTINCT ID FROM vn_posts AS posts INNER JOIN vn_postmeta AS postmeta ON posts.ID = postmeta.post_id AND ( posts.post_title LIKE '%$get_value%' OR ( postmeta.meta_value = '$get_value' AND postmeta.meta_key = 'n7webmapp_route_cod' ) ) WHERE posts.post_type = 'route'", ARRAY_A);
+            
+            if ( !empty($result )) {
+                $result = array_map( function ($e){
+                    return isset($e['ID']) ? $e['ID'] : 0 ;
+                }, $result);
+                $query->set( 'post__in', $result );
+            }
+    
+        }
+        $query->set('order_by', 'meta_value' );
+        $query->set('meta_key', 'vn_ordine' );
+        $query->set('order', 'DESC' );
+        
+        
     }
 
-    return $query;
 }
-add_filter( 'pre_get_posts', 'fb_search_filter' );
+add_action( 'pre_get_posts', 'fb_search_filter' );
+
+//change query args of wpfacet template in home page viaggio particolare adding the route_code 
+add_filter( 'facetwp_indexer_row_data', function( $rows, $params ) {
+    if ( 'search_route' == $params['facet']['name'] ) {
+        $rows = [];
+        $post_id = (int) $params['defaults']['post_id'];
+        $field_value = get_post_meta( $post_id, 'n7webmapp_route_cod', true );
+        $new_row = $params['defaults'];
+        $new_row['facet_value'] = $post_id ; // value gets the post id
+        $new_row['facet_display_value'] = $field_value.' - '. get_the_title( $post_id ); // label
+        $rows[] = $new_row;
+
+    }
+    return $rows;
+}, 10, 2 );
+
+
 
 /**
  * exclude the taxonomy Bici e barca from tipologia
@@ -59,12 +101,18 @@ function Divi_parent_theme_enqueue_styles() {
     wp_enqueue_style( 'divi-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'slick-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick.css' );
     wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick.min.js', array ('jquery') );
+    wp_enqueue_script( 'general_javascript', get_stylesheet_directory_uri() . '/js/general.js', array ('jquery') );
     wp_enqueue_script( 'slick-script-lightbox', get_stylesheet_directory_uri() . '/third-parts/slick-lightbox-master/dist/slick-lightbox.js', array ('jquery'));
     wp_enqueue_style( 'slick-theme-style', get_stylesheet_directory_uri() . '/third-parts/slick-1.8.1/slick/slick-theme.css' );
     wp_enqueue_style( 'webmapp-theme-style', get_stylesheet_directory_uri() . '/style.css', [ 'divi-style' ], '.1' );
     wp_enqueue_style('route-single-post-style', get_stylesheet_directory_uri() . '/single-route-style.css');
     wp_enqueue_style('slick-lightbox-master', get_stylesheet_directory_uri() . '/third-parts/slick-lightbox-master/dist/slick-lightbox.css');
     //wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
+    // if ( is_home() ||  is_front_page() )
+    // {
+        wp_enqueue_script( 'hightlight', get_stylesheet_directory_uri() . '/js/home_highlight.js');
+    // }
+    
 }
 
 function admin_css_load() {
@@ -91,24 +139,40 @@ function aggiungi_material_icons(){
 
  add_action ('et_header_top', 'vn_search_bar');
 function vn_search_bar() {
-    $lang = $_GET['lang'];
-    echo '<div id="vn-search-bar-header"><form id="searchform" action="/route/"  method="get">
-	<input type="search" placeholder="Cerca &hellip;" value="" name="fwp_search_box"><input type="hidden" name="lang" value="'.$lang.'"/>
-	<button id="vn-search-lente" type="submit"><i class="fa fa-search"></i></button>
-    </form></div>';
-    // echo '<div id="vn-search-bar-header"><input id="cerca-home" type="text" placeholder="Cerca" name="search">
-    //   <button id="vn-search-lente" type="submit"  onclick="location.href=\'http://vn.be.webmapp.it/route/?fwp_title\'"><i class="fa fa-search"></i></button></div>';
+    if (!is_post_type_archive('route')) {
 
+        
+        echo '<div id="vn-search-element-container">';
+        echo '<div id="vn-search-bar-header" class="fselect-template">';
+        echo do_shortcode('[facetwp facet="search_route"]');
+        echo do_shortcode('[facetwp template="home_viaggio_particolare"]');
+        echo '</div>';
+        echo '<div id="vn-menu-search-buttons">';
+        echo '<div id="vn-menu-search-lente"><i class="fa fa-search"></i></div>';
+        echo '<div id="vn-menu-search-map"><i class="material-icons">language</i></div>';
+        echo '</div>';
+        echo '</div>';
+    }
 }
 
-add_action( 'et_header_top', 'vn_search_map' );
-function vn_search_map() {
-    echo '<div id="vn-search-map"><i class="material-icons">language</i></div>';
+// remove pagination from archive route
+add_action('parse_query', 'no_nopaging');
+function no_nopaging($query) {
+    if (is_post_type_archive('route')) {
+        $query->set('nopaging', 1);
+    }
 }
+
+
+// add_action( 'et_header_top', 'vn_search_map' );
+// function vn_search_map() {
+    
+
+// }
 
 
 function my_search_form( $form ) {
-    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( 'http://vn.be.webmapp.it/route/?fwp_title' ) . '" >
+    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url( 'http://verde-natura.it/route/?fwp_search_box' ) . '" >
     <div><label class="screen-reader-text" for="s">' . __( 'Cerca:' ) . '</label>
     <input type="text" value="' . get_search_query() . '" name="s" id="s" />
     <input type="submit" id="searchsubmit" value="'. esc_attr__( 'Cerca' ) .'" />
@@ -153,7 +217,7 @@ function vn_add_ebook_form()
                 <input data-cons-subject="email" type="email" name="email" value="" size="40" required="required" placeholder="Email"><br>
                     <div class="block center clear mrg-b-m">
                     <input data-cons-preference="general" type="checkbox" name="privacy" id="privacy1" required="required"><label for="privacy1" class="block center" style="line-height:1.2; text-align:left; color:#fff!important"><?php
-                            echo __('*I accept to receive promotionals e-mails as written in our' ,'wm-child-verdenatura'); ?> <a target="_blank" href="https://www.verde-natura.it/privacy/" class="txt-dark-green">Privacy</a>.</label>
+                            echo __('*I accept to receive promotionals e-mails as written in our' ,'wm-child-verdenatura'); ?> <a target="_blank" href="/privacy/" class="txt-dark-green">Privacy</a>.</label>
                     </div>
              </fieldset>
                 <input data-iub-consent-form="" name="Submit" type="submit" value="<?php
@@ -218,30 +282,28 @@ function the_term_image_with_name( $post_id , $taxonomy )
         {
             if ( $taxonomy == 'where' )
             {
-                echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
+                echo "<div class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
                 echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dest.png'>";
-                echo $term->name;
-                echo "</span>";
-            }
-            else
+                echo "<p>".$term->name."</p>";
+                echo "</div>";
+            } elseif ( $taxonomy == 'who' )
+            {
+                echo "<div class='targets vn_{$taxonomy}_image_single_route'>";
+                $image = get_field('wm_taxonomy_featured_icon' , $term );
+                echo "<img src='".$image['url']."'>";
+                echo "<p>".$term->name."</p>";
+                echo "</div>";
+            } else
             {
                 $image = get_field('wm_taxonomy_featured_icon' , $term );
                 if ( isset($image['url']) )
                 {
-                    echo "<span class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
+                    echo "<div class='vn_taxonomy_image_single_route vn_{$taxonomy}_image_single_route'>";
                     echo "<img src='".$image['url']."'>";
-                    echo $term->name;
-                    echo "</span>";
+                    echo "<p>".$term->name."</p>";
+                    echo "</div>";
 
                 }
-            }
-            if ( $taxonomy == 'who' )
-            {
-                echo "<div class='targets vn_{$taxonomy}_image_single_route'>";
-                echo "<img src='".$image['url']."'>";
-                $image = get_field('wm_taxonomy_featured_icon' , $term );
-                echo "</div>";
-
             }
 }
         }
@@ -267,20 +329,31 @@ function filtra_commento( $comment_text, $comment , $args )
     $vn_gallery = get_field ('wm_comment_gallery' , $comment );
     if ( is_array( $vn_gallery) && ! empty( $vn_gallery ) )
     {
+
         $vn_gallery_ids =  array_map(
             function ($i) {
                 return $i ['ID'];
             },
             $vn_gallery );
 
-        $gallery = "<div class='wm-comment-images'>";
+        $gallery .= "<div class='wm-comment-images'>";
         foreach ( $vn_gallery_ids  as $id)
         {
-            $gallery .= '<span class="wm-comment-image">';
-            $gallery .= wp_get_attachment_image( $id, 'thumbnail');
-            $gallery .= '</span>';
+            $img_url = wp_get_attachment_image_src( $id , 'large');
+            $img_url_thumb = wp_get_attachment_image_src( $id , 'thumbnail');
+            $gallery .=  '<div class="et_pb_module et_pb_gallery et_pb_gallery_0 et_pb_bg_layout_light  et_pb_slider et_pb_gallery_fullwidth">';
+            $gallery .=  '<div class="" data-per_page="1">';
+            $gallery .=  '<div class="et_pb_gallery_item et_pb_bg_layout_light">';
+            $gallery .=  '<div class="et_pb_gallery_image landscape">';
+            $gallery .=  '<a href="'. $img_url[0].'" >';
+            $gallery .=  '<div class="wm-template_gallery_image" style="background-image: url('.$img_url_thumb[0].');">';
+            $gallery .=  '</a>';
+            $gallery .=  '</div>';
+            $gallery .=  '</div>';
+            $gallery .=  '</div>';
+            $gallery .=  '</div>';
         }
-        $gallery = "</div>";
+        $gallery .= "</div>";
 
     }
 
@@ -360,7 +433,11 @@ add_filter( 'facetwp_facet_orderby', function( $orderby, $facet ) {
         $orderby = 'f.facet_value+0 ASC';
     }
     if ( 'seasons' == $facet['name'] ) {
+        if ($_GET['lang'] == 'en'){
+            $orderby = 'FIELD(f.facet_display_value, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")';
+        } else {
         $orderby = 'FIELD(f.facet_display_value, "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre")';
+        }
     }
     return $orderby;
 }, 10, 2 );
@@ -374,7 +451,14 @@ add_filter( 'facetwp_i18n', function( $string ) {
         $lang = FWP()->facet->http_params['lang'];
 
         $translations = array();
-        $translations['en']['Cerca'] = 'Search';
+        $translations['en']['Scegli la destinazione'] = 'Choose your destination';
+        $translations['en']['Destinazione'] = 'Destination';
+        $translations['en']['Attività'] = 'Activity';
+        $translations['en']['Durata (giorni)'] = 'Duration (days)';
+        $translations['en']['Periodo'] = 'Period';
+        $translations['en']['Viaggio guidato'] = 'Guided tour';
+        $translations['en']['Viaggio individuale'] = 'Self-guided tour';
+        $translations['en']['Cerchi un viaggio in particolare?'] = 'Looking for a specific trip?';
 
         if ( isset( $translations[ $lang ][ $string ] ) ) {
             return $translations[ $lang ][ $string ];
@@ -384,7 +468,78 @@ add_filter( 'facetwp_i18n', function( $string ) {
     return $string;
 });
 
-/**
- * language switch for woocommerce add to cart
- */
+
+// A. Define a cron job interval if it doesn't exist
+ 
+add_filter( 'cron_schedules', 'vn_check_daily' );
+ 
+function vn_check_daily( $schedules ) {
+    $schedules['daily'] = array(
+        'interval' => 86400,
+        'display'  => __( '1 day' ),
+    );
+    return $schedules;
+}
+ 
+// ---- ---- ----
+// B. Schedule an event unless already scheduled
+ 
+add_action( 'wp', 'vn_custom_cron_job' );
+ 
+function vn_custom_cron_job() {
+   if ( ! wp_next_scheduled( 'vn_woocommerce_send_email_digest' ) ) {
+      wp_schedule_event( time(), 'daily', 'vn_woocommerce_send_email_digest' );
+   }
+}
+ 
+// ---- ---- ----
+// C. Trigger email when hook runs
+ 
+add_action( 'vn_woocommerce_send_email_digest', 'vn_generate_email_digest' );
+ 
+// ---- ---- ----
+// D. Generate email content and send email if there are completed orders
+ 
+function vn_generate_email_digest() {   
+//    if ( $completed_orders ) {
+    $orders = wc_get_orders();
+    $header = array();
+    $email_subject = "Add a comment";
+    $email_content = "Completed Order IDs:finished ";
+    $headers[] = 'From: <info@vnpreprod.webmapp.it>';
+    wp_mail( 'pedramkat@gmail.com', $email_subject, $email_content, $header );
+//    }
+}
+ 
+// ---- ---- ----
+// E. Query WooCommerce database for completed orders between two timestamps
+ 
+function vn_get_completed_orders_before_after( $date_one, $date_two ) {
+   global $wpdb;
+   $completed_orders = $wpdb->get_col(
+      $wpdb->prepare(
+         "SELECT posts.ID
+         FROM {$wpdb->prefix}posts AS posts
+         WHERE posts.post_type = 'shop_order'
+         AND posts.post_status = 'wc-completed'
+         AND posts.post_modified >= '%s'
+         AND posts.post_modified <= '%s'",
+         date( 'Y/m/d H:i:s', absint( $date_one ) ),
+         date( 'Y/m/d H:i:s', absint( $date_two ) )
+      )
+   );
+   return $completed_orders;
+}
+
+ 
+
+// add_action( 'woocommerce_after_checkout_validation', 'misha_validate_fname_lname', 10, 2);
+ 
+// function misha_validate_fname_lname( $fields, $errors ){
+ 
+//     // if ( preg_match( '/\\d/', $fields[ 'billing_first_name' ] ) || preg_match( '/\\d/', $fields[ 'billing_last_name' ] )  ){
+//     //     $errors->add( 'validation', 'Your first or last name contains a number. Really?' );
+//     // }
+    
+// }
 ?>

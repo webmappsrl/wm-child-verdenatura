@@ -20,16 +20,19 @@ function wm_render_gallery ($atts ) {
 
     <div class="slider-for">
             <?php foreach ($images as $id) {
+                $image = wp_get_attachment_image_src( $id, 'large');
                 echo '<div style="height: auto;">';
-                echo wp_get_attachment_image( $id, 'large');
+                echo '<div class="route-wm-gallery-image" style="background-image: url('.$image[0].');"></div>';
                 echo '</div>';
             }
             ?>
     </div>
 
     <div class="slider-nav">
-        <?php foreach ($images as $id) { echo '<div>';
-            echo wp_get_attachment_image( $id, 'thumbnail');
+        <?php foreach ($images as $id) { 
+            $image = wp_get_attachment_image_src( $id, 'thumbnail');
+            echo '<div>';
+            echo '<div class="route-wm-gallery-image-thumb" style="background-image: url('.$image[0].');"></div>';
             echo '</div>';
         }
         ?>

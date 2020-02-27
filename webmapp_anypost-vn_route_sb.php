@@ -55,11 +55,6 @@ if(get_the_post_thumbnail_url()) {
         <figure class="webmapp_post_image" style="background-image: url('<?php echo $get_the_post_thumbanil;?>')">
             <div class="gallery-fdn">
                 <?php
-                $vn_formula_fdn = get_field('wm_fdn');
-                if( $vn_formula_fdn )
-                {
-                    echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg" class="fdn-card">';
-                }
 
                 $dog_friendly = get_field ('vn_meta_dog');
                 if ( $dog_friendly)
@@ -100,13 +95,13 @@ if(get_the_post_thumbnail_url()) {
 
             if ( $numero )
             {
-                ?>
-        <div class="livello">
-            <a class="fancybox" href="#difficulty_icon_popup">
-                <img src="<?php the_calcola_url( $numero ) ?>">
-            </a>
-            <p>Livello</p>
-        </div> <!--.livello-->
+            ?>
+            <div class="livello">
+                <a class="fancybox" href="#difficulty_icon_popup">
+                    <img src="<?php the_calcola_url( $numero ) ?>">
+                </a>
+                <p>Livello</p>
+            </div> <!--.livello-->
             <?php
             }
             ?>

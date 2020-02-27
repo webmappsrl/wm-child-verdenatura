@@ -14,6 +14,10 @@ Text Domain: wm-child-verdenatura
 
 
 /* BOOTSTRAP'S GRID*/
+:root {
+    --discount-color : #f55442;
+    --promotion-color : #7AB400;
+}
 body .webmapp-grid-system .col-md-4,body.route-template-default .webmapp-grid-system .col-md-12 {
     position: inherit;
 }
@@ -104,6 +108,25 @@ body .webmapp-grid-system .col-md-4,body.route-template-default .webmapp-grid-sy
     #single-post-route-main-content .page-title h1 {
         font-size: 3.0rem;
     }
+    .quotes-preventivo .grid-container-period-seasonal {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: ". .";
+    }
+    #tab-stagioni li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
+        height: 50px;
+        flex-grow: 1;
+        width: 100%;
+    }
+    #tabs:not(.vn-tab-blog).ui-tabs.ui-corner-all.ui-widget.ui-widget-content ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
+        display: inline-block!important;
+        width: 100%;
+    }
+    #tab-stagioni li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab:not(:last-child) a{
+        border-bottom: solid 2px #0F7A68;
+    }
+    #tab-stagioni li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a{
+        border-right: 0px;
+    }
 }
 
 
@@ -128,7 +151,7 @@ body .webmapp-grid-system .col-md-4,body.route-template-default .webmapp-grid-sy
         margin-left: 0px;
     }
     body .vn-tab-route div#tabs-1, div#tabs-2, div#tabs-3, div#tabs-4, div#tabs-5 {
-        padding: 0 5px 50px 5px !important;
+        padding: 20px 5px 50px 5px !important;
     }
 }
 
@@ -164,9 +187,10 @@ p.sottotitolo-preventivo {
 }
 
 .top-gallery-single-post-route img {
-
     border-radius: 10px;
     box-shadow: 0 0 15px #000;
+    width: 1000px;
+    height: 750px;
 }
 
 .slick-list.draggable {
@@ -180,9 +204,50 @@ p.sottotitolo-preventivo {
 .top-gallery-single-post-route .slider-nav.slick-initialized.slick-slider img {
     border-radius: 0;
     box-shadow: none;
-
+    width: 150px;
+    height: 150px;
 }
-
+.route-wm-gallery-image {
+    width:100%;
+    height:700px;
+    background-size:cover;
+    background-position:center;
+    transition: all 0.5s ease;
+}
+.route-wm-gallery-image-thumb {
+    width:150px;
+    height:150px;
+    background-size:cover;
+    background-position:center;
+    transition: all 0.5s ease;
+}
+@media screen and (max-width: 1100px) and (min-width: 992px){
+    .route-wm-gallery-image {
+        height:500px;
+        transition: all 0.5s ease;
+    }
+    .route-wm-gallery-image-thumb {
+        width:100px;
+        height:100px;
+        transition: all 0.5s ease;
+    }
+}
+@media screen and (max-width: 768px) {
+    .route-wm-gallery-image {
+        height:400px;
+        transition: all 0.5s ease;
+    }
+    .route-wm-gallery-image-thumb {
+        width:100px;
+        height:100px;
+        transition: all 0.5s ease;
+    }
+}
+/* gallery divi light box mappa */
+.template_gallery_image {
+    border-radius: 10px; 
+    width:100%;
+}
 /*Icona Fatti da Noi Slide*/
 
 .gallery-fdn img {
@@ -191,7 +256,7 @@ p.sottotitolo-preventivo {
     z-index: 2;
     border-left-width: 10px;
     margin-left: 10px;
-    left: 45px;
+    left: 10px;
     width: 7%;
 }
 
@@ -276,11 +341,14 @@ img#fdn-card {
 /*VN ROUTE TAB*/
 
 /*Reset Default CSS*/
+#tab-stagioni {
+    margin-top: 25px;
+}
 .prezzi-description {
     margin-top: 30px;
 }
 div#tabs.ui-tabs.ui-corner-all.ui-widget.ui-widget-content {
-    padding:0;
+    padding: 0;
     border: 0;
     margin: 0;
 }
@@ -322,13 +390,20 @@ div#tabs-1, div#tabs-2, div#tabs-3, div#tabs-4, div#tabs-5, div#tabs-6 {
 }
 
 
-
 /*Tab typo and color */
+.scheda-preventivo #tabs > ul {
+    display: flex;
+}
+.scheda-preventivo #tabs > ul > li{
+    flex-shrink: 0;
+    flex-grow: 1;
+}
 #tabs.ui-tabs.ui-corner-all.ui-widget.ui-widget-content ul.ui-tabs-nav.ui-corner-all.ui-helper-reset.ui-helper-clearfix.ui-widget-header {
     background: #fff;
+    display: flex;
 }
 
-#tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5   p{
+#tabs-1, #tabs-2, #tabs-3, #tabs-4, #tabs-5  {
     font-family: Lato, sans-serif;
     font-size: 15px;
     line-height: 22px;
@@ -344,6 +419,16 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
     border-radius: 0;
     margin:0;
 }
+#tab-stagioni li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab a{
+    height: 49px;
+    font-size: 14px;
+    width: 100%;
+    border-right: solid 2px #0F7A68;
+}
+#tab-stagioni li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
+    height: 49px;
+    flex-grow: 1;
+}
 
 #ui-id-1, #ui-id-2, #ui-id-3, #ui-id-4, #ui-id-5, #ui-id-6    {
     color:#0F7A68;
@@ -352,7 +437,38 @@ li.ui-tabs-tab.ui-corner-top.ui-state-default.ui-tab {
     padding-left:13px;
     padding-right: 13px;
     padding-bottom: 10.5px;
+    width: 100%;
+    border-right: solid 2px #0F7A68;
+}
 
+@media screen and (max-width:1075px) and (min-width:981px) {
+    #ui-id-1, #ui-id-2, #ui-id-3, #ui-id-4, #ui-id-5, #ui-id-6    {
+        color:#0F7A68;
+        font-family: Lato, sans-serif;
+        font-size: 12px;
+        padding-left:10px;
+        padding-right: 10px;
+        padding-bottom: 10.5px;
+        width: 100%;
+        border-right: solid 2px #0F7A68;
+    }
+}
+@media screen and (max-width:730px){
+    .scheda-preventivo #tabs > ul {
+        display: inline-block!important;
+    }
+    .scheda-preventivo #tabs > ul > li{
+        display: contents;
+    }
+    #tabs:not(.vn-tab-blog) #ui-id-1,#tabs:not(.vn-tab-blog) #ui-id-2,#tabs:not(.vn-tab-blog) #ui-id-3,#tabs:not(.vn-tab-blog) #ui-id-4,#tabs:not(.vn-tab-blog) #ui-id-5, #tabs:not(.vn-tab-blog) #ui-id-6    {
+        border-right: 0px;
+    }
+    #tabs:not(.vn-tab-blog) #ui-id-1,#tabs:not(.vn-tab-blog) #ui-id-2,#tabs:not(.vn-tab-blog) #ui-id-3,#tabs:not(.vn-tab-blog) #ui-id-4   {
+        border-bottom: solid 2px #0F7A68;
+    }
+    button.button-esperienze {
+        height: 45px;
+    }
 }
 
 a#ui-id-1:hover, a#ui-id-2:hover, a#ui-id-3:hover, a#ui-id-4:hover, a#ui-id-5:hover  {
@@ -488,16 +604,21 @@ div.my_comment_text {
     padding-left: 5px;
     border-left: 4px solid rgb(15, 122, 104);
     margin-left: 20px;
-    line-height: normal;
+    line-height: 1.5;
 }
 
 div.comment_postinfo > span.fn {
     color: #0F7A68;
+    font-size: 1.375rem;
+    font-weight: 700;
     font-family: Lato, sans-serif;
 }
 
-div.comment_postinfo {
-    margin-bottom:0;
+.scheda-commenti .comment_avatar {
+    display: none;
+}
+.scheda-commenti .comment-body {
+    padding: 0 120px 0 10px;
 }
 
 span.comment_date {
@@ -510,7 +631,27 @@ a.comment-edit-link, p.logged-in-as a{
     font-family: Lato, sans-serif;
     color: #7AB400;
 }
-
+.wm-comment-images {
+    padding: 10px 0 ;
+}
+.wm-comment-images img{
+    width: auto!important;
+}
+.wm-comment-images .wm-template_gallery_image{
+    width: 150px;
+    height: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.wm-comment-images .et_pb_module.et_pb_gallery{
+    float: left;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+.reply-container {
+    display: none;
+}
 textarea#comment {
     font-family: Lato, sans-serif;
 }
@@ -675,11 +816,11 @@ p.vn-note-route {
 }
 
 .scheda-preventivo #tabs-1 ul li::before {
-  content: "\2022";
+  /* content: "\2022";
   color: #7AB400;
   position: absolute;
   left: 71px;
-top: 210px;
+  top: 210px; */
 }
 
 .scheda-preventivo #tabs-1 ul li{
@@ -722,22 +863,104 @@ span.content-partenze p{
     color: black;
     display: flex;
     text-align: center;
-    margin-right: 20px;
     margin-top: 10px;
     padding: 10px;
 }
-
-
+.specifiche-viaggio>div {
+    flex-grow: 1;
+}
+.act-tar {
+    padding-left: 10px;
+    display: flex;
+}
+.act-tar>div {
+    flex-grow: 1;
+}
+.only-double {
+    padding-left: 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 13px;
+    padding-left: 10px;
+    font-family: "PT Sans", sans-serif;
+}
+.prezzo-container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    margin-bottom: 20px;
+}
 .prezzo {
     text-align:right;
-    padding-right: 20px;
+    /* padding-right: 10px; */
     font-family: "PT Sans", sans-serif;
     padding-top: 10px;
+    padding-bottom: 10px;
+}
+.archive-route-page .prezzo-container {
+    padding-left: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+}
+.archive-route-page .prezzo {
+    text-align:right;
+    padding-right: 10px;
+    font-family: "PT Sans", sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.box-preventivo-aside .prezzo-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+}
+.box-preventivo-aside .prezzo {
+    text-align:right;
+    padding-right: 10px;
+    font-family: "PT Sans", sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.box-preventivo-aside .prezzo .prezzo-text{
+    padding-bottom: 0;
 }
 
 .cifra {
     font-weight: 400;
     color: black;
+    font-size: 1.5rem;
+    font-family: "PT Sans", sans-serif;
+}
+.promotion-trip {
+    padding: 10px 10px;
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--promotion-color);
+    font-family: "PT Sans", sans-serif;
+}
+.old-price {
+    margin: 0 5px;
+    color: var(--discount-color);
+    text-decoration: none;
+    position: relative;
+    font-size: 23px;
+    font-family: "PT Sans", sans-serif;
+}
+.old-price::before {
+    content: " ";
+      display: block;
+      width: 100%;
+      border-top: 2px solid var(--discount-color);
+      height: 50%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: rotate(-7deg);
+}
+.new-price {
+    color: #7AB400;
+    font-weight: 400;
     font-size: 1.5rem;
     font-family: "PT Sans", sans-serif;
 }
@@ -819,6 +1042,7 @@ p.part-e-pre {
     width: 2.5rem;
     display: block;
     padding-bottom:6px;
+    margin: auto;
 }
 
 .nazione :not(:first-child) img {
@@ -833,18 +1057,24 @@ span.vn_taxonomy_image_single_route.vn_activity_image_single_route {
     padding-top: 2px;
     line-height: 6px;
     padding-left: 20px;
+    float: left;
 }
 
 span.vn_taxonomy_image_single_route.vn_who_image_single_route {
     display: none;
 }
 .targets img {
-  width:  2.5rem;
-  display: block;
-  padding-bottom: 10px;
-
+    width:  2.5rem;
+    display: block;
+    margin: auto;
 }
-
+.act-tar div {
+    float: left;
+    padding: 0 5px;
+}
+.act-tar div p{
+    font-size: smaller;
+}
 .targets-route.vn-meta-align {
   padding-left: 10px;
 }
@@ -852,21 +1082,27 @@ span.vn_taxonomy_image_single_route.vn_who_image_single_route {
 .vn_taxonomy_image_single_route.vn_activity_image_single_route img {
     width: 2.5rem;
     display: block;
+    margin: auto;
 }
 
 .vn_taxonomy_image_single_route.vn_activity_image_single_route {
-  line-height: 1;
+  /* line-height: 1; */
 }
 
+.webmapp_post_meta p {
+    font-family: "PT Sans", sans-serif;
+    font-size: 12px;
+    color: black;
+}
 
 .livello img {
     display: block;
     width: 2.5rem;
+    margin: auto;
 }
 
 .livello {
     margin-bottom: 10px;
-    padding-left: 10px;
 }
 
 
@@ -884,11 +1120,17 @@ span.vn_taxonomy_image_single_route.vn_who_image_single_route {
     padding-right: 10px;
     padding-left: 10px;
     font-size: smaller;
+    display: flex;
+}
+
+.vn-target div{
+    flex-grow: 1;
 }
 
 .vn-meta-align {
     text-align: -webkit-center;
     display: inline-table;
+    width: 100%;
 }
 
 .vn-target.vn-meta-align.ind-sp img {
@@ -954,7 +1196,7 @@ p.webmapp_anypost_show_all {
 }
 
 .webmapp-anypost-template-vn_route_sb .nazione img {
-  margin-left: 5px;
+    margin: auto;
 }
 
 
@@ -986,13 +1228,28 @@ p.webmapp_anypost_show_all {
     border-bottom: solid 1px #0F7A68;;
     margin-left: 20px;
     margin-right: 20px;
-    display: -webkit-box;
+    display: flex;
+    text-align: center;
+}
+.webmapp-anypost-template-vn_route_sb .webmapp_post_meta>div{
+    flex-grow: 1;
 }
 .grid-container-period {
     display: grid;
     grid-template-columns: 1fr 1fr 3fr;
     grid-template-areas: ". . .";
     grid-gap: 5px 15px;
+}
+.grid-container-period-seasonal {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: ". .";
+    grid-gap: 5px 15px;
+    margin-bottom: 30px;
+}
+.grid-container-period-seasonal p{
+    line-height: 20px;
+    font-size: 14px;
 }
 .grid-container-period-aside {
     display: grid;
@@ -1019,11 +1276,15 @@ p.webmapp_anypost_show_all {
     font-weight: bold;
     line-height: 22px;
     padding-bottom: 0px;
+    font-family: "PT Sans", sans-serif !important;
+    font-size: 15px;
+    color: rgb(15, 122, 104)!important;
 }
 .tab-section-quotes{
-    font-weight: bold;
-    line-height: 22whatspx;
+    line-height: 22px;
     min-height: 50px;
+    font-weight: bold!important;
+    color: rgb(15, 122, 104)!important;
 }
 .departure-preventivo, .quotes-preventivo {
     margin-top: 25px;
@@ -1037,7 +1298,24 @@ p.webmapp_anypost_show_all {
 .hide-button {
     display: none;
 }
-/* tab 4 departure and quotes  */
+/* tab 4 departure and quotes table singel route */
+table {
+    font-size: 15px;
+}
+#content-area table th {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.87);
+}
+body.single-route #content-area table th:not(.tab-section-quotes) {
+    width: 50%;
+    color:rgba(0, 0, 0, 0.87);
+    font-family:Lato, sans-serif;
+    font-size:15px;
+    font-weight:400;
+}
+body.single-route #content-area table td {
+    width: 15%;
+}
 table.departures-quotes {
     width: 100%;
 }
@@ -1046,4 +1324,27 @@ table.departures-quotes thead tr{
 }
 table.departures-quotes tbody tr{
     text-align: left;
+}
+#work-in-progress {
+    text-align: center;
+}
+#work-in-progress h3{
+    color: red;
+}
+#work-in-progress p{
+    font-size: 16px;
+    color: black;
+    padding-bottom: 0px;
+}
+body #work-in-progress .modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 10px 1px 18px;
+    border: 1px solid #888;
+    width: 100%;
+}
+@media screen and (min-width:768px) {
+    #work-in-progress #modaldiff {
+        width:400px;
+    }
 }

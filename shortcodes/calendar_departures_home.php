@@ -10,11 +10,16 @@ function calendar_departures_home_shortcode( $atts ) {
    $routes = $c['features'];
    $i=0;
    foreach ($routes as $r) {
+        $translation = '';
+        $lang = '';
+        $en_id = '';
        if ( $i < 10 ) {
         if (isset($_GET['lang'])){
             $lang = $_GET['lang'];
             if (array_key_exists("translations",$r['properties']) && array_key_exists($lang,$r['properties']['translations'])  ) {
                 $title = $r['properties']['translations'][$lang]['name'];
+                $en_id = $r['properties']['translations'][$lang]['id'];
+                $translation = true;
             } else {
                 $title = $r['properties']['name'];
             }
@@ -26,34 +31,67 @@ function calendar_departures_home_shortcode( $atts ) {
             $image = $r['properties']['image'];
             $departures = $r['properties']['all_dates'];
             $next_departure = $departures[0];
-        ?>
 
-        <div class="col-sm-12 col-md-12 shortcode_caldepartures post_type_route">
-            <div class="calendar-single-post-wm">
-                <div class="webmapp_post-featured-img">
-                    <?php
-                    echo "<a href='$url' title='$title'>";
-                    ?>
-                    <figure class="webmapp_post_image" style="background-image: url('<?php echo $image;?>')"></figure>
-                    <?php
-                    echo "</a>";
-                    ?>
-                </div>
-                <div class="webmapp_post_meta">
-                    <div class="webmapp_post-title">
+        if ( $lang == 'en') {
+            if ($translation) {  
+            $en_url = get_the_permalink($en_id);  
+            ?>
+            <div class="col-sm-12 col-md-12 shortcode_caldepartures post_type_route">
+                <div class="calendar-single-post-wm">
+                    <div class="webmapp_post-featured-img">
                         <?php
-                        echo "<a href='$url' title='$title' class='departure-title'>";
-                        echo $title;
+                        echo "<a href='$en_url' title='$title'>";
+                        ?>
+                        <figure class="webmapp_post_image" style="background-image: url('<?php echo $image;?>')"></figure>
+                        <?php
                         echo "</a>";
                         ?>
-                        <p>
-                            <?php echo $next_departure; ?>
-                        </p>
+                    </div>
+                    <div class="webmapp_post_meta">
+                        <div class="webmapp_post-title">
+                            <?php
+                            echo "<a href='$en_url' title='$title' class='departure-title'>";
+                            echo $title;
+                            echo "</a>";
+                            ?>
+                            <p>
+                                <?php echo $next_departure; ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <?php
+            <?php
+            }
+        } else { 
+            ?>
+            <div class="col-sm-12 col-md-12 shortcode_caldepartures post_type_route">
+                <div class="calendar-single-post-wm">
+                    <div class="webmapp_post-featured-img">
+                        <?php
+                        echo "<a href='$url' title='$title'>";
+                        ?>
+                        <figure class="webmapp_post_image" style="background-image: url('<?php echo $image;?>')"></figure>
+                        <?php
+                        echo "</a>";
+                        ?>
+                    </div>
+                    <div class="webmapp_post_meta">
+                        <div class="webmapp_post-title">
+                            <?php
+                            echo "<a href='$url' title='$title' class='departure-title'>";
+                            echo $title;
+                            echo "</a>";
+                            ?>
+                            <p>
+                                <?php echo $next_departure; ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
       }
       $i++;
    }

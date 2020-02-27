@@ -10,7 +10,7 @@
 
 
 <ul id="vn-top-menu">
-    <li class="text-secondary-menu">Viaggi e vacanze in bici e a piedi in Italia e Europa</li>
+    <li class="text-secondary-menu"><?php echo __('Cycling and hiking holidays in Europe','wm-child-verdenatura')?></li>
 </ul>
 
 

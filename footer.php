@@ -80,6 +80,7 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 					</div>
 				</div>	
 
+
 			</footer> <!-- #main-footer -->
 				<div class="emp-by-wm" style="background-color: #FFF; text-align: center; color: black;">Powered by <a style="color: #7AB400;"href="http://www.webmapp.it">Webmapp</a></div>
 		</div> <!-- #et-main-area -->

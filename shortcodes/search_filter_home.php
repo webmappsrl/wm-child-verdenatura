@@ -2,34 +2,46 @@
 
 
 add_shortcode( 'vn_home_search', 'vn_render_home_search_filters' );
-function vn_render_home_search_filters( $atts ) {
+function vn_render_home_search_filters( ) {
 
     ob_start();
     ?>
 
     <div class="search-container-grid" >
-    <!-- <div class="dropdown">
-            <input type="checkbox" name="fwp_self_guided" value="1"> Viaggi individuali<br><input type="checkbox" name="fwp_guided" value="1"> Viaggi guidati<br>
-    </div> -->
-    <select class="dropdown-viaggi">
-            <option selected disabled><?php echo __('Formula','wm-child-verdenatura'); ?></option>
-            <option  data-name="fwp_self_guided" value="1"><?php echo __('Self-guided Trips','wm-child-verdenatura'); ?></option>
-            <option  data-name="fwp_guided" value="1"><?php echo __('Guided Trips','wm-child-verdenatura'); ?></option>
-    </select>
         <?php 
-        $type = __('Type','wm-child-verdenatura');
+        $formula = __('Formula','wm-child-verdenatura');
+        $formula_order = array(543,544,505,538);
+        $type = __('Activity','wm-child-verdenatura');
+        $type_order = array(84,522,81,83);
         $Destination = __('Destination','wm-child-verdenatura');
-        $args = array(
+        wp_dropdown_categories( array(
             'show_option_all'    => '',
-            'show_option_none'   => $type,
+            'show_option_none'   => $formula,
             'option_none_value'  => '',
-            'orderby'            => 'name',
-            'order'              => 'ASC',
+            'include'            => $formula_order,
+            'orderby'            => 'term_order',
             'show_count'         => 0,
             'hide_empty'         => 1,
             'child_of'           => 0,
+            'echo'               => 1,
+            'selected'           => 0,
+            'name'               => 'fwp_targets',
+            'class'              => 'postform',
+            'taxonomy'           => 'who',
+            'hide_if_empty'      => false,
+            'value_field'	     => 'slug',
+        ) ); 
+
+        $args_type = array(
+            'show_option_all'    => '',
+            'show_option_none'   => $type,
+            'option_none_value'  => '',
+            'include'            => $type_order,
+            'orderby'            => 'term_order',
+            'show_count'         => 0,
+            'hide_empty'         => 0,
+            'child_of'           => 0,
             'exclude'            => array(116),
-            'include'            => '',
             'echo'               => 1,
             'selected'           => 0,
             'hierarchical'       => 0,
@@ -40,10 +52,10 @@ function vn_render_home_search_filters( $atts ) {
             'hide_if_empty'      => false,
             'value_field'	     => 'slug',
         );
-        wp_dropdown_categories( $args ); 
+        wp_dropdown_categories( $args_type ); 
         ?>
         <?php 
-        $args = array(
+        $args_destination = array(
             'show_option_all'    => '',
             'show_option_none'   => $Destination,
             'option_none_value'  => '',
@@ -64,7 +76,7 @@ function vn_render_home_search_filters( $atts ) {
             'hide_if_empty'      => false,
             'value_field'	     => 'slug',
         );
-        wp_dropdown_categories( $args ); 
+        wp_dropdown_categories( $args_destination ); 
         ?>
         <div class="box search-button"><button id="vn-search-search" ><?php echo __('SEARCH','wm-child-verdenatura'); ?></button><button id="vn-search-map"><i class="material-icons">language</i></button></div>
     </div>
@@ -87,9 +99,9 @@ function vn_render_home_search_filters( $atts ) {
                 main_url = window.location.protocol + "//" + window.location.host + "/" + "route?";
             }
 
-            jQuery('.dropdown-viaggi').on('change', function() {
+            jQuery('#fwp_targets').on('change', function() {
                 
-                    var name1 = jQuery(this).find(':selected').data('name'); 
+                    var name1 = "fwp_targets"; 
                     val1 = jQuery(this).val(); 
                     url1 = name1 + "=" + val1;
             });
@@ -115,6 +127,7 @@ function vn_render_home_search_filters( $atts ) {
             jQuery('.material-icons').click(function(){
                 location.href = main_url + (val1 != null ? url1 +"&" : "" ) + ( val2 != null ? url2 +"&" : "" )+ (val3 != null ? url3 : "") + "&fwp_map=1";
             });
+            
         </script>
 
     <?php

@@ -23,37 +23,37 @@ function vn_render_blog_tabs_shortcode( $atts ) {
 
     <div id="tabs-1" class="bici-content">
         <?php
-        echo do_shortcode('[webmapp_anypost post_type="post" template="vnblog" posts_count=100 rows=10 posts_per_page=10 ]');
+        echo do_shortcode('[webmapp_anypost post_type="post" template="vnblog" rows=10 posts_per_page=10 ]');
         ?>
     </div>
 
     <div id="tabs-2">
         <?php
-        echo do_shortcode('[webmapp_anypost post_type="post" term_id="480" template="vnblog" posts_count=100 rows=10 posts_per_page=10 ]');
+        echo do_shortcode('[webmapp_anypost post_type="post" term_id="480" template="vnblog" rows=10 posts_per_page=10 ]');
         ?>
     </div>
 
     <div id="tabs-3">
         <?php
-        echo do_shortcode('[webmapp_anypost post_type="post" term_id="472" template="vnblog" posts_count=100 rows=10 posts_per_page=10 ]');
+        echo do_shortcode('[webmapp_anypost post_type="post" term_id="472" template="vnblog" rows=10 posts_per_page=10 ]');
         ?>
     </div>
 
     <div id="tabs-4">
         <?php
-        echo do_shortcode('[webmapp_anypost post_type="post" term_id="478" template="vnblog" posts_count=100 rows=10 posts_per_page=10 ]');
+        echo do_shortcode('[webmapp_anypost post_type="post" term_id="478" template="vnblog" rows=10 posts_per_page=10 ]');
         ?>
     </div>
 
     <div id="tabs-5">
         <?php
-        echo do_shortcode('[webmapp_anypost post_type="post" term_id="469" template="vnblog" posts_count=100 rows=10 posts_per_page=10 ]');
+        echo do_shortcode('[webmapp_anypost post_type="post" term_id="469" template="vnblog" rows=10 posts_per_page=10 ]');
         ?>
     </div>
 
     <div id="tabs-6">
         <?php
-        echo do_shortcode('[webmapp_anypost post_type="post" term_id="473" template="vnblog" posts_count=100 rows=10 posts_per_page=10 ]');
+        echo do_shortcode('[webmapp_anypost post_type="post" term_id="473" template="vnblog" rows=10 posts_per_page=10 ]');
         ?>
     </div>
 </div>
@@ -72,6 +72,16 @@ function vn_render_blog_tabs_shortcode( $atts ) {
         jQuery(function(){
             window.et_pb_smooth_scroll = () => {};
         });
+
+        scrollTopLink = document.querySelectorAll(".webmapp-pagination-numbers");
+		scrollTopLink.forEach(function(elem) {
+			elem.addEventListener("click", function() {
+				jQuery('html, body').animate({
+					scrollTop: jQuery('#et-main-area').offset().top
+				}, 1000);
+			});
+        });
+       
     </script>
 
 

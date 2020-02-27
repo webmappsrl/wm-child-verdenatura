@@ -1,8 +1,9 @@
 <?php get_header(); 
 
+
 $page_title = __('Tours', 'wm-child-verdenatura');
-if (isset($_GET['fwp_target'])){
-        $term_slug = $_GET['fwp_target'];
+if (isset($_GET['fwp_targets'])){
+        $term_slug = $_GET['fwp_targets'];
         $get_term = get_term_by( 'slug', $term_slug, $taxonomy = 'who');
         $term = 'term_'.$get_term->term_id;
         $iconimage = get_field('wm_taxonomy_featured_icon',$term);
@@ -24,7 +25,6 @@ if (isset($_GET['fwp_tipologia'])){
         $term_description_discovery = get_field('wm_html_description',$term);
 }
 ?>
-
 <div id="main-content" class="archive-route-page">
     <div class="page-title"> 
     <h1 class="txt-white" id="title-archive"><img src="<?php echo $iconimageurl;?>"><?php echo $page_title;?></h1>
@@ -33,17 +33,105 @@ if (isset($_GET['fwp_tipologia'])){
     </div>
 	<div class="container">
 		<div id="content-area" class="clearfix">
-            <div id="left-area" class="facetwp-template">
-            <?php
-            if (!empty($term_description_discovery)){
-                echo $term_description_discovery;
-            }
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post();
-					$post_format = et_pb_post_format(); ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?>>
+            <div id="left-area-with-map-container">
+                <div id="map-container">
+                    <wm-map-container></wm-map-container>
+                    <script src="/wp-content/plugins/wm-embedmaps/assets/js/index.js"></script>
+                    <div id="map-expander">
+                        <i class="wm-icon-ios7-world-outline"></i>
+                        <div id="map-expander-text"><?php
+                        if (isset($_GET['fwp_map']) && $_GET['fwp_map'] == '1') {
+                            echo __('hide map', 'wm-child-verdenatura');
+                        }
+                        else {
+                            echo __('show map', 'wm-child-verdenatura');   
+                        }
+                        ?></div>
+                        <i class="wm-icon-ios7-world-outline"></i>
+                    </div>
+                    <script type="text/javascript">
+                        (function($) { 
+                            <?php if (!isset($_GET['fwp_map']) || $_GET['fwp_map'] != '1') : ?>
+                            $("wm-map-container").css({display: 'none'});
+                            $('#map-expander').css({top: '0'});
+                            <?php
+                            else :
+                            ?>
+                            $("wm-map-container").css({display: 'inline-block'});
+                            $('#map-expander').css({top: '-5px'});
+                            <?php
+                            endif;
+                            ?>
+                            $("#map-expander").click(function () {
+                                if ($('wm-map-container').is(':visible')){
+                                    $('wm-map-container').css({display: 'none'});
+                                    $('#map-expander-text').text('<?php echo __('show map', 'wm-child-verdenatura'); ?>');
+                                    $('#map-expander').css({top: '0'});
+                                }
+                                else {
+                                    $('wm-map-container').css({display: 'inline-block'});
+                                    $('#map-expander-text').text('<?php echo __('hide map', 'wm-child-verdenatura'); ?>');
+                                    $('#map-expander').css({top: '-5px'});
+                                    window.dispatchEvent(new Event('resize'));
+                                }
+                            });
+                        })(jQuery);
+                    </script>
+                </div>
+                <div id="left-area" class="facetwp-template">
+                <?php
+                if (!empty($term_description_discovery)){
+                    echo $term_description_discovery;
+                }
+                
+                if ( have_posts() ) :
+                    $layer = array(
+                        'type' => 'FeatureCollection',
+                        'features' => array()
+                    );
 
-				<?php
+                    while ( have_posts() ) : the_post();
+                        $post_format = et_pb_post_format(); 
+                        $post_id = get_the_ID();
+
+                        $feature = array(
+                            'type' => 'Feature',
+                            'geometry' => array(
+                                'type' => 'Point',
+                                'coordinates' => array(
+                                    floatval(get_field('vn_longitude', $post_id)),
+                                    floatval(get_field('vn_latitude', $post_id))
+                                )
+                            ),
+                            'properties' => array(
+                                'id' => $post_id,
+                                'web' => get_the_permalink(),
+                                'image' => get_the_post_thumbnail_url(),
+                                'name' => get_the_title()
+                            )
+                        );
+
+                        // gets the promotion value from italian corrispondent if this route is in english 
+                        $post_id_ita = '';
+                        $promotion_value = '';
+                        $post_id_quote = '';
+                        $promotion_name = get_field('promotion_name',$post_id);
+                        $get_lang = $_GET['lang'];
+                        if (isset($_GET['lang'])) {
+                            $post_id_ita = apply_filters( 'wpml_object_id', $post_id, 'route', FALSE, 'it' );
+                        }
+                        if ($post_id_ita) {
+                            $promotion_value = get_field('promotion_value',$post_id_ita);
+                            $post_id_quote = $post_id_ita;
+                        } else {
+                            $promotion_value = get_field('promotion_value',$post_id);
+                            $post_id_quote = $post_id;
+                        }
+                ?>
+
+                <article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' ); ?> >
+
+				    <?php
 					$thumb = '';
 
 					$width = (int) apply_filters( 'et_pb_index_blog_image_width', 1080 );
@@ -66,27 +154,22 @@ if (isset($_GET['fwp_tipologia'])){
 							);
 						elseif ( ! in_array( $post_format, array( 'gallery' ) ) && 'on' === et_get_option( 'divi_thumbnails_index', 'on' ) && '' !== $thumb ) : ?>
 
-                        <div class="entry-featured-image-url" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);" >
-                        </div>
-                            <div class="gallery-fdn">
-                                <?php
-                                // $vn_formula_fdn = get_field('wm_fdn');
-                                // if( $vn_formula_fdn )
-                                // {
-                                //     echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg" class="fdn-card">';
-                                // }
+                    <div class="entry-featured-image-url" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>);" >
+                    </div>
+                    <div class="gallery-fdn">
+                        <?php
 
-                                $dog_friendly = get_field ('vn_meta_dog');
-                                if ( $dog_friendly)
-                                    echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
+                        $dog_friendly = get_field ('vn_meta_dog');
+                        if ( $dog_friendly)
+                            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/dog-friendly.jpg' class='df-card' alt='dog-friendly'>";
 
 
-                                $new = get_field( 'vn_new' );
-                                if( $new )
-                                    echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
+                        $new = get_field( 'vn_new' );
+                        if( $new )
+                            echo "<img src='/wp-content/themes/wm-child-verdenatura/images/new.png' class='card' alt='Novità'>";
 
-                                ?>
-                            </div>
+                        ?>
+                    </div>
 
 					<?php
 						elseif ( 'gallery' === $post_format ) :
@@ -94,123 +177,157 @@ if (isset($_GET['fwp_tipologia'])){
 						endif;
 					} ?>
 
-
-                        <?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) : ?>
+                    <?php if ( ! in_array( $post_format, array( 'link', 'audio', 'quote' ) ) ) : ?>
 					<?php if ( ! in_array( $post_format, array( 'link', 'audio' ) ) ) : ?>
-						<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<h2 class="entry-title">
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    </h2>
 					<?php endif; ?>
 
-
-
-<div class="row-1">
+                    <div class="row-1">
                         <div class="scheda-route">
                             <div class="route-infos sx">
                                 <p class="main-content-preventivo">
                                     <?php
-                                    $vn_desc_min = get_field('vn_desc_min');
+                                    $vn_desc_min = get_the_excerpt();
                                     if ( $vn_desc_min )
                                     echo $vn_desc_min;
                                     ?>
                                 </p>
 
-                            <div class="durata-preventivo">
+                                <div class="durata-preventivo">
 
-                            <?php
-                            $days = get_field('vn_durata');
-                            if ( $days )
-                            {
-                            $nights = $days - 1;
-                            ?> <span class="dur">
-                            <?php
-                            echo __('Duration' , 'wm-child-verdenatura' ) . "</span>" . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
-                            ?>
-                            </span>
-
-                            <?php
-
-                            $vn_note_dur = get_field( 'vn_note_dur' );
-                            if ( $vn_note_dur )
-                                echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
-                        }
-                        ?>
-                    </div> <!-- chiudo .durata-preventivo -->
-                            <br>
-                            <div class="departure-preventivo-aside"> <!------------ Departure / Partenze -->
-                                <span class='durata-txt'>
-                                    <p class="tab-section">
+                                    <?php
+                                    $days = get_field('vn_durata');
+                                    if ( $days ) {
+                                        $nights = $days - 1;
+                                    ?>
+                                    <span class="dur">
                                         <?php
-                                        if( have_rows('departures_periods') ){
-                                        echo __('Departures:' ,'wm-child-verdenatura').':';}?>
-                                    </p>
-                                </span>
-                                
-                                <?php
-                                    if( have_rows('departures_periods') ): ?>
+                                        echo __('Duration' , 'wm-child-verdenatura' ) . "</span>" . "<span class='dur-txt'>" .  " $days" . __( 'days' , 'wm-child-verdenatura' ) . "/$nights" . __( 'nights' , 'wm-child-verdenatura' ) ;
+                                        ?>
+                                    </span>
+
+                                    <?php
+
+                                        $vn_note_dur = get_field( 'vn_note_dur' );
+                                        if ( $vn_note_dur )
+                                            echo "<span class='webmapp_route_duration_notes'> ($vn_note_dur)</span>";
+                                    }
+                                    ?>
+                                </div> <!-- chiudo .durata-preventivo -->
+                                <br>
+                                <div class="departure-preventivo-aside"> <!------------ Departure / Partenze -->
+                                <?php 
+                                while( have_rows('departures_periods') ): the_row();
+                                    $start = get_sub_field('start');
+                                endwhile;  
+                                if( have_rows('departures_periods') && $start):      
+                                ?>
+                                    <span class='durata-txt'>
+                                        <p class="tab-section">
+                                            <?php
+                                            if( have_rows('departures_periods') ) {
+                                                echo __('Dates:' ,'wm-child-verdenatura');
+                                            }
+                                            ?>
+                                        </p>
+                                    </span>
+                                <?php endif; ?>
+                                    <?php
+                                    if( have_rows('departures_periods') ) :
+                                    ?>
                                     
                                     <div class="departure_name">
                                     </div>
                                     <div class="grid-container-period-aside">
                                         <div class="departure_start">
-                                                <p><?php echo __('From:' ,'wm-child-verdenatura'); ?></p>
+                                            <p>
+                                                <?php echo __('From:' ,'wm-child-verdenatura'); ?>
+                                            </p>
                                         </div>
                                         <div class="departure_stop">
-                                                <p><?php echo __('To:' ,'wm-child-verdenatura'); ?></p>
+                                            <p>
+                                                <?php echo __('To:' ,'wm-child-verdenatura'); ?>
+                                            </p>
                                         </div>
                                         <div class="departure_week_days"></div>
-                                        <?php while( have_rows('departures_periods') ): the_row(); 
+                                        <?php
+                                        while( have_rows('departures_periods') ) :
+                                            the_row(); 
                                 
-                                        // vars
-                                        $name = get_sub_field('name');
-                                        $start = get_sub_field('start');
-                                        $stop = get_sub_field('stop');
-                                        $week_days = get_sub_field('week_days');
-                                        $dateformatstring = "l";
-                                
+                                            // vars
+                                            $name = get_sub_field('name');
+                                            $start = get_sub_field('start');
+                                            $stop = get_sub_field('stop');
+                                            $week_days = get_sub_field('week_days');
+                                            $dateformatstring = "l";
                                         ?>
                                         
-                                        <div class="departure_start">
-                                            <?php if( $start ): ?>
+                                            <div class="departure_start">
+                                                <?php if( $start ): ?>
                                                 <p><?php echo $start; ?></p>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="departure_stop">
-                                            <?php if( $stop ): ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="departure_stop">
+                                                <?php if( $stop ): ?>
                                                 <p><?php echo $stop; ?></p>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="departure_week_days">
-                                            <?php if( $week_days ): ?>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="departure_week_days">
+                                                <?php if( $week_days ): ?>
                                                 <ul>
                                                     <?php if (count($week_days) == 7) { ?>
-                                                        <li style="display: inline;" ><?php echo __('Every day' ,'wm-child-verdenatura'); ?></li>
-                                                        <?php }else { ?>
-                                                            <span><?php echo __('Only' ,'wm-child-verdenatura').' '; ?></span>
-                                                            <?php 
-                                                            $i = 0;
-                                                            $len = count($week_days);
-                                                            foreach( $week_days as $week_day ): 
-                                                                if ($i == 0){ ?>
-                                                                    <li style="display: inline;" ><?php echo date_i18n($dateformatstring, strtotime($week_day)); ?></li>
-                                                                <?php } elseif ($i == $len -1){ ?>
-                                                                    <?php echo __('and' ,'wm-child-verdenatura').' '; ?><li style="display: inline;" ><?php echo date_i18n($dateformatstring, strtotime($week_day)); ?></li>
-                                                                <?php } else { ?>
-                                                                <span><?php echo __(',' ,'wm-child-verdenatura').' '; ?></span><li style="display: inline;" ><?php echo date_i18n($dateformatstring, strtotime($week_day)); ?></li>
-                                                                <?php } $i++ ;?>
-                                                    <?php endforeach; } ?>
+                                                    <li style="display: inline;" >
+                                                        <?php echo __('Every day' ,'wm-child-verdenatura'); ?>
+                                                    </li>
+                                                    <?php } else { ?>
+                                                    <span><?php echo __('Only' ,'wm-child-verdenatura').' '; ?></span>
+                                                    <?php 
+                                                    $i = 0;
+                                                    $len = count($week_days);
+                                                    foreach( $week_days as $week_day ) : 
+                                                        if ($i == 0) {
+                                                    ?>
+                                                    <li style="display: inline;" >
+                                                        <?php echo date_i18n($dateformatstring, strtotime($week_day)); ?>
+                                                    </li>
+                                                    <?php
+                                                    } elseif ($i == $len -1) { 
+                                                        echo __('and' ,'wm-child-verdenatura').' ';
+                                                    ?>
+                                                    <li style="display: inline;" >
+                                                        <?php echo date_i18n($dateformatstring, strtotime($week_day)); ?>
+                                                    </li>
+                                                    <?php } else { ?>
+                                                    <span>
+                                                        <?php echo __(',' ,'wm-child-verdenatura').' '; ?>
+                                                    </span>
+                                                    <li style="display: inline;" >
+                                                        <?php echo date_i18n($dateformatstring, strtotime($week_day)); ?>
+                                                    </li>
+                                                    <?php
+                                                    }
+                                                    $i++ ;
+                                                    endforeach;
+                                                } ?>
                                                 </ul>
                                             <?php endif; ?>
-                                    </div>
+                                        </div>
                                 
-                                    <?php endwhile; ?>
+                                        <?php endwhile; ?>
                                 
                                     </div>
                                 
                                     <?php endif; ?>
                                     
                                     <?php // ---------- single departures ----------------//
-                                    if( have_rows('departure_dates') ): ?>
+                                    while( have_rows('departure_dates') ): the_row(); 
+                                    $date = get_sub_field('date');            
+                                    endwhile;
+                                    if( have_rows('departure_dates') && $date ): ?>
                                     <div class="single-departure">
-                                            <p class="tab-section"><?php echo __('Single departures' ,'wm-child-verdenatura').':';?></p>
+                                            <p class="tab-section"><?php if (have_rows('departures_periods') && !empty($start) && have_rows('departure_dates')) { echo __('Other dates:' ,'wm-child-verdenatura'); } else{ echo __('Dates:' ,'wm-child-verdenatura');}?></p>
                                     </div>
                                     <div class="grid-container-single">
                                     
@@ -251,37 +368,9 @@ if (isset($_GET['fwp_tipologia'])){
                         the_term_image_with_name( $post_id , 'where' ) ; ?>
                     </div> <!--.nazione-->
                     <?php
-                    $vn_formula_fdn = get_field('wm_fdn');
-                    if( $vn_formula_fdn )
-                    {
-                        echo "<div class=\"vn-target vn-meta-align\">";
-                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-omino.jpg">';
-                        echo __('Made by us' , 'wm-child-verdenatura' );
-                        echo "</div> <!--.vn-target-->";
-                    }
-
-
-                    $vn_self_guided = get_field('wm_self_guided');
-                    if( $vn_self_guided )
-                    {
-                        echo "<div class=\"vn-target vn-meta-align\">";
-                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-individuale.png">';
-                        echo __('Self guided' , 'wm-child-verdenatura' );
-                        echo "</div> <!--.vn-target-->";
-                    }
-
-
-                    $vn_guided = get_field('wm_guided');
-                    if( $vn_guided )
-                    {
-                        echo "<div class=\"vn-target vn-meta-align\">";
-                        echo '<img src="/wp-content/themes/wm-child-verdenatura/images/logo-guida.png">';
-                        echo __('Guided' , 'wm-child-verdenatura' );
-                        echo "</div> <!--.vn-target-->";
-                    }
-
+                    the_term_image_with_name( $post_id , 'who' );
                     ?>
-                                <div class="attività-route vn-meta-align">
+                    <div class="attività-route vn-meta-align">
                         <?php
                         the_term_image_with_name( $post_id , 'activity' );
                         ?>
@@ -295,57 +384,91 @@ if (isset($_GET['fwp_tipologia'])){
                             <a class="fancybox" href="#difficulty_icon_popup">
                                 <img src="<?php the_calcola_url( $numero ) ?>">
                             </a>
-                            <p> <?php __('Level' ,'wm-child-verdenatura');?></p>
+                            <p> <?php echo __('Level' ,'wm-child-verdenatura');?></p>
                         </div> <!--.livello-->
                         <?php
                     }
                     ?>
 
 
-                            </div> <!-- .icone-scheda-archive dx--->
-                        </div> <!-- .row-01--->
+                    </div> <!-- .icone-scheda-archive dx--->
+                </div> <!-- .row-01--->
 
                             <div class="row-02">
-                                <div class="prezzo">
-                                    <?php
-                                    echo __('From', 'wm-child-verdenatura');
-                                    ?>
-
-                                    <span class="cifra"><?php
-                                        $vn_prezzo = get_field('vn_prezzo');
-                                        if ($vn_prezzo)
-                                            echo $vn_prezzo;
-                                        ?>
-                                        € </span>
-                                </div>
-                                <span class="det-btt  dx ">
-                                 <button class="details-butt"> <a href="<?php
-                                     the_permalink(); ?>">
+                            <div class="prezzo-container"> <!-- prezzo start-->
+                                    <p class="promotion-trip">
                                         <?php
-                                        echo __('DETAILS','wm-child-verdenatura');
+                                            
+                                            if ( $promotion_value )
+                                            echo __( 'Discounted trip!' , 'wm-child-verdenatura' );
                                         ?>
-                                         </a>
+                                    </p> 
+                                    <div class="prezzo">
+                                    <?php echo __('Prices from' , 'wm-child-verdenatura'); ?>
+                                    <span class="cifra <?php if ( $promotion_value){ echo 'old-price';}?>"><?php
+                                    $vn_prezzo = get_field('wm_route_price');
+                                    $lowest_price = explode('€',$vn_prezzo);
+                                    if ($lowest_price) {
+                                        echo $lowest_price[0];
+                                    } else {
+                                        echo $vn_prezzo;
+                                    }
+                                    ?>
+                                    € </span>
+                                    <?php if ( $promotion_value):?>
+                                    <span class="new-price">
+                                        <?php 
+                                            if ($lowest_price) {
+                                                echo $lowest_price[0] - $promotion_value;
+                                            } else {
+                                                echo $vn_prezzo - $promotion_value;
+                                            }
+                                        ?>
+                                    € </span>
+                                    <?php endif; ?>
+                                    </div> 
+                                </div><!--.prezzo  end-->
+                                <span class="det-btt  dx ">
+                                    <button class="details-butt">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <?php
+                                            echo __('DETAILS','wm-child-verdenatura');
+                                            ?>
+                                        </a>
                                     </button>
-                                        </span>
+                                </span>
 
                             </div> <!-- .row-02--->
 
-
                         </div> <!-- .scheda-route --->
-
-
 
                     </article> <!-- .et_pb_post -->
 
-			<?php
-					endwhile;
-                    echo do_shortcode ('[facetwp pager="true"]');
-				else :
-					get_template_part( 'includes/no-results', 'index' );
-				endif;
-			?>
+        			<?php
+                            array_push($layer['features'], $feature);
+        					endwhile;
+                            // echo do_shortcode ('[facetwp pager="true"]');
+        				else :
+        					get_template_part( 'includes/no-results', 'index' );
+        				endif;
+        			?>
+                    <script type="text/javascript">
+                        var layers = [<?php echo json_encode($layer); ?>];
+                        var definitions = [
+                            {
+                                id: 'vn-routes',
+                                icon: 'wm-icon-flag',
+                                color: '#f00'
+                            }
+                        ];
+                        window.localStorage.setItem('wm_geojson_layers', JSON.stringify(layers));
+                        window.localStorage.setItem('wm_overlays_definition', JSON.stringify(definitions));
+                        document.dispatchEvent(new Event('wm_overlays_updated'));
+                    </script>
 
-			</div> <!-- #left-area -->
+    			</div> <!-- #left-area -->
+
+            </div> <!-- #left-area-with-map-container -->
 
 
                 <?php
@@ -355,16 +478,13 @@ if (isset($_GET['fwp_tipologia'])){
                             <h2 class="filtra-viaggi"><?php echo __('Filter tours by','wm-child-verdenatura').'...';?></h2>
                         </div> <!-- chiudo .h-facet -->
                         <div id="sidebar" class="side-facet">
-                            <h3 class="facet-label"><?php echo __('Formula','wm-child-verdenatura');?></h3>
                             <?php
                                 $facets = array(
-                                        'guided' => '',
-                                        'self_guided' => '',
                                         'tipologia' => '',
                                         'targets' => '',
                                         'places_to_go' => '',
                                         'durata' => '',
-                                        'seasons' => ''
+                                        'seasons' => '',
                                 );
                                 foreach ( $facets as $facet => $label)
                                 {
@@ -378,12 +498,6 @@ if (isset($_GET['fwp_tipologia'])){
                                     (function($) { 
                                         $(document).on('facetwp-loaded', function() {  // function for wpfacet labels
                                             
-                                            $(".side-facet").find(`[data-value='0']`).hide();
-                                            $(".side-facet").find(`[data-value='1']`).parent().siblings().hide();
-                                            $(".side-facet").find(`[data-value='1']`).text(function (){
-                                                return $(this).parent().siblings().text();
-                                            });
-
                                             // scroll to top on facetwp pagination reload
                                             if (FWP.loaded) {
                                                 $('html, body').animate({

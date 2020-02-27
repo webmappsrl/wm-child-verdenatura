@@ -1,28 +1,55 @@
 <?php
 
-
-
 function preventivi_json_to_text(){
     
     global $woocommerce;
+    $departure_date = '';
+    $nightsBefore = '';
+    $nightsAfter = '';
+    $insurance_name = '';
+    $club_name = '';
+    $place = '';
+    $place_s = '';
+    $from = '';
+    $to = '';
+    $discountText = '';
     $coupon_id = WC()->cart->get_coupons();
-    
     foreach ($coupon_id as $val ){
-            $json =  $val;
-    }
-    ?>
-    <h2><?php echo __('Rooms and Travelers\' details: ' ,'wm-child-verdenatura');?></h2>
-    <?php
+        $json =  $val;
+    }   
     $json_output = json_decode($json, JSON_PRETTY_PRINT); 
     $description = $json_output['description'];
     $desc = json_decode($description, JSON_PRETTY_PRINT);
+    foreach ($desc as $val => $key){
+        if ($val == 'boat_trip') { //check if the route is in boat or not
+			$place = __('cabin','wm-child-verdenatura'); 
+			$place_s = __('cabins','wm-child-verdenatura'); 
+		} else {
+			$place = __('room','wm-child-verdenatura');
+			$place_s = __('rooms','wm-child-verdenatura');
+        }
+        if ($val == 'from'){
+            $from = $key;
+        }
+        if ($val == 'to'){
+            $to = $key;
+        }
+        if ($val == 'discountText'){
+            if(isset($_GET['lang']) && $_GET['lang'] == 'en') {
+                $discountText = $key['en'];
+            } else {
+                $discountText = $key['it'];
+            }
+        }
+    }
+    
+    ?>
+    <h2><?php echo sprintf(__('%s and Travelers\' details: ' ,'wm-child-verdenatura'), $place_s);?></h2>
+    <?php
+    
     ?>
     <div class="rooms-composition"> <!------- rooms composition -- ---->
     <?php
-    $departure_date = '';
-    $nightsBefore = '';
-    $insurance_name = '';
-    $club_name = '';
     foreach ($desc as $val => $key){
         if ($val == 'departureDate') {
             $date = $key;
@@ -30,6 +57,9 @@ function preventivi_json_to_text(){
         }
         if ($val == 'nightsBefore') {
             $nightsBefore = $key;
+        }
+        if ($val == 'nightsAfter') {
+            $nightsAfter = $key;
         }
         if ($val == 'insurance') {
             $insurance_name = $key['name'];
@@ -50,17 +80,27 @@ function preventivi_json_to_text(){
                 echo __('Nights Before:' ,'wm-child-verdenatura').' </strong>';
                 echo $nightsBefore.'</p>';
             }
-            if ( $nightsBefore ) { 
+            if ( $nightsAfter ) {
                 echo '<p><strong>';
-                echo __('Insurance:' ,'wm-child-verdenatura').' </strong>';
+                echo __('Nights After:' ,'wm-child-verdenatura').' </strong>';
+                echo $nightsAfter.'</p>';
+            }
+            if ( $insurance_name ) { 
+                echo '<p><strong>';
+                echo __('Cancellation insurance:' ,'wm-child-verdenatura').' </strong>';
                 echo $insurance_name.'</p>';
             }
-            if ( $nightsBefore ) {
+            if ( $club_name ) {
                 echo '<p><strong>';
                 echo __('Club:' ,'wm-child-verdenatura').' </strong>';
                 echo $club_name.'</p>';
             }
-                echo '</div>';
+            if ( $discountText ) {
+                echo '<p style="color:#7AB400;"><strong>';
+                echo $discountText.' </strong>';
+                echo '</p>';
+            }
+            echo '</div>';
             ?>
             <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
             <?php
@@ -68,7 +108,7 @@ function preventivi_json_to_text(){
                 ?>
                 <thead> <!--  table head  -->
                     <tr> <!--  table row head  -->
-                        <th><?php $room_number = $val2 + 1; echo sprintf(__('Room number %s' ,'wm-child-verdenatura'), $room_number);?></th>
+                        <th><?php $room_number = $val2 + 1; echo sprintf(__('%s number %s' ,'wm-child-verdenatura'),$place, $room_number);?></th>
                         <th><?php echo __('Name' ,'wm-child-verdenatura');?></th>
                         <th><?php echo __('Rent bike' ,'wm-child-verdenatura');?></th>
                         <th><?php echo __('Bike extras' ,'wm-child-verdenatura');?></th>
@@ -82,16 +122,28 @@ function preventivi_json_to_text(){
                     foreach ($room as $val3 => $pax){
                         $firsName = $pax['firstName'];
                         $lastName = $pax['lastName'];
-                        $price = $pax['price'];
+                        $price = number_format((float)$pax['price'], 2, ',', '.');
                         $rentBike = '';
                         $babyseat = '';
                         $tagalong = '';
                         $trail = '';
                         $trailgator = '';
                         $bikeWarranty = '';
+                        $normalWarranti = '';
+                        $eWarranti = '';
+                        $kidbikeWarranti = '';
+                        $tandemWarranti = '';
+                        $roadbikeWarranti = '';
                         $helmet = '';
+                        $kidhelmet = '';
                         $roadbook = '';
                         $halfboard = '';
+                        $cookingClass = '';
+                        $transferBefore = '';
+                        $transferAfter = '';
+                        $doubleBed = '';
+                        $boardingtax = '';
+                        $shareRoom = '';
                         ?>
                         <tr>
                         <td></td>
@@ -124,37 +176,94 @@ function preventivi_json_to_text(){
                             if ($val4 == 'helmet'){
                                 $helmet = true;
                             }
+                            if ($val4 == 'kidhelmet'){
+                                $kidhelmet = true;
+                            }
                             if ($val4 == 'roadbook'){
                                 $roadbook = true;
                             }
                             if ($val4 == 'halfboard'){
                                 $halfboard = true;
                             }
+                            if ($val4 == 'cookingClass'){
+                                $cookingClass = true;
+                            }
+                            if ($val4 == 'transferBefore'){
+                                $transferBefore = true;
+                            }
+                            if ($val4 == 'transferAfter'){
+                                $transferAfter = true;
+                            }
+                            if ($val4 == 'doubleBed'){
+                                $doubleBed = true;
+                            }
+                            if ($val4 == 'boardingtax'){
+                                $boardingtax = true;
+                            }
+                            if ($val4 == 'shareRoom'){
+                                $shareRoom = true;
+                            }
                         }
                         ?>
                         <td><?php if($rentBike): switch ($rentBike) {
                             case 'bike':
-                                echo __('Bike' ,'wm-child-verdenatura');
+                                echo __('Supplement for bike rental' ,'wm-child-verdenatura');
+                                $normalWarranti = true; 
                                 break;
                             case 'eBike':
-                                echo __('eBike' ,'wm-child-verdenatura');
+                                echo __('Supplement for e-bike rental' ,'wm-child-verdenatura');
+                                $eWarranti = true; 
                                 break;
                             case 'kidBike':
-                                echo __('kidBike' ,'wm-child-verdenatura');
+                                echo __('Supplement for children bike' ,'wm-child-verdenatura');
+                                $kidbikeWarranti = true; 
+                                break;
+                            case 'tandem':
+                                echo __('Supplement for tandem rental' ,'wm-child-verdenatura');
+                                $tandemWarranti = true; 
+                                break;
+                            case 'roadbike':
+                                echo __('Supplement for road bike rental' ,'wm-child-verdenatura');
+                                $roadbikeWarranti = true;
                                 break;
                                 
                         } endif;?></td>
                         <td>
-                            <?php if($babyseat): echo __('Baby seat' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
-                            <?php if($tagalong): echo __('Tag-along' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
-                            <?php if($trail): echo __('Trailer' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
-                            <?php if($trailgator): echo __('Trailgator' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($babyseat): echo __('Supplement for child back seat rental' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($tagalong): echo __('Supplement for follow-me rental' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($trail): echo __('Supplement for children trailer rental' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($trailgator): echo __('Supplement for children trailgator' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
                         </td>
-                        <td><?php if($bikeWarranty):?><i class="icon-ok"></i><?php endif;?></td>
                         <td>
-                            <?php if($helmet): echo __('Helmet' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
-                            <?php if($roadbook): echo __('Roadbook' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
-                            <?php if($halfboard): echo __('Halfboard' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($bikeWarranty):?>
+                                <?php if($normalWarranti):?>
+                                    <?php echo __('Bike Coverage' ,'wm-child-verdenatura');?>
+                                <?php endif;?>
+                                <?php if($eWarranti):?>
+                                    <?php echo __('E-bike Coverage' ,'wm-child-verdenatura');?>
+                                <?php endif;?>
+                                <?php if($kidbikeWarranti):?>
+                                    <?php echo __('kid bike Coverage' ,'wm-child-verdenatura');?>
+                                <?php endif;?>
+                                <?php if($tandemWarranti):?>
+                                    <?php echo __('Tandem bike Coverage' ,'wm-child-verdenatura');?>
+                                <?php endif;?>
+                                <?php if($roadbikeWarranti):?>
+                                    <?php echo __('Road bike Coverage' ,'wm-child-verdenatura');?>
+                                <?php endif;?>
+                            <?php endif;?>
+                        </td>
+                        <td>
+                            <?php if($helmet): echo __('Supplement for adult helmet rental' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($kidhelmet): echo __('Supplement for kid helmet rental' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($roadbook): echo __('Printed road book maps' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($halfboard): echo __('Supplement for half board' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($cookingClass): echo __('Supplement for cooking class' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($transferBefore): echo __('Supplement for transfer before the trip' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($transferAfter): echo __('Supplement for transfer after the trip' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($doubleBed): echo __('Double Bed' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($boardingtax): echo __('Port charges (to be paid in advance)' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
+                            <?php if($shareRoom): echo __('Shared room' ,'wm-child-verdenatura').'<br>';?><?php endif;?>
                         </td>
                         <td><?php echo $price.'€'; ?></td>
                         </tr>
